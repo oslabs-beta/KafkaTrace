@@ -1,2 +1,2 @@
 # kafkatrace
-Repository for KafkaTrace Web App
+Repository for KafkaTrace App
