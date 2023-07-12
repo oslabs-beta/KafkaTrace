@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node --require ./src/server/tracing-p.js ./src/server/test-services/producer-service.js & node --require ./src/server/tracing-c.js ./src/server/test-services/consumer-service.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
