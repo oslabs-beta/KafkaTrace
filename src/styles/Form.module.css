@@ -1,0 +1,101 @@
+.title {
+  text-align: center;
+  color: #d1d5db;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin: auto;
+  width: 100%;
+  max-width: 25rem;
+  background: #1f2937;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}
+
+.input_group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #374151;
+  border: 1px solid #4b5563;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+.input_text {
+  flex-grow: 1;
+  background: transparent;
+  color: #d1d5db;
+  border: none;
+}
+
+.input_text::placeholder {
+  color: #6b7280;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  background-color: #4f46e5;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  background-color: #3f36c9;
+}
+
+.social_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.social_button:hover {
+  background-color: #222;
+}
+
+.sign_up {
+  text-align: center;
+  color: #6b7280;
+  margin-top: 2rem;
+}
+
+.sign_up a {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+.sign_up a:hover {
+  color: #3f36c9;
+}
