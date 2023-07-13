@@ -20,6 +20,7 @@
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
+    "@types/react": "^18.2.14",
     "autoprefixer": "^10.4.7",
     "daisyui": "^3.2.1",
     "eslint": "8.19.0",
