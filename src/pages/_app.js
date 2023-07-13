@@ -1,7 +1,7 @@
-import '../../src/styles/globals.css';
 import { SessionProvider } from 'next-auth/react';
 import { useEffect } from 'react';
 import Head from 'next/head';
+import './styles/tailwind.css';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

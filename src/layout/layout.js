@@ -1,13 +1,19 @@
-// import styles from '../src/styles/Layout.module.css';
-
-export default function Layout({ children }) {
+const Layout = (props) => {
   return (
-    <div className='flex h-screen bg-blue-400'>
-      <div className='m-auto bg-slate-50 rounded-md w-3/5 h-3/4 grid lg:grid-cols-1'>
-        <div className='right flex flex-col justify-evenly'>
-          <div className='text-center py-10'>{children}</div>
-        </div>
-      </div>
+    <div className='layout min-h-screen flex flex-col bg-gradient-to-r from-secondary to-accent text-base-content'>
+      <header className='text-white p-4 text-center shadow-md'>
+        <h1 className='text-2xl font-semibold'>KafkaTrace</h1>
+      </header>
+
+      <main className='flex-grow container mx-auto p-4 space-y-4'>
+        {props.children}
+      </main>
+
+      <footer className='text-white p-4 text-center shadow-md'>
+        <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
+      </footer>
     </div>
   );
-}
+};
+
+export default Layout;

@@ -10,8 +10,13 @@
     "test": "node --require ./src/server/tracing-p.js ./src/server/test-services/producer-service.js & node --require ./src/server/tracing-c.js ./src/server/test-services/consumer-service.js"
   },
   "dependencies": {
+    "@opentelemetry/auto-instrumentations-node": "^0.38.0",
+    "@opentelemetry/exporter-metrics-otlp-proto": "^0.41.0",
+    "@opentelemetry/sdk-node": "^0.41.0",
     "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
     "formik": "^2.2.9",
+    "kafkajs": "^2.2.4",
     "next": "12.2.2",
     "next-auth": "^4.10.0",
     "react": "18.2.0",
@@ -21,12 +26,12 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
-    "autoprefixer": "^10.4.7",
+    "autoprefixer": "^10.4.14",
     "daisyui": "^3.2.1",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2",
     "mongoose": "^6.4.6",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.6"
+    "postcss": "^8.4.25",
+    "tailwindcss": "^3.3.2"
   }
 }
