@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
   return (
     <div className='flex flex-col min-h-screen'>
       <header className='text-white p-4 text-center shadow-md bg-primary'>
-        <h1 className='text-2xl font-semibold'>KafkaTrace</h1>
+        <h1 className='text-2xl font-semibold text-black'>KafkaTrace</h1>
       </header>
 
       <main className='flex-grow container mx-auto p-4 space-y-4'>
@@ -66,13 +66,13 @@ function Guest() {
 function User({ session, handleSignOut }) {
   return (
     <main className='flex flex-col items-center space-y-8'>
-      <h3 className='text-3xl font-semibold'>
+      <h3 className='text-3xl text-primary'>
         Welcome back, {session.user.name}!
       </h3>
       <div className='bg-white p-4 shadow-md rounded-lg'>
-        <h5 className='text-xl font-semibold'>User Information</h5>
-        <p className='text-lg'>Name: {session.user.name}</p>
-        <p className='text-lg'>Email: {session.user.email}</p>
+        <h5 className='text-xl text-black'>User Information</h5>
+        <p className='text-m text-black'>Name: {session.user.name}</p>
+        <p className='text-m text-black'>Email: {session.user.email}</p>
       </div>
 
       <div className='flex flex-col space-y-4'>
