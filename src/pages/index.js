@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../src/styles/Home.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
 import { getSession, useSession, signOut } from 'next-auth/react';
@@ -13,52 +12,88 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className='min-h-screen bg-gradient-to-r from-secondary to-accent text-base-content'>
       <Head>
         <title>Home Page</title>
       </Head>
 
-      {session ? User({ session, handleSignOut }) : Guest()}
+      <Layout>
+        {session ? (
+          <User session={session} handleSignOut={handleSignOut} />
+        ) : (
+          <Guest />
+        )}
+      </Layout>
     </div>
   );
 }
 
-// Guest
+const Layout = ({ children }) => {
+  return (
+    <div className='flex flex-col min-h-screen'>
+      <header className='text-white p-4 text-center shadow-md bg-primary'>
+        <h1 className='text-2xl font-semibold text-black'>KafkaTrace</h1>
+      </header>
+
+      <main className='flex-grow container mx-auto p-4 space-y-4'>
+        {children}
+      </main>
+
+      <footer className='text-white p-4 text-center shadow-md bg-primary'>
+        <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
+      </footer>
+    </div>
+  );
+};
+
 function Guest() {
   return (
-    <main className={styles.main}>
-      <h3 className={styles.title}>Guest Homepage</h3>
+    <main className='flex flex-col items-center justify-center space-y-4'>
+      <h3 className='text-3xl font-semibold'>Welcome to KafkaTrace</h3>
+      <p className='text-lg text-center'>
+        Discover the power of distributed tracing!
+      </p>
 
-      <div className={styles.linksContainer}>
-        <Link href={'/login'}>
-          <a className={styles.link}>Sign In</a>
+      <div>
+        <Link href='/login'>
+          <a className='btn btn-primary'>Sign In</a>
         </Link>
       </div>
     </main>
   );
 }
 
-// Authorize User
 function User({ session, handleSignOut }) {
   return (
-    <main className={styles.main}>
-      <h3 className={styles.title}>Authorize User Homepage</h3>
-
-      <div className={styles.details}>
-        <h5>{session.user.name}</h5>
-        <h5>{session.user.email}</h5>
+    <main className='flex flex-col items-center space-y-8'>
+      <h3 className='text-3xl text-primary'>
+        Welcome back, {session.user.name}!
+      </h3>
+      <div className='bg-white p-4 shadow-md rounded-lg'>
+        <h5 className='text-xl text-black'>User Information</h5>
+        <p className='text-m text-black'>Name: {session.user.name}</p>
+        <p className='text-m text-black'>Email: {session.user.email}</p>
       </div>
 
-      <div className={styles.linksContainer}>
-        <button onClick={handleSignOut} className={styles.button}>
+      <div className='flex flex-col space-y-4'>
+        <Link href='/profile'>
+          <a className='btn btn-primary'>Profile Page</a>
+        </Link>
+        <Link href='http://localhost:16686'>
+          <a className='btn btn-primary'>Jaeger UI</a>
+        </Link>
+        <Link href='http://localhost:9411'>
+          <a className='btn btn-primary'>Zipkin UI</a>
+        </Link>
+        <Link href='http://localhost:9090'>
+          <a className='btn btn-primary'>Prometheus</a>
+        </Link>
+      </div>
+
+      <div>
+        <button onClick={handleSignOut} className='btn btn-primary'>
           Sign Out
         </button>
-      </div>
-
-      <div className={styles.linksContainer}>
-        <Link href={'/profile'}>
-          <a className={styles.link}>Profile Page</a>
-        </Link>
       </div>
     </main>
   );

@@ -2,18 +2,57 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
 import { signIn } from 'next-auth/react';
-import { HiAtSymbol, HiFingerPrint } from 'react-icons/hi';
-
-import Layout from '../layout/layout';
+import { HiMail, HiLockClosed } from 'react-icons/hi';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 import login_validate from '../../lib/validate';
 
-import styles from '../../src/styles/Form.module.css';
+const Layout = (props) => {
+  return (
+    <div className='layout min-h-screen flex flex-col bg-gradient-to-r from-secondary to-accent text-base-content'>
+      <header className='flex items-center justify-between px-8 py-4 shadow-md'>
+        <h1 className='text-2xl font-semibold text-fun'>KafkaTrace</h1>
+        <nav className='space-x-4'>
+          <Link href='/team'>
+            <a className='text-fun text-primary hover:underline'>Team</a>
+          </Link>
+          <Link href='/product'>
+            <a className='text-fun text-primary hover:underline'>Product</a>
+          </Link>
+          <Link href='/contact'>
+            <a className='text-fun text-primary hover:underline'>Contact</a>
+          </Link>
+        </nav>
+      </header>
 
-// import '/daisyui/dist/full.css';
+      <main className='flex-grow container mx-auto p-4 space-y-4 max-w-3xl'>
+        {props.children}
+      </main>
+
+      <footer className='flex items-center justify-between px-8 py-4 shadow-md'>
+        <nav className='space-x-4'>
+          <Link href='/contact-us'>
+            <a className='text-fun hover:underline'>Contact Us</a>
+          </Link>
+          <Link href='/about'>
+            <a className='text-fun hover:underline'>About</a>
+          </Link>
+          <Link href='/privacy'>
+            <a className='text-fun hover:underline'>Privacy Policy</a>
+          </Link>
+          <Link href='/terms'>
+            <a className='text-fun hover:underline'>Terms & Conditions</a>
+          </Link>
+        </nav>
+        <p className='text-lg text-fun'>
+          © {new Date().getFullYear()} KafkaTrace
+        </p>
+      </footer>
+    </div>
+  );
+};
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -49,57 +88,58 @@ const Login = () => {
         <title>Login</title>
       </Head>
 
-      <section className={styles.form}>
-        <div className={styles.title}>
-          <h1>Welcome To Kafka Trace!</h1>
-          <p className={styles.text_gray}>You're one step away from tracing!</p>
-        </div>
+      <section className='bg-gray-100 p-6 m-10 rounded-lg shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-center space-y-6 bg-gradient-to-r from-dusk to-dusk2'>
+        <h1 className='text-3xl font-bold mb-2 text-primary'>Login</h1>
+        <p className='text-lg text-primary mb-5'>
+          You're one step away from tracing!
+        </p>
 
         <form onSubmit={formik.handleSubmit} className='space-y-4'>
           <InputGroup
             type='email'
             name='email'
             placeholder='Email'
-            icon={<HiAtSymbol size={25} />}
+            icon={<HiMail size={20} />}
             showError={formik.errors.email && formik.touched.email}
             {...formik.getFieldProps('email')}
+            className='p-4 w-full text-gray-700 tracking-tight bg-transparent placeholder-primary outline-none border border-primary rounded-lg focus:border-indigo-500 transition duration-200'
           />
-
           <InputGroup
             type={show ? 'text' : 'password'}
             name='password'
             placeholder='Password'
-            icon={<HiFingerPrint size={25} />}
+            icon={<HiLockClosed size={20} />}
             showError={formik.errors.password && formik.touched.password}
             {...formik.getFieldProps('password')}
             onClick={() => setShow(!show)}
+            className='p-4 w-full text-primary tracking-tight bg-transparent placeholder-primary outline-none border border-primary rounded-lg focus:border-indigo-500 transition duration-200'
           />
-
-          <button type='submit' className={styles.button}>
+          <button
+            type='submit'
+            className='btn btn-primary btn-active w-full font-bold mb-2 text-primary hover:bg-blue-700 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500'>
             Login
           </button>
+          <div className='flex justify-center space-x-4 mt-4'>
+            <ProviderButton
+              onClick={() => handleProviderSignin('google')}
+              iconPath='/assets/google.svg'
+              className='py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+              Sign In with Google
+            </ProviderButton>
 
-          <ProviderButton
-            onClick={() => handleProviderSignin('google')}
-            iconPath='/assets/google.svg'
-            className={`${styles.button}`}
-          >
-            Sign In with Google
-          </ProviderButton>
-
-          <ProviderButton
-            onClick={() => handleProviderSignin('github')}
-            iconPath='/assets/github.svg'
-            className={`${styles.button}`}
-          >
-            Sign In with Github
-          </ProviderButton>
+            <ProviderButton
+              onClick={() => handleProviderSignin('github')}
+              iconPath='/assets/github.svg'
+              className='py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+              Sign In with Github
+            </ProviderButton>
+          </div>
         </form>
 
-        <p className={`text-center ${styles.text_gray}`}>
+        <p className='text-sm text-primary mt-5'>
           Don't have an account yet?{' '}
           <Link href={'/register'}>
-            <a className={styles.sign_up}>Sign Up</a>
+            <a className='text-primary hover:underline'>Sign Up</a>
           </Link>
         </p>
       </section>
@@ -117,34 +157,34 @@ const InputGroup = ({
   ...props
 }) => {
   return (
-    <div
-      className={`${styles.input_group} ${showError ? 'border-rose-600' : ''}`}
-    >
+    <div className={`input-group ${showError ? 'border-red-500' : ''}`}>
+      <span className='input-icon'>{icon}</span>
       <input
         type={type}
         name={name}
         placeholder={placeholder}
-        className={styles.input_text}
+        className='input input-primary w-full'
         {...props}
       />
-      <span className='icon' onClick={onClick}>
-        {icon}
-      </span>
     </div>
   );
 };
 
 const ProviderButton = ({ onClick, iconPath, children, className }) => {
   return (
-    <button type='button' onClick={onClick} className={className}>
+    <button
+      type='button'
+      onClick={onClick}
+      className={`${className} btn btn-primary btn-active w-half hover:bg-blue-700 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500s`}>
       <Image
-        className={styles.social_icon}
+        className='align-middle'
         src={iconPath}
         width='20'
         height={20}
         alt={`${children} logo`}
-      ></Image>
-      {children}
+        bg='primary'
+      />
+      <span className='align-middle ml-2'>{children}</span>
     </button>
   );
 };
