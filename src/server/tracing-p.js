@@ -10,6 +10,7 @@ const {
 } = require('@opentelemetry/exporter-metrics-otlp-proto');
 const { PeriodicExportingMetricReader } = require('@opentelemetry/sdk-metrics');
 const { Resource } = require('@opentelemetry/resources');
+
 const {
   SemanticResourceAttributes,
 } = require('@opentelemetry/semantic-conventions');
@@ -17,6 +18,12 @@ const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
 const {
   ExpressInstrumentation,
 } = require('@opentelemetry/instrumentation-express');
+
+const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
+const { HttpInstrumentation } = require("@opentelemetry/instrumentation-http");
+const { ExpressInstrumentation } = require("@opentelemetry/instrumentation-express");
+const { KafkaJsInstrumentation } = require('opentelemetry-instrumentation-kafkajs');
+
 
 const serviceName = 'producer-service';
 
@@ -40,9 +47,10 @@ const sdk = new opentelemetry.NodeSDK({
     }),
   }),
   instrumentations: [
-    getNodeAutoInstrumentations(),
-    // new HttpInstrumentation(),
-    // new ExpressInstrumentation(),
+    // getNodeAutoInstrumentations(),
+    new HttpInstrumentation(),
+    new ExpressInstrumentation(),
+    new KafkaJsInstrumentation(),
   ],
 });
 sdk.start();
