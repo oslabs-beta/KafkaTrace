@@ -1,25 +1,33 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import { getSession, useSession, signOut } from 'next-auth/react';
 
 export default function Home() {
   const { data: session } = useSession();
+
+  const [showUI, setShowUI] = useState(
+    'data:text/html,<html><body><h2 style="color: white; text-align: center; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Welcome! Please click on a button to view its UI.</h2></body></html>'
+  );
 
   function handleSignOut() {
     signOut();
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-r from-secondary to-accent text-base-content'>
+    <div className='min-h-screen bg-gradient-to-r from-gray-800 to-blue-600 text-gray-200'>
       <Head>
         <title>Home Page</title>
       </Head>
 
-      <Layout>
+      <Layout handleSignOut={handleSignOut} setShowUI={setShowUI}>
         {session ? (
-          <User session={session} handleSignOut={handleSignOut} />
+          <User
+            session={session}
+            handleSignOut={handleSignOut}
+            showUI={showUI}
+          />
         ) : (
           <Guest />
         )}
@@ -28,19 +36,57 @@ export default function Home() {
   );
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children, handleSignOut, setShowUI }) => {
   return (
     <div className='flex flex-col min-h-screen'>
-      <header className='text-white p-4 text-center shadow-md bg-primary'>
-        <h1 className='text-2xl font-semibold text-black'>KafkaTrace</h1>
+      <header className='flex justify-between items-center p-4 shadow-md bg-gray-800'>
+        <h1 className='text-4xl font-semibold text-blue-400'>KafkaTrace</h1>
+        <nav className='flex space-x-4'>
+          <button
+            onClick={() => setShowUI('http://localhost:16686')}
+            className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+            Jaeger UI
+          </button>
+          <button
+            onClick={() => setShowUI('http://localhost:9411')}
+            className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+            Zipkin UI
+          </button>
+          <button
+            onClick={() => setShowUI('http://localhost:9090')}
+            className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+            Prometheus
+          </button>
+          <button
+            onClick={handleSignOut}
+            className='px-4 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 border-2 border-red-600 hover:scale-105 transition duration-200'>
+            Sign Out
+          </button>
+        </nav>
       </header>
 
       <main className='flex-grow container mx-auto p-4 space-y-4'>
         {children}
       </main>
 
-      <footer className='text-white p-4 text-center shadow-md bg-primary'>
-        <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
+      <footer className='flex items-center justify-between px-8 py-4 shadow-md'>
+        <nav className='space-x-4'>
+          <Link href='/contact-us'>
+            <a className='text-fun hover:underline'>Contact Us</a>
+          </Link>
+          <Link href='/about'>
+            <a className='text-fun hover:underline'>About</a>
+          </Link>
+          <Link href='/privacy'>
+            <a className='text-fun hover:underline'>Privacy Policy</a>
+          </Link>
+          <Link href='/terms'>
+            <a className='text-fun hover:underline'>Terms & Conditions</a>
+          </Link>
+        </nav>
+        <p className='text-lg text-fun'>
+          © {new Date().getFullYear()} KafkaTrace
+        </p>
       </footer>
     </div>
   );
@@ -49,52 +95,43 @@ const Layout = ({ children }) => {
 function Guest() {
   return (
     <main className='flex flex-col items-center justify-center space-y-4'>
-      <h3 className='text-3xl font-semibold'>Welcome to KafkaTrace</h3>
+      <h3 className='text-4xl font-semibold text-blue-400'>
+        Welcome to KafkaTrace
+      </h3>
       <p className='text-lg text-center'>
         Discover the power of distributed tracing!
       </p>
 
       <div>
         <Link href='/login'>
-          <a className='btn btn-primary'>Sign In</a>
+          <a className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600'>
+            Sign In
+          </a>
         </Link>
       </div>
     </main>
   );
 }
 
-function User({ session, handleSignOut }) {
+function User({ session, showUI }) {
   return (
     <main className='flex flex-col items-center space-y-8'>
-      <h3 className='text-3xl text-primary'>
+      <h3 className='text-4xl text-blue-400'>
         Welcome back, {session.user.name}!
       </h3>
-      <div className='bg-white p-4 shadow-md rounded-lg'>
-        <h5 className='text-xl text-black'>User Information</h5>
-        <p className='text-m text-black'>Name: {session.user.name}</p>
-        <p className='text-m text-black'>Email: {session.user.email}</p>
+      <div className='w-full max-w-md bg-gray-800 p-4 shadow-md rounded-lg'>
+        <h5 className='text-2xl text-blue-400'>User Information</h5>
+        <p className='text-m text-white'>Name: {session.user.name}</p>
+        <p className='text-m text-white'>Email: {session.user.email}</p>
       </div>
 
-      <div className='flex flex-col space-y-4'>
-        <Link href='/profile'>
-          <a className='btn btn-primary'>Profile Page</a>
-        </Link>
-        <Link href='http://localhost:16686'>
-          <a className='btn btn-primary'>Jaeger UI</a>
-        </Link>
-        <Link href='http://localhost:9411'>
-          <a className='btn btn-primary'>Zipkin UI</a>
-        </Link>
-        <Link href='http://localhost:9090'>
-          <a className='btn btn-primary'>Prometheus</a>
-        </Link>
-      </div>
-
-      <div>
-        <button onClick={handleSignOut} className='btn btn-primary'>
-          Sign Out
-        </button>
-      </div>
+      <iframe
+        src={showUI}
+        width='100%'
+        height='100%'
+        className='rounded-lg'
+        style={{ minHeight: '475px' }}
+      />
     </main>
   );
 }
