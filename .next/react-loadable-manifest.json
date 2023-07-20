@@ -1,8 +1,0 @@
-{
-  "_app.js -> tippy.js": {
-    "id": "_app.js -> tippy.js",
-    "files": [
-      "static/chunks/node_modules_tippy_js_dist_tippy_esm_js.js"
-    ]
-  }
-}
