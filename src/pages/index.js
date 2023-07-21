@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
+import { useState } from 'react'; // Import the useState hook
 
 export default function Home() {
   return (
@@ -52,9 +53,20 @@ const Navbar = () => (
         <LinkButton href='/about'>About</LinkButton>
         <LinkButton href='/docs'>Docs</LinkButton>
         <LinkButton href='/community'>Community</LinkButton>
+        <LoginButton href='/login'>Login</LoginButton>
+        <SignupButton href='/signup'>Sign Up</SignupButton>
       </div>
     </div>
   </nav>
+);
+
+const LoginButton = ({ href, children }) => (
+  <Link href={href}>
+    <a
+      className={`px-6 py-2 rounded-full border-2 border-teal-500 bg-gradient-to-r from-teal-500 to-gray-700 hover:from-teal-400 hover:to-gray-600 text-white shadow-md transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 ${commonStyling.button}`}>
+      {children}
+    </a>
+  </Link>
 );
 
 const LinkButton = ({ href, children }) => (
@@ -106,29 +118,71 @@ const PrimaryButton = ({ href, children }) => (
   </a>
 );
 
+const SignupButton = ({ href, children }) => (
+  <Link href={href}>
+    <a
+      className={`px-6 py-2 rounded-full border-2 border-red-500 bg-gradient-to-r from-red-500 to-gray-700 hover:from-red-400 hover:to-gray-600 text-white shadow-md transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 ${commonStyling.button}`}>
+      {children}
+    </a>
+  </Link>
+);
+
 const InstallComponent = () => {
+  const [copied, setCopied] = useState(false); // State to track if copied to clipboard
+
   const handleCopy = () => {
     navigator.clipboard.writeText('npm install kafkatrace');
+    setCopied(true); // Set copied to true when the button is clicked
+    // Reset the copied state to false after a delay of 2 seconds
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
   };
 
   return (
-    <div className='mt-16 flex flex-col md:flex-row items-center p-8 rounded-xl shadow-lg bg-gradient-to-br from-black to-teal-500 hover:from-black hover:to-teal-400 transition-transform transform hover:scale-105 duration-300 ease-in-out'>
-      <pre className='rounded p-6 bg-black text-white text-lg flex-grow border-teal-500 border-l-4 pl-4'>
+    <div className='mt-8 flex flex-col md:flex-row items-center p-4 rounded-xl shadow-lg bg-gradient-to-br from-black to-teal-500 hover:from-black hover:to-teal-400 transition-transform transform hover:scale-105 duration-300 ease-in-out'>
+      <pre className='rounded p-4 bg-black text-white text-lg flex-grow border-teal-500 border-l-4 pl-4'>
         <code className='language-javascript'>npm install kafkatrace</code>
       </pre>
       <button
         onClick={handleCopy}
-        className={`mt-4 md:mt-0 md:ml-6 flex items-center space-x-2 transition duration-300 transform hover:scale-105 ${commonStyling.button}`}>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='16'
-          height='16'
-          fill='currentColor'
-          className='bi bi-clipboard animate-pulse'
-          viewBox='0 0 16 16'>
-          {/* ... */}
-        </svg>
-        <span className='text-white'>Copy to Clipboard</span>
+        className={`mt-2 md:mt-0 md:ml-4 flex items-center space-x-2 transition duration-300 transform hover:scale-105 ${
+          copied ? 'bg-teal-600' : commonStyling.button // Change background color when copied
+        }`}>
+        {copied ? (
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            className='bi bi-check animate-pulse'
+            viewBox='0 0 16 16'>
+            <path
+              fillRule='evenodd'
+              d='M3.28 9.97a.5.5 0 0 1 .05-.7l4.08-3.07a.5.5 0 0 1 .63 0l3.5 2.5a.5.5 0 0 1 .18.67l-1.5 2a.5.5 0 0 1-.66.16L7.5 9.2l-2.53 1.9a.5.5 0 0 1-.69-.23z'
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            className='bi bi-clipboard'
+            viewBox='0 0 16 16'>
+            <path
+              fillRule='evenodd'
+              d='M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3 3a1 1 0 0 1 1 1v1h2V4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1h2V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1z'
+            />
+            <path
+              fillRule='evenodd'
+              d='M5 2h6a1 1 0 0 1 1 1v1H4V3a1 1 0 0 1 1-1zm6 2H5a1 1 0 0 0-1 1v1h8V5a1 1 0 0 0-1-1zm0 3H5a1 1 0 0 1-1-1v1h8V9a1 1 0 0 1-1-1zm-1 3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9h4v4z'
+            />
+          </svg>
+        )}
+        <span className='text-white text-sm'>
+          {copied ? 'Copied to clipboard' : 'Copy'}
+        </span>
       </button>
     </div>
   );
@@ -136,31 +190,30 @@ const InstallComponent = () => {
 
 const TerminalHeader = ({ className = '' }) => (
   <div
-    className={`flex items-center justify-start p-3 bg-gray-900 text-gray-400 space-x-2 border-b border-teal-500 ${className}`}>
-    <span className='bg-red-600 w-3.5 h-3.5 rounded-full animate-bounce'></span>
-    <span className='bg-yellow-500 w-3.5 h-3.5 rounded-full animate-bounce delay-150'></span>
-    <span className='bg-green-600 w-3.5 h-3.5 rounded-full animate-bounce delay-300'></span>
+    className={`flex items-center justify-start p-2 bg-gray-900 text-gray-400 space-x-1 border-b border-teal-500 ${className}`}>
+    <span className='bg-red-600 w-3 h-3 rounded-full animate-bounce'></span>
+    <span className='bg-yellow-500 w-3 h-3 rounded-full animate-bounce delay-150'></span>
+    <span className='bg-green-600 w-3 h-3 rounded-full animate-bounce delay-300'></span>
   </div>
 );
 
 const CodeSnippet = () => (
-  <div className='p-6 max-w-xl mx-auto my-12 rounded-xl shadow-inner bg-gradient-to-br from-gray-700 to-teal-500 hover:from-gray-600 hover:to-teal-400 transition-transform transform hover:scale-105 duration-300 ease-in-out relative'>
-    <TerminalHeader className='mb-4' />
+  <div className='p-4 max-w-lg mx-auto my-8 rounded-xl shadow-inner bg-gradient-to-br from-gray-700 to-teal-500 hover:from-gray-600 hover:to-teal-400 transition-transform transform hover:scale-105 duration-300 ease-in-out relative'>
+    <TerminalHeader className='mb-2' />
     <pre style={codeStyles}>
       <code className='language-javascript'>
         {`
-              const kafka = require('kafkatrace');
-              
-              kafka.monitor({
-                brokers: ['localhost:9092'],
-                clientId: 'my-app',
-                groupId: 'my-group',
-              });
-              
-              kafka.on('data', (data) => {
-                console.log(data);
-              });
-                  `}
+            const kafka = require('kafkatrace');
+            kafka.monitor({
+              brokers: ['localhost:9092'],
+              clientId: 'my-app',
+              groupId: 'my-group',
+            });
+            
+            kafka.on('data', (data) => {
+              console.log(data);
+            });
+          `}
       </code>
     </pre>
   </div>

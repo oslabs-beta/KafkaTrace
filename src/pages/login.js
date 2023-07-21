@@ -9,50 +9,55 @@ import Image from 'next/image';
 
 import login_validate from '../../lib/validate';
 
-const Layout = (props) => {
-  return (
-    <div className='layout min-h-screen flex flex-col bg-gradient-to-r from-secondary to-accent text-base-content'>
-      <header className='flex items-center justify-between px-8 py-4 shadow-md'>
-        <h1 className='text-2xl font-semibold text-fun'>KafkaTrace</h1>
-        <nav className='space-x-4'>
-          <Link href='/team'>
-            <a className='text-fun text-primary hover:underline'>Team</a>
-          </Link>
-          <Link href='/product'>
-            <a className='text-fun text-primary hover:underline'>Product</a>
-          </Link>
-          <Link href='/contact'>
-            <a className='text-fun text-primary hover:underline'>Contact</a>
-          </Link>
-        </nav>
-      </header>
+const Layout = ({ children }) => (
+  <div className='layout min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-black text-gray-100'>
+    {/* Header */}
+    <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
+      <h1 className='text-3xl font-semibold text-white'>KafkaTrace</h1>
+      <nav className='space-x-4'>
+        <Link href='/team'>
+          <a className='hover:text-gray-300 transition duration-150'>Team</a>
+        </Link>
+        <Link href='/product'>
+          <a className='hover:text-gray-300 transition duration-150'>Product</a>
+        </Link>
+        <Link href='/contact'>
+          <a className='hover:text-gray-300 transition duration-150'>Contact</a>
+        </Link>
+      </nav>
+    </header>
 
-      <main className='flex-grow container mx-auto p-4 space-y-4 max-w-3xl'>
-        {props.children}
-      </main>
+    {/* Main content */}
+    <main className='flex-grow container mx-auto p-4 space-y-4 max-w-3xl'>
+      {children}
+    </main>
 
-      <footer className='flex items-center justify-between px-8 py-4 shadow-md'>
-        <nav className='space-x-4'>
-          <Link href='/contact-us'>
-            <a className='text-fun hover:underline'>Contact Us</a>
-          </Link>
-          <Link href='/about'>
-            <a className='text-fun hover:underline'>About</a>
-          </Link>
-          <Link href='/privacy'>
-            <a className='text-fun hover:underline'>Privacy Policy</a>
-          </Link>
-          <Link href='/terms'>
-            <a className='text-fun hover:underline'>Terms & Conditions</a>
-          </Link>
-        </nav>
-        <p className='text-lg text-fun'>
-          © {new Date().getFullYear()} KafkaTrace
-        </p>
-      </footer>
-    </div>
-  );
-};
+    {/* Footer */}
+    <footer className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
+      <nav className='space-x-4'>
+        <Link href='/contact-us'>
+          <a className='hover:text-gray-300 transition duration-150'>
+            Contact Us
+          </a>
+        </Link>
+        <Link href='/about'>
+          <a className='hover:text-gray-300 transition duration-150'>About</a>
+        </Link>
+        <Link href='/privacy'>
+          <a className='hover:text-gray-300 transition duration-150'>
+            Privacy Policy
+          </a>
+        </Link>
+        <Link href='/terms'>
+          <a className='hover:text-gray-300 transition duration-150'>
+            Terms & Conditions
+          </a>
+        </Link>
+      </nav>
+      <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
+    </footer>
+  </div>
+);
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -79,7 +84,7 @@ const Login = () => {
   };
 
   const handleProviderSignin = (provider) => {
-    signIn(provider, { callbackUrl: 'http://localhost:3000' });
+    signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
   };
 
   return (
@@ -88,12 +93,13 @@ const Login = () => {
         <title>Login</title>
       </Head>
 
-      <section className='bg-gray-100 p-6 m-10 rounded-lg shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-center space-y-6 bg-gradient-to-r from-dusk to-dusk2'>
-        <h1 className='text-3xl font-bold mb-2 text-primary'>Login</h1>
-        <p className='text-lg text-primary mb-5'>
+      <section className='p-6 m-10 rounded-lg shadow-lg text-center space-y-6 bg-gradient-to-r from-gray-700 to-teal-500'>
+        <h1 className='text-4xl font-bold mb-6 text-gradient bg-gradient-to-r from-gray-700 to-teal-500 font-heading'>
+          Login
+        </h1>
+        <p className='text-xl text-white mb-5 font-mono'>
           You're one step away from tracing!
         </p>
-
         <form onSubmit={formik.handleSubmit} className='space-y-4'>
           <InputGroup
             type='email'
@@ -135,7 +141,6 @@ const Login = () => {
             </ProviderButton>
           </div>
         </form>
-
         <p className='text-sm text-primary mt-5'>
           Don't have an account yet?{' '}
           <Link href={'/register'}>
