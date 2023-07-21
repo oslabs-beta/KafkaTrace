@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "docker compose up & node --require ./src/server/tracing-p.js ./src/server/test-services/producer-service.js & node --require ./src/server/tracing-c.js ./src/server/test-services/consumer-service.js"
+    "test": "docker compose up & node --require ./src/server/tracing-p.tsx ./src/server/test-services/producer-service.tsx & node --require ./src/server/tracing-c.tsx ./src/server/test-services/consumer-service.tsx"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.4.1",
@@ -31,6 +31,7 @@
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "@types/react": "^18.2.14",
     "autoprefixer": "^10.4.14",
     "daisyui": "^3.2.1",

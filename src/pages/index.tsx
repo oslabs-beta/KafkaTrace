@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PropsWithChildren, ReactPropTypes} from 'react';
 import { getSession, useSession, signOut } from 'next-auth/react';
+import { AppProps } from 'next/app';
+import { Props } from 'tippy.js';
+import { AppPropsType } from 'next/dist/shared/lib/utils';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -36,7 +40,7 @@ export default function Home() {
   );
 }
 
-const Layout = ({ children, handleSignOut, setShowUI }) => {
+const Layout = ({ children, handleSignOut, setShowUI }: any) => {
   return (
     <div className='flex flex-col min-h-screen'>
       <header className='flex justify-between items-center p-4 shadow-md bg-gray-800'>
@@ -113,7 +117,8 @@ function Guest() {
   );
 }
 
-function User({ session, showUI }) {
+// function User({ session, handleSignOut }: any) {
+function User({ session, showUI }: any) {
   return (
     <main className='flex flex-col items-center space-y-8'>
       <h3 className='text-4xl text-blue-400'>
@@ -136,7 +141,7 @@ function User({ session, showUI }) {
   );
 }
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req }: any) {
   const session = await getSession({ req });
 
   if (!session) {
