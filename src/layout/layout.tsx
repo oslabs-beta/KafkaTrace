@@ -1,4 +1,6 @@
-const Layout = (props) => {
+import { PropsWithChildren } from "react";
+
+const Layout = (props:PropsWithChildren) => {
   return (
     <div className='layout min-h-screen flex flex-col bg-gradient-to-r from-secondary to-accent text-base-content'>
       <header className='text-white p-4 text-center shadow-md'>

@@ -2,8 +2,9 @@ import { SessionProvider } from 'next-auth/react';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import './styles/tailwind.css';
+import { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     import('tippy.js').then(({ default: tippy }) => {
       tippy('[data-tippy-content]');
@@ -23,4 +24,3 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;

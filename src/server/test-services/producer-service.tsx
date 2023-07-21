@@ -1,5 +1,6 @@
 const PORT = process.env.PORT || 8080;
 
+import { Request, Response, NextFunction } from 'express';
 const express = require('express');
 const router = express.Router();
 const { Kafka, Partitioners } = require('kafkajs');
@@ -12,7 +13,7 @@ const kafka = new Kafka ({
 })
 const producer = kafka.producer({ createPartitioner: Partitioners.LegacyPartitioner });
 
-app.get('/users', async (req, res) => {
+app.get('/users', async (req: Request, res: Response) => {
     if (req.query.fail) {
         console.error('Failed to fetch users');
         res.sendStatus(500);
@@ -23,7 +24,7 @@ app.get('/users', async (req, res) => {
     res.json(data);
 });
 
-app.post('/users/:id/email/', async (req, res) => {
+app.post('/users/:id/email/', async (req: Request, res: Response) => {
     const id = req.params.id;
     if (!id) {
         res.sendStatus(404);

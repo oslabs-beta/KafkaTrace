@@ -21,7 +21,7 @@ export default function Register() {
     onSubmit,
   });
 
-  async function onSubmit(values) {
+  async function onSubmit(values: {username: string; email: string; password: string; cpassword: string}) {
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

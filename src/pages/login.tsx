@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
 import { signIn } from 'next-auth/react';
@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 import login_validate from '../../lib/validate';
 
-const Layout = (props) => {
+const Layout = (props: PropsWithChildren) => {
   return (
     <div className='layout min-h-screen flex flex-col bg-gradient-to-r from-secondary to-accent text-base-content'>
       <header className='flex items-center justify-between px-8 py-4 shadow-md'>
@@ -67,7 +67,7 @@ const Login = () => {
     onSubmit: (values) => handleSubmit(values),
   });
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: {email: string; password: string}) => {
     const status = await signIn('credentials', {
       redirect: false,
       email: values.email,
@@ -78,7 +78,7 @@ const Login = () => {
     if (status.ok) router.push(status.url);
   };
 
-  const handleProviderSignin = (provider) => {
+  const handleProviderSignin = (provider: string) => {
     signIn(provider, { callbackUrl: 'http://localhost:3000' });
   };
 
@@ -147,7 +147,17 @@ const Login = () => {
   );
 };
 
-const InputGroup = ({
+interface InputGroupProps {
+  type: string;
+  name: string;
+  placeholder: string;
+  showError: boolean;
+  icon: React.ReactNode;
+  onClick?: () => void;
+  [key: string]: any;
+}
+
+const InputGroup: React.FC<InputGroupProps> = ({
   type,
   name,
   placeholder,
@@ -170,7 +180,14 @@ const InputGroup = ({
   );
 };
 
-const ProviderButton = ({ onClick, iconPath, children, className }) => {
+interface ProviderButtonProps {
+  onClick: () => void;
+  iconPath: string;
+  children: React.ReactNode;
+  className: string;
+}
+
+const ProviderButton: React.FC<ProviderButtonProps>= ({ onClick, iconPath, children, className }) => {
   return (
     <button
       type='button'

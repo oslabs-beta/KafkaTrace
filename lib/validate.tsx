@@ -1,5 +1,22 @@
-export default function login_validate(values){
-    const errors = {};
+interface values {
+    values: string | undefined;
+    errors: object;
+    email: string;
+    password: string;
+    cpassword: string;
+    username: string;
+}
+
+interface error {
+    errors: object;
+    email: string;
+    password: string;
+    username: string;
+    cpassword: string;
+}
+
+export default function login_validate(values:values){
+    const errors:error = {};
 
     if (!values.email) {
         errors.email = 'Required';
@@ -20,8 +37,8 @@ export default function login_validate(values){
 
 }
 
-export function registerValidate(values){
-    const errors = {};
+export function registerValidate(values:values){
+    const errors: errors = {};
 
     if(!values.username){
         errors.username = "Required";

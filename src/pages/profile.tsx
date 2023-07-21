@@ -11,7 +11,7 @@ export default () => {
   );
 };
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req }: any) {
   const session = await getSession({ req });
 
   if (!session) {
