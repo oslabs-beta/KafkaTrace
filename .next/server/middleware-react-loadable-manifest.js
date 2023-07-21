@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={"_app.js -> tippy.js":{"id":"_app.js -> tippy.js","files":["static/chunks/node_modules_tippy_js_dist_tippy_esm_js.js"]}}
+self.__REACT_LOADABLE_MANIFEST={"_app.tsx -> tippy.js":{"id":"_app.tsx -> tippy.js","files":["static/chunks/node_modules_tippy_js_dist_tippy_esm_js.js"]}}
