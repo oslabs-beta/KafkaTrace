@@ -8,12 +8,12 @@ License
 
 About Kafka Trace:
 
-Kafka Trace is an open source product whose goal is to provide developers to streamline the tracing process locally without having to source through different technology documentations. This documentation will include how to implement OpenTelemetry, Jaeger, Zipkin and Prometheus.
+Kafka Trace is an open-source product whose goal is to provide developers to streamline the tracing process locally without having to source through different technology documentation. This documentation will include how to implement OpenTelemetry, Jaeger, Zipkin and Prometheus.
 
 For more information, visit our website (hyper-link)
 
 Tech Stacks (make all hyperlinks)
-Typescript, Javascript, React, Express, Next.JS, Prisma, Prometheus, Jest, Git, DaisyUI, KafkaJS, Docker, Jaeger, Zipkin, OpenTelemetry
+[1]:[Typescript](https://www.typescriptlang.org/), Javascript, React, Express, Next.JS, Prisma, Prometheus, Jest, Git, DaisyUI, KafkaJS, Docker, Jaeger, Zipkin, OpenTelemetry
 
 Features:
 Intuitive all-in-one documentation to implement distributive tracing for Kafka
