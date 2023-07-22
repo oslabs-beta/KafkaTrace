@@ -12,7 +12,7 @@ Kafka Trace is an open-source product whose goal is to provide developers to str
 
 For more information, visit our website (hyper-link)
 
-Tech Stacks (make all hyperlinks)
+Tech Stacks:
 [Typescript](https://www.typescriptlang.org/), [Javascript](https://www.javascript.com/), [React](https://react.dev/), [Express](https://expressjs.com/), [Next.JS](https://nextjs.org/), [Prisma](https://www.prisma.io/), [Prometheus](https://prometheus.io/), [Jest](https://jestjs.io/), [Git](https://git-scm.com/), DaisyUI, [KafkaJS](https://kafka.js.org/), [Tailwind](https://tailwindcss.com/), [Docker](https://www.docker.com/), [Jaeger](https://www.jaegertracing.io/), [Zipkin](https://zipkin.io/), [OpenTelemetry](https://opentelemetry.io/), [Mongoose](https://mongoosejs.com/),  [Next-Auth](https://next-auth.js.org/), [AWS](https://aws.amazon.com/)
 
 Features:
