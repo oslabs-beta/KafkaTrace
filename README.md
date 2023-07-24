@@ -1,4 +1,6 @@
 # Kafka Trace
+![KafkaTrace](https://github.com/oslabs-beta/kafkatrace/assets/101201710/eeb0056a-1b90-4b54-af2d-f1503c49fdd9)
+
 
 ## Table of Contents
 - [About Kafka Trace](#about-kafka-trace)
