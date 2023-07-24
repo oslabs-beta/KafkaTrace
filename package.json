@@ -32,6 +32,7 @@
     "next": "12.2.2",
     "next-auth": "^4.10.0",
     "opentelemetry-instrumentation-kafkajs": "^0.35.0",
+    "prismjs": "^1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.3",
+    "@types/prismjs": "^1.26.0",
     "@types/react": "^18.2.14",
     "autoprefixer": "^10.4.14",
     "daisyui": "^3.2.1",
