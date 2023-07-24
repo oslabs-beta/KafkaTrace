@@ -44,7 +44,7 @@ For more information, [visit our website](#).
 ## Tech Stacks
 <div align="center" width="100%">
             
-[![Typescript][TS.js]][TS-url][![JavaScript][JavaScript]][JavaScript-url][![React][React.js]][React-url][![Prometheus][Prometheus]][Prometheus-url][![Zipkin][Zipkin]][Zipkin-url][![Jaeger][Jaeger]][Jaeger-url][![OpenTelemetry][OpenTelemetry]][OpenTelemetry-url][![Jest][Jest]][Jest-url][![][Git]][Git-url][![Tailwind][Tailwind]][Tailwind-url][![DaisyUI][DaisyUI]][DaisyUI-url][![NextJS][NextJs]](NextJS-url)[![Prisma][Prisma]][Prisma-url][![NextAuth][NextAuth]][NextAuth-url][![KafkaJS][KafkaJS]][KafkaJS-url][![Docker][Docker]][Docker-url][![AWS][AWS]][AWS-url]
+[![Typescript][TS.js]][TS-url][![JavaScript][JavaScript]][JavaScript-url][![React][React.js]][React-url][![Prometheus][Prometheus]][Prometheus-url][![Zipkin][Zipkin]][Zipkin-url][![Jaeger][Jaeger]][Jaeger-url][![OpenTelemetry][OpenTelemetry]][OpenTelemetry-url][![Jest][Jest]][Jest-url][![][Git]][Git-url][![Tailwind][Tailwind]][Tailwind-url][![DaisyUI][DaisyUI]][DaisyUI-url][![NextJS][NextJs]](NextJS-url)[![NextAuth][NextAuth]][NextAuth-url][![KafkaJS][KafkaJS]][KafkaJS-url][![Docker][Docker]][Docker-url][![AWS][AWS]][AWS-url]
 
 </div>
 
