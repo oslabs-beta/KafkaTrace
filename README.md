@@ -12,8 +12,7 @@ Kafka Trace is an open-source product whose goal is to provide developers to str
 
 For more information, visit our website (hyperlink)
 
-Tech Stacks (make all hyperlinks)
-Typescript, Javascript, React, Express, Next.JS, Prisma, Prometheus, Jest, Git, DaisyUI, KafkaJS, Docker, Jaeger, Zipkin, OpenTelemetry
+
 
 Features:
 Intuitive all-in-one documentation to implement distributive tracing for Kafka
@@ -35,7 +34,8 @@ Rerun containers
 STEP 4 -
 Log in to website and click on UI buttons
 
-
+Tech Stacks (make all hyperlinks)
+[![Typescript][TS.js]][TS-url][![JavaScript][JavaScript]][JavaScript-url][![React][React.js]][React-url][![Grafana][Grafana]][Grafana-url][![Prometheus][Prometheus]][Prometheus-url][![Jest][Jest]][Jest-url][![][Git]][Git-url][![Tailwind][Tailwind]][Tailwind-url][![trpc][tRPC]](https://trpc.io/)[![NextJS][NextJs]](NextJS-url)[![Prisma][Prisma]][Prisma-url][![NextAuth][NextAuth]][NextAuth-url][![KafkaJS][KafkaJS]][KafkaJS-url][![Docker][Docker]][Docker-url][![AWS][AWS]][AWS-url]
 
 Contributors
 Name: Felix Chen, Wai San Gu, Alston Nguyen, Navdeep Simmak
