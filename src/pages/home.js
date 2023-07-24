@@ -22,86 +22,79 @@ export default function Home() {
       </Head>
 
       <Layout handleSignOut={handleSignOut} setShowUI={setShowUI}>
-        {session ? (
-          <User
-            session={session}
-            handleSignOut={handleSignOut}
-            showUI={showUI}
-          />
-        ) : (
-          <Guest />
-        )}
+        {session ? <User session={session} showUI={showUI} /> : <Guest />}
       </Layout>
     </div>
   );
 }
 
-const Layout = ({ children, handleSignOut, setShowUI }) => {
-  return (
-    <div className='flex flex-col min-h-screen'>
-      <header className='flex justify-between items-center p-4 shadow-md bg-gray-800'>
-        <h1 className='text-4xl font-semibold text-blue-400'>KafkaTrace</h1>
-        <nav className='flex space-x-4'>
-          <button
-            onClick={() => setShowUI('http://localhost:16686')}
-            className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
-            Jaeger UI
-          </button>
-          <button
-            onClick={() => setShowUI('http://localhost:9411')}
-            className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
-            Zipkin UI
-          </button>
-          <button
-            onClick={() => setShowUI('http://localhost:9090')}
-            className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
-            Prometheus
-          </button>
-          <button
-            onClick={handleSignOut}
-            className='px-4 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 border-2 border-red-600 hover:scale-105 transition duration-200'>
-            Sign Out
-          </button>
-        </nav>
-      </header>
+const Layout = ({ children, handleSignOut, setShowUI }) => (
+  <div className='layout min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-black text-gray-100'>
+    <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
+      <h1 className='text-3xl font-semibold text-white'>KafkaTrace</h1>
+      <nav className='flex space-x-4'>
+        <button
+          onClick={() => setShowUI('http://localhost:16686')}
+          className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          Jaeger UI
+        </button>
+        <button
+          onClick={() => setShowUI('http://localhost:9411')}
+          className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          Zipkin UI
+        </button>
+        <button
+          onClick={() => setShowUI('http://localhost:9090')}
+          className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          Prometheus
+        </button>
+        <button
+          onClick={handleSignOut}
+          className='px-4 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 border-2 border-red-600 hover:scale-105 transition duration-200'>
+          Sign Out
+        </button>
+      </nav>
+    </header>
 
-      <main className='flex-grow container mx-auto p-4 space-y-4'>
-        {children}
-      </main>
+    <main className='flex-grow container mx-auto p-4 space-y-4 max-w-3xl'>
+      {children}
+    </main>
 
-      <footer className='flex items-center justify-between px-8 py-4 shadow-md'>
-        <nav className='space-x-4'>
-          <Link href='/contact-us'>
-            <a className='text-fun hover:underline'>Contact Us</a>
-          </Link>
-          <Link href='/about'>
-            <a className='text-fun hover:underline'>About</a>
-          </Link>
-          <Link href='/privacy'>
-            <a className='text-fun hover:underline'>Privacy Policy</a>
-          </Link>
-          <Link href='/terms'>
-            <a className='text-fun hover:underline'>Terms & Conditions</a>
-          </Link>
-        </nav>
-        <p className='text-lg text-fun'>
-          © {new Date().getFullYear()} KafkaTrace
-        </p>
-      </footer>
-    </div>
-  );
-};
+    <footer className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
+      <nav className='space-x-4'>
+        <Link href='/contact-us'>
+          <a className='hover:text-gray-300 transition duration-150'>
+            Contact Us
+          </a>
+        </Link>
+        <Link href='/about'>
+          <a className='hover:text-gray-300 transition duration-150'>About</a>
+        </Link>
+        <Link href='/privacy'>
+          <a className='hover:text-gray-300 transition duration-150'>
+            Privacy Policy
+          </a>
+        </Link>
+        <Link href='/terms'>
+          <a className='hover:text-gray-300 transition duration-150'>
+            Terms & Conditions
+          </a>
+        </Link>
+      </nav>
+      <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
+    </footer>
+  </div>
+);
 
 function Guest() {
   return (
-    <main className='flex flex-col items-center justify-center space-y-4'>
-      <h3 className='text-4xl font-semibold text-blue-400'>
+    <section className='p-6 m-10 rounded-lg shadow-lg text-center space-y-6 bg-gradient-to-r from-gray-700 to-teal-500'>
+      <h1 className='text-4xl font-bold mb-6 text-gradient bg-gradient-to-r from-gray-700 to-teal-500 font-heading'>
         Welcome to KafkaTrace
-      </h3>
-      <p className='text-lg text-center'>
+      </h1>
+      <p className='text-xl text-white mb-5 font-mono'>
         Discover the power of distributed tracing!
       </p>
-
       <div>
         <Link href='/login'>
           <a className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600'>
@@ -109,7 +102,7 @@ function Guest() {
           </a>
         </Link>
       </div>
-    </main>
+    </section>
   );
 }
 
