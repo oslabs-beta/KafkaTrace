@@ -1,4 +1,4 @@
-# Kafka Trace
+# KafkaTrace
 <div align="center">
 <img width="364" alt="image" src="https://github.com/oslabs-beta/kafkatrace/assets/77164621/e296fdc0-dcbf-406b-a996-e63a7c22539b">
 </div>
@@ -11,8 +11,8 @@
 - [Authors](#authors)
 - [License](#license)
 
-## About Kafka Trace
-Kafka Trace is an open-source product whose goal is to provide developers to streamline the tracing process locally without having to source through different technology documentation. This documentation will include how to implement OpenTelemetry, Jaeger, Zipkin, and Prometheus.
+## About KafkaTrace
+KafkaTrace is an open-source product whose goal is to provide developers to streamline the tracing process locally without having to source through different technology documentation. This documentation will include how to implement OpenTelemetry, Jaeger, Zipkin, and Prometheus.
 
 For more information, [visit our website](#).
 
