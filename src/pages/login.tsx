@@ -7,7 +7,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import login_validate from '../../lib/validate';
+import login_validate from '../server/lib/validate';
 
 const Layout = (props: PropsWithChildren) => {
   return (

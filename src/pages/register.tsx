@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from 'react-icons/hi';
 import { useState } from 'react';
 import { useFormik } from 'formik';
-import { registerValidate } from '../../lib/validate';
+import { registerValidate } from '../server/lib/validate';
 import { useRouter } from 'next/router';
 
 export default function Register() {

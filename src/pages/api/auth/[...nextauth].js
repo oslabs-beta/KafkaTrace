@@ -3,7 +3,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import GithubProvider from 'next-auth/providers/github';
 import CredentialsProvider from 'next-auth/providers/credentials';
 // import connectMongo from '../../database/conn';
-import Users from '/model/Schema';
+import Users from '/src/server/model/Schema.tsx';
 import { compare } from 'bcryptjs';
 
 export default NextAuth({

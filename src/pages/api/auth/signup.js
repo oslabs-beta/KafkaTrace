@@ -1,5 +1,5 @@
-import connectMongo from '../../../database/conn';
-import Users from '../../../model/Schema';
+import connectMongo from '../../../../src/server/database/conn.tsx';
+import Users from '../../../../src/server/model/Schema.tsx';
 import { hash } from 'bcryptjs';
 
 export default async function handler(req, res) {
