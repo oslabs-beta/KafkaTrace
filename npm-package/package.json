@@ -1,0 +1,53 @@
+{
+  "name": "kafkatrace",
+  "version": "1.0.0",
+  "files": [
+    "dist/**/*",
+    "src/**/*"
+  ],
+  "description": "Trace of Apache Kafka systems in Javascript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waisangu/kafkaTracePackage.git"
+  },
+  "keywords": [
+    "Kafka",
+    "KafkaJS",
+    "OpenTelemetry",
+    "Tracing",
+    "Traces",
+    "Metrics",
+    "Logs",
+    "Jaeger",
+    "Zipkin",
+    "Prometheus"
+  ],
+  "author": "KafkaTrace",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waisangu/kafkaTracePackage/issues"
+  },
+  "homepage": "https://github.com/waisangu/kafkaTracePackage#readme",
+  "dependencies": {
+    "@opentelemetry/exporter-metrics-otlp-proto": "^0.41.0",
+    "@opentelemetry/instrumentation-express": "^0.33.0",
+    "@opentelemetry/instrumentation-http": "^0.41.0",
+    "@opentelemetry/sdk-node": "^0.41.0",
+    "opentelemetry-instrumentation-kafkajs": "^0.35.0",
+    "docker-compose": "^0.24.1",
+    "kafkajs": "^2.2.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "jest": "^29.6.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  }
+}
