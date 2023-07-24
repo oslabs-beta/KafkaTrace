@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getSession, useSession, signOut } from 'next-auth/react';
 
+interface LayoutProps {
+  children: ReactNode,
+  handleSignOut: any,
+  setShowUI: any
+}
+
+interface SessionProps {
+  session: any,
+  showUI: any
+}
+
+interface getServerSidePropsProps {
+  req: any
+}
+
 export default function Home() {
+
   const { data: session } = useSession();
 
   const [showUI, setShowUI] = useState(
@@ -28,7 +44,7 @@ export default function Home() {
   );
 }
 
-const Layout = ({ children, handleSignOut, setShowUI }) => (
+const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
   <div className='layout min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-black text-gray-100'>
     <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
       <h1 className='text-3xl font-semibold text-white'>KafkaTrace</h1>
@@ -106,7 +122,7 @@ function Guest() {
   );
 }
 
-function User({ session, showUI }) {
+function User({ session, showUI }: SessionProps) {
   return (
     <main className='flex flex-col items-center space-y-8'>
       <h3 className='text-4xl text-blue-400'>
@@ -129,7 +145,7 @@ function User({ session, showUI }) {
   );
 }
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req }: getServerSidePropsProps) {
   const session = await getSession({ req });
 
   if (!session) {

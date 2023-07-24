@@ -98,7 +98,7 @@ const Login = () => {
           Login
         </h1>
         <p className='text-xl text-white mb-5 font-mono'>
-          You're one step away from tracing!
+          You&apos;re one step away from tracing!
         </p>
         <form onSubmit={formik.handleSubmit} className='space-y-4'>
           <InputGroup
@@ -142,7 +142,7 @@ const Login = () => {
           </div>
         </form>
         <p className='text-sm text-primary mt-5'>
-          Don't have an account yet?{' '}
+          Don&apos;t have an account yet?{' '}
           <Link href={'/register'}>
             <a className='text-primary hover:underline'>Sign Up</a>
           </Link>
