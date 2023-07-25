@@ -14,7 +14,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SessionProvider session={pageProps.session}>
       <Head>
-        <title>MyApp</title>
+        <title>KafkaTrace: Tracing Reimagined</title>
         <meta name='description' content='An application for ...' />
         <link rel='icon' href='/favicon.ico' />
       </Head>

@@ -41,10 +41,10 @@ export default function Register() {
         <title>Register</title>
       </Head>
 
-      <section className='bg-gray-100 p-6 m-10 rounded-lg shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] text-center space-y-6 bg-gradient-to-r from-dusk to-dusk2 w-half'>
+      <section className='bg-gray-100 p-6 m-10 rounded-lg text-center space-y-6 bg-#fbfbfb w-half'>
         <div className='max-w-4xl mx-auto text-center'>
-          <h2 className='text-3xl font-bold mb-2 text-primary'>Register</h2>
-          <p className='text-lg text-primary mb-5'>
+          <h2 className='text-3xl font-bold mb-2 text-black'>Register</h2>
+          <p className='text-lg text-black mb-5'>
             We need a little information to register you!
           </p>
         </div>
@@ -62,12 +62,12 @@ export default function Register() {
                 type='text'
                 id='username'
                 placeholder='Username'
-                className={`input input-primary w-full ${
+                className={`input input-black w-full ${
                   formik.errors.username && formik.touched.username
                     ? 'border-red-500'
                     : ''
                 }
-                p-4 w-full text-primary tracking-tight bg-transparent placeholder-primary outline-none border border-primary rounded-lg focus:border-primary transition duration-200`}
+                p-4 w-full text-black tracking-tight bg-#fbfbfb placeholder-gray outline-none border border-primary rounded-lg focus:border-primary transition duration-200`}
                 {...formik.getFieldProps('username')}
               />
             </div>
@@ -79,12 +79,12 @@ export default function Register() {
                 type='email'
                 id='email'
                 placeholder='Email'
-                className={`input input-primary w-full ${
+                className={`input input-black w-full ${
                   formik.errors.email && formik.touched.email
                     ? 'border-red-500'
                     : ''
                 }
-                p-4 w-full text-primary tracking-tight bg-transparent placeholder-primary outline-none border border-primary rounded-lg focus:border-primary transition duration-200`}
+                p-4 w-full text-black tracking-tight bg-transparent placeholder-gray outline-none border border-primary rounded-lg focus:border-primary transition duration-200`}
                 {...formik.getFieldProps('email')}
               />
             </div>
@@ -101,7 +101,7 @@ export default function Register() {
                     ? 'border-red-500'
                     : ''
                 }
-                p-4 w-full text-primary tracking-tight bg-transparent placeholder-primary outline-none border border-primary rounded-lg focus:border-primary transition duration-200`}
+                p-4 w-full text-black tracking-tight bg-transparent placeholder-gray outline-none border border-primary rounded-lg focus:border-primary transition duration-200`}
                 {...formik.getFieldProps('password')}
               />
             </div>
@@ -118,7 +118,7 @@ export default function Register() {
                     ? 'border-red-500'
                     : ''
                 }
-                p-4 w-full text-primary tracking-tight bg-transparent placeholder-primary outline-none border border-primary rounded-lg focus:border-primary transition duration-200`}
+                p-4 w-full text-black tracking-tight bg-transparent placeholder-gray outline-none border border-primary rounded-lg focus:border-primary transition duration-200`}
                 {...formik.getFieldProps('cpassword')}
               />
             </div>
@@ -128,17 +128,17 @@ export default function Register() {
           <div className='mt-6'>
             <button
               type='submit'
-              className='btn btn-primary btn-active w-full font-bold mb-2 text-primary hover:bg-blue-700 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500'>
+              className='btn btn-primary btn-active w-full font-bold mb-2 text-black hover:bg-gray-700 bg-#fbfbfb'>
               Sign Up
             </button>
           </div>
         </form>
 
         {/* bottom */}
-        <p className='text-sm text-primary mt-5'>
+        <p className='text-sm text-black mt-5'>
           Have an account?{' '}
           <Link href={'/login'}>
-            <a className='text-primary hover:underline'>Sign In</a>
+            <a className='text-black hover:underline'>Sign In</a>
           </Link>
         </p>
       </section>

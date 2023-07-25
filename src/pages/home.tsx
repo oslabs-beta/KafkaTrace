@@ -47,7 +47,7 @@ export default function Home() {
 const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
   <div className='layout min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-black text-gray-100'>
     <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
-      <h1 className='text-3xl font-semibold text-white'>KafkaTrace</h1>
+      <Link href='/'><a className='text-3xl font-semibold text-white'>KafkaTrace</a></Link>
       <nav className='flex space-x-4'>
         <button
           onClick={() => setShowUI('http://localhost:16686')}
@@ -75,7 +75,7 @@ const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
     <main className='flex-grow container mx-auto p-4 space-y-4 max-w-3xl'>
       {children}
     </main>
-
+{/* 
     <footer className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
       <nav className='space-x-4'>
         <Link href='/contact-us'>
@@ -98,7 +98,7 @@ const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
         </Link>
       </nav>
       <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
-    </footer>
+    </footer> */}
   </div>
 );
 
@@ -124,6 +124,7 @@ function Guest() {
 
 function User({ session, showUI }: SessionProps) {
   return (
+    <div className='w-full h-full'>
     <main className='flex flex-col items-center space-y-8'>
       <h3 className='text-4xl text-blue-400'>
         Welcome back, {session.user.name}!
@@ -138,10 +139,10 @@ function User({ session, showUI }: SessionProps) {
         src={showUI}
         width='100%'
         height='100%'
-        className='rounded-lg'
-        style={{ minHeight: '475px' }}
+        className='w-screen h-screen'
       />
     </main>
+    </div>
   );
 }
 
