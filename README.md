@@ -5,9 +5,9 @@
 
 ## Table of Contents
 - [About Kafka Trace](#about-kafka-trace)
+- [Tech Stacks](#tech-stacks)
 - [Features](#features)
 - [User Guide](#user-guide)
-- [Tech Stacks](#tech-stacks)
 - [Authors](#authors)
 - [License](#license)
 
@@ -15,6 +15,13 @@
 KafkaTrace is an open-source product whose goal is to provide developers to streamline the tracing process locally without having to source through different technology documentation. This documentation will include how to implement OpenTelemetry, Jaeger, Zipkin, and Prometheus.
 
 For more information, [visit our website](#).
+
+## Tech Stacks
+<div align="center" width="100%">
+            
+[![Typescript][TS.js]][TS-url][![JavaScript][JavaScript]][JavaScript-url][![React][React.js]][React-url][![Prometheus][Prometheus]][Prometheus-url][![Zipkin][Zipkin]][Zipkin-url][![Jaeger][Jaeger]][Jaeger-url][![OpenTelemetry][OpenTelemetry]][OpenTelemetry-url][![Jest][Jest]][Jest-url][![][Git]][Git-url][![Tailwind][Tailwind]][Tailwind-url][![DaisyUI][DaisyUI]][DaisyUI-url][![NextJS][NextJs]](NextJS-url)[![NextAuth][NextAuth]][NextAuth-url][![KafkaJS][KafkaJS]][KafkaJS-url][![Docker][Docker]][Docker-url][![AWS][AWS]][AWS-url]
+
+</div>
 
 ## Features
 - Intuitive all-in-one documentation to implement distributive tracing for Kafka.
@@ -24,29 +31,21 @@ For more information, [visit our website](#).
 
 **IMPORTANT REMINDER**: Make sure the Kafka Cluster you want to trace has a working producer and consumer client.
 
-- **STEP 1**: npm install the package “kafkatrace”
-  - In the terminal, run the command: 
+- **STEP 1**: Install the npm package
     ```bash
     npm install kafkatrace
     ```
-- **STEP 2**: Import npm package to the producer and consumer client:
-  - If in package.json there is a key:value pair => "type: module", then:
-    ```javascript
-    import {} from 'kafkatrace';
+- **STEP 2**: Import and invoke to run the required Docker containers:
+    ```typescript
+    import { composer } from 'kafkatrace';
+    composer();
     ```
-  - If not “type:module” then:
-    ```javascript
-    const _ = require('kafkatrace');
+- **STEP 3**: Import in each Producer and Consumer client and provide the 'Service Name' for the trace:
+    ```typescript
+    import { tracer } from 'kafkatrace';
+    tracer('[Service Name]');
     ```
-- **STEP 3**: Update latest changes in Docker and rerun containers.
 - **STEP 4**: Log in to the website and click on UI buttons.
-
-## Tech Stacks
-<div align="center" width="100%">
-            
-[![Typescript][TS.js]][TS-url][![JavaScript][JavaScript]][JavaScript-url][![React][React.js]][React-url][![Prometheus][Prometheus]][Prometheus-url][![Zipkin][Zipkin]][Zipkin-url][![Jaeger][Jaeger]][Jaeger-url][![OpenTelemetry][OpenTelemetry]][OpenTelemetry-url][![Jest][Jest]][Jest-url][![][Git]][Git-url][![Tailwind][Tailwind]][Tailwind-url][![DaisyUI][DaisyUI]][DaisyUI-url][![NextJS][NextJs]](NextJS-url)[![NextAuth][NextAuth]][NextAuth-url][![KafkaJS][KafkaJS]][KafkaJS-url][![Docker][Docker]][Docker-url][![AWS][AWS]][AWS-url]
-
-</div>
 
 ## Authors
 | Developed By |                                                                     Github                                                                      |                                                                   LinkedIn                                                                    |
