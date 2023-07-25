@@ -10,20 +10,20 @@ import Image from 'next/image';
 import login_validate from '../server/lib/validate';
 
 const Layout = ({ children }:any) => (
-  <div className='layout min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-black text-gray-100'>
+  <div className='layout min-h-screen flex flex-col bg-#fbfbfb text-black'>
     {/* Header */}
     <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
-      <h1 className='text-3xl font-semibold text-white'>KafkaTrace</h1>
+    <Link href='/'><a className='text-3xl font-semibold text-black'>KafkaTrace</a></Link>
       <nav className='space-x-4'>
-        <Link href='/team'>
-          <a className='hover:text-gray-300 transition duration-150'>Team</a>
+        {/* <Link href='/team'>
+          <a className='hover:text-black transition duration-150'>Team</a>
         </Link>
         <Link href='/product'>
-          <a className='hover:text-gray-300 transition duration-150'>Product</a>
+          <a className='hover:text-black transition duration-150'>Product</a>
         </Link>
         <Link href='/contact'>
-          <a className='hover:text-gray-300 transition duration-150'>Contact</a>
-        </Link>
+          <a className='hover:text-black transition duration-150'>Contact</a>
+        </Link> */}
       </nav>
     </header>
 
@@ -33,7 +33,7 @@ const Layout = ({ children }:any) => (
     </main>
 
     {/* Footer */}
-    <footer className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
+    {/* <footer className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
       <nav className='space-x-4'>
         <Link href='/contact-us'>
           <a className='hover:text-gray-300 transition duration-150'>
@@ -55,7 +55,7 @@ const Layout = ({ children }:any) => (
         </Link>
       </nav>
       <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
-    </footer>
+    </footer> */}
   </div>
 );
 const Login = () => {
@@ -96,56 +96,54 @@ const Login = () => {
         <title>Login</title>
       </Head>
 
-      <section className='p-6 m-10 rounded-lg shadow-lg text-center space-y-6 bg-gradient-to-r from-gray-700 to-teal-500'>
-        <h1 className='text-4xl font-bold mb-6 text-gradient bg-gradient-to-r from-gray-700 to-teal-500 font-heading'>
+      <section className='p-6 m-10 rounded-lg shadow-lg text-center space-y-6 bg-#fbfbfb'>
+        <h1 className='text-4xl font-bold mb-6 text-gradient bg-#fbfbfb font-heading'>
           Login
         </h1>
-        <p className='text-xl text-white mb-5 font-mono'>
+        <p className='text-xl text-black mb-5 font-mono'>
           You&apos;re one step away from tracing!
         </p>
         <form onSubmit={formik.handleSubmit} className='space-y-4'>
           <InputGroup
             type='email'
             placeholder='Email'
-            icon={<HiMail size={20} />}
             showError={formik.errors.email && formik.touched.email}
             {...formik.getFieldProps('email')}
-            className='p-4 w-full text-gray-700 tracking-tight bg-transparent placeholder-primary outline-none border border-primary rounded-lg focus:border-indigo-500 transition duration-200'
+            className='p-4 w-full text-black tracking-tight bg-#fbfbfb placeholder-gray outline-none border border-primary rounded-lg focus:border-indigo-500 transition duration-200'
           />
           <InputGroup
             type={show ? 'text' : 'password'}
             placeholder='Password'
-            icon={<HiLockClosed size={20} />}
             showError={formik.errors.password && formik.touched.password}
             {...formik.getFieldProps('password')}
             onClick={() => setShow(!show)}
-            className='p-4 w-full text-primary tracking-tight bg-transparent placeholder-primary outline-none border border-primary rounded-lg focus:border-indigo-500 transition duration-200'
+            className='p-4 w-full text-black tracking-tight bg-#fbfbfb placeholder-gray outline-none border border-primary focus:border-indigo-500 transition duration-200'
           />
           <button
             type='submit'
-            className='btn btn-primary btn-active w-full font-bold mb-2 text-primary hover:bg-blue-700 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500'>
+            className='btn btn-primary btn-active w-full font-bold mb-2 text-black hover:bg-gray-700 bg-#fbfbfb'>
             Login
           </button>
           <div className='flex justify-center space-x-4 mt-4'>
             <ProviderButton
               onClick={() => handleProviderSignin('google')}
               iconPath='/assets/google.svg'
-              className='py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+              className='py-2 px-4 bg-#fbfbfb text-black font-semibold shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
               Sign In with Google
             </ProviderButton>
 
             <ProviderButton
               onClick={() => handleProviderSignin('github')}
               iconPath='/assets/github.svg'
-              className='py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+              className='py-2 px-4 bg-#fbfbfb text-black font-semibold shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
               Sign In with Github
             </ProviderButton>
           </div>
         </form>
-        <p className='text-sm text-primary mt-5'>
+        <p className='text-sm text-black mt-5'>
           Don&apos;t have an account yet?{' '}
           <Link href={'/register'}>
-            <a className='text-primary hover:underline'>Sign Up</a>
+            <a className='text-black hover:underline'>Sign Up</a>
           </Link>
         </p>
       </section>
@@ -158,7 +156,7 @@ interface InputGroupProps {
   name: string;
   placeholder: string;
   showError?: boolean | undefined | string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   onClick?: () => void;
   [key: string]: any;
 }
@@ -198,9 +196,9 @@ const ProviderButton: React.FC<ProviderButtonProps> = ({ onClick, iconPath, chil
     <button
       type='button'
       onClick={onClick}
-      className={`${className} btn btn-primary btn-active w-half hover:bg-blue-700 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500s`}>
+      className={`${className} btn btn-primary btn-active w-half bg-#fbfbfb hover:to-gray-700`}>
       
-      <div style={{ backgroundColor: 'primary', borderRadius: '50%', display: 'inline-block' }}>
+      <div style={{ backgroundColor: '#fbfbfb', borderRadius: '50%', display: 'inline-block' }}>
       <Image
         className='align-middle'
         src={iconPath}

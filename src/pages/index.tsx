@@ -105,7 +105,7 @@ const Hero = () => (
       </p>
       {/* Call-to-action button */}
       <div className='transform transition-transform duration-700 hover:scale-110'>
-        <PrimaryButton href='/get-started'>Begin Journey</PrimaryButton>
+        <PrimaryButton href='https://www.npmjs.com/package/kafkatrace'>Begin Journey</PrimaryButton>
       </div>
     </div>
   </section>
