@@ -60,7 +60,6 @@ export default function Register() {
               </label>
               <input
                 type='text'
-                name='username'
                 id='username'
                 placeholder='Username'
                 className={`input input-primary w-full ${
@@ -78,7 +77,6 @@ export default function Register() {
               </label>
               <input
                 type='email'
-                name='email'
                 id='email'
                 placeholder='Email'
                 className={`input input-primary w-full ${
@@ -96,7 +94,6 @@ export default function Register() {
               </label>
               <input
                 type={`${show.password ? 'text' : 'password'}`}
-                name='password'
                 id='password'
                 placeholder='Password'
                 className={`input input-primary w-full ${
@@ -114,7 +111,6 @@ export default function Register() {
               </label>
               <input
                 type={`${show.cpassword ? 'text' : 'password'}`}
-                name='cpassword'
                 id='cpassword'
                 placeholder='Confirm Password'
                 className={`input input-primary w-full ${
