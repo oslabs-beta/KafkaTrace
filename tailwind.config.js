@@ -34,6 +34,8 @@ module.exports = {
           swag: '#F5F5F5',
         },
       },
+      'light',
+      'dark',
     ],
   },
 };

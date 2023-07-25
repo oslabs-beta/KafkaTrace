@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
-import { signIn } from 'next-auth/react';
+import { signIn, SignInResponse  } from 'next-auth/react';
 import { HiMail, HiLockClosed } from 'react-icons/hi';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 import login_validate from '../server/lib/validate';
 
-const Layout = ({ children }) => (
+const Layout = ({ children }:any) => (
   <div className='layout min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-black text-gray-100'>
     {/* Header */}
     <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
@@ -58,32 +58,35 @@ const Layout = ({ children }) => (
     </footer>
   </div>
 );
-
 const Login = () => {
   const [show, setShow] = useState(false);
   const router = useRouter();
 
-  const formik = useFormik({
-    initialValues: {
+  const formik= useFormik({
+    initialValues:{
       email: '',
       password: '',
     },
     validate: login_validate,
-    onSubmit: (values) => handleSubmit(values),
+    onSubmit: (values: { email: string, password: string}) => handleSubmit(values),
   });
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: {email: string; password: string}) => {
+    const callbackUrl = new URL('/', window.location.origin);
+
     const status = await signIn('credentials', {
       redirect: false,
       email: values.email,
       password: values.password,
-      callbackUrl: '/',
+      callbackUrl: callbackUrl.toString(),
     });
 
-    if (status.ok) router.push(status.url);
+    if (status?.ok) {
+      router.push(status.url ?? '/'); // Provide a default value of '/' if status.url is null
+    }
   };
 
-  const handleProviderSignin = (provider) => {
+  const handleProviderSignin = (provider: string) => {
     signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
   };
 
@@ -103,7 +106,6 @@ const Login = () => {
         <form onSubmit={formik.handleSubmit} className='space-y-4'>
           <InputGroup
             type='email'
-            name='email'
             placeholder='Email'
             icon={<HiMail size={20} />}
             showError={formik.errors.email && formik.touched.email}
@@ -112,7 +114,6 @@ const Login = () => {
           />
           <InputGroup
             type={show ? 'text' : 'password'}
-            name='password'
             placeholder='Password'
             icon={<HiLockClosed size={20} />}
             showError={formik.errors.password && formik.touched.password}
@@ -152,7 +153,17 @@ const Login = () => {
   );
 };
 
-const InputGroup = ({
+interface InputGroupProps {
+  type: string;
+  name: string;
+  placeholder: string;
+  showError?: boolean | undefined | string;
+  icon: React.ReactNode;
+  onClick?: () => void;
+  [key: string]: any;
+}
+
+const InputGroup: React.FC<InputGroupProps>  = ({
   type,
   name,
   placeholder,
@@ -175,20 +186,29 @@ const InputGroup = ({
   );
 };
 
-const ProviderButton = ({ onClick, iconPath, children, className }) => {
+interface ProviderButtonProps {
+  onClick: () => void;
+  iconPath: string;
+  children: React.ReactNode;
+  className: string;
+}
+
+const ProviderButton: React.FC<ProviderButtonProps> = ({ onClick, iconPath, children, className }) => {
   return (
     <button
       type='button'
       onClick={onClick}
       className={`${className} btn btn-primary btn-active w-half hover:bg-blue-700 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500s`}>
+      
+      <div style={{ backgroundColor: 'primary', borderRadius: '50%', display: 'inline-block' }}>
       <Image
         className='align-middle'
         src={iconPath}
-        width='20'
+        width={20}
         height={20}
         alt={`${children} logo`}
-        bg='primary'
       />
+      </div>
       <span className='align-middle ml-2'>{children}</span>
     </button>
   );

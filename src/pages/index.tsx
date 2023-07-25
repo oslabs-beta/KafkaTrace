@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
@@ -32,7 +33,7 @@ const commonStyling = {
   white: 'text-black',
 };
 
-const codeStyles = {
+const codeStyles: React.CSSProperties = {
   backgroundColor: 'white',
   color: 'black',
   padding: '16px',
@@ -59,8 +60,8 @@ const Navbar = () => (
     </div>
   </nav>
 );
-
-const LoginButton = ({ href, children }) => (
+interface hrefChildrenType {href: string, children: string}
+const LoginButton = ({ href, children }: hrefChildrenType) => (
   <Link href={href}>
     <a
       className={`px-6 py-2 rounded-full border-2 border-black bg-gradient-to-r from-#fbfbfb-500 to-#fbfbfb-700 hover:from-#fbfbfb-400 hover:to-gray-600 text-black shadow-md transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-#fbfbfb-600 ${commonStyling.button}`}>
@@ -69,7 +70,7 @@ const LoginButton = ({ href, children }) => (
   </Link>
 );
 
-const LinkButton = ({ href, children }) => (
+const LinkButton = ({ href, children }:hrefChildrenType) => (
   <Link href={href}>
     <a className='text-black hover:text-#fbfbfb-400 transition duration-200'>
       {children}
@@ -78,7 +79,7 @@ const LinkButton = ({ href, children }) => (
 );
 
 const Hero = () => (
-  <section className='relative text-center py-32 from-#fbfbfb to-#fbfbfb-500 text-black overflow-hidden'>
+  <section className='relative text-center py-32 text-black overflow-hidden'>
     {/* Background image with gradient overlay */}
     <div
       className='absolute top-0 left-0 right-0 bottom-0 z-[-1]'
@@ -110,7 +111,7 @@ const Hero = () => (
   </section>
 );
 
-const PrimaryButton = ({ href, children }) => (
+const PrimaryButton = ({ href, children }:hrefChildrenType) => (
   <a
     href={href}
     className={`bg:#fbfbfb text-black px-8 py-3 rounded-lg shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
@@ -118,7 +119,7 @@ const PrimaryButton = ({ href, children }) => (
   </a>
 );
 
-const SignupButton = ({ href, children }) => (
+const SignupButton = ({ href, children }:hrefChildrenType) => (
   <Link href={href}>
     <a
       className={`px-6 py-2 rounded-full border-2 border-black bg-#fbfbfb hover:from-#fbfbfb-400 hover:to-#fbfbfb-600 text-black shadow-md transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:white-600 ${commonStyling.button}`}>
@@ -192,7 +193,7 @@ const InstallComponent = () => {
   );
 };
 
-const TerminalHeader = ({ className = '' }) => (
+const TerminalHeader = ({ className = '' }: any) => (
   <div
     className={`flex items-center justify-start p-2 bg-#fbfbfb text-black-400 space-x-1 border-b border-white-500 ${className}`}>
     <span className='bg-red-600 w-3 h-3 rounded-full animate-bounce'></span>
@@ -204,7 +205,7 @@ const TerminalHeader = ({ className = '' }) => (
 const CodeSnippet = () => (
   <div className='p-4 max-w-lg mx-auto my-8 shadow-inner bg-white hover:from-gray-600 hover:to-white-400 transition-transform transform hover:scale-105 duration-300 ease-in-out relative'>
     <TerminalHeader className='mb-2' />
-    <pre style={codeStyles}>
+    <pre style = {codeStyles}>
       <code className='language-javascript'>
         {`const kafka = require('kafkatrace');
         kafka.monitor({
@@ -259,7 +260,7 @@ const Features = () => (
   </section>
 );
 
-const FeatureBlock = ({ icon, title, description }) => (
+const FeatureBlock = ({ icon, title, description }: any) => (
   <div
     className={`p-8 rounded-lg shadow-md bg-#fbfbfb transition duration-300 ease-in-out transform hover:scale-105 ${commonStyling.button}`}>
     <div className='text-6xl mb-8 text-black-300'>{icon}</div>
@@ -276,22 +277,22 @@ const Teams = () => (
           {
             name: 'Navdeep Simmak',
             role: 'Software Engineer',
-            img: '/path-to-image-navdeep.jpg',
+            img: '/public/assets/img4.png',
           },
           {
             name: 'Wai San Gu',
             role: 'Software Engineer',
-            img: '/path-to-image-wai.jpg',
+            img: '/public/assets/img4.png',
           },
           {
             name: 'Felix Chen',
             role: 'Software Engineer',
-            img: '/path-to-image-felix.jpg',
+            img: '/public/assets/img4.png',
           },
           {
             name: 'Alston Nguyen',
             role: 'Software Engineer',
-            img: '/path-to-image-alson.jpg',
+            img: '/public/assets/img4.png',
           },
         ].map((member, index) => (
           <TeamMember key={index} {...member} />
@@ -302,11 +303,12 @@ const Teams = () => (
 );
 
 // TeamMember component
-const TeamMember = ({ img, name, role }) => (
+const TeamMember = ({ img, name, role }: any) => (
   <div className='group flex flex-col items-center p-6 shadow-2xl bg-#fbfbfb transform transition-transform duration-300 ease-in-out hover:scale-105'>
     <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full group-hover:rotate-6 transition-transform duration-300 ease-in-out'>
-      <img
+      <Image
         src={img}
+        layout='fill'
         alt={`${name}, ${role}`}
         className='w-full h-full object-cover border-4 border-#fbfbfb-500 group-hover:rotate-[-6deg] transition-transform duration-300 shadow-lg'
       />
