@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['{pages,src}/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
-  important: true,
-  theme: {
-    extend: {
-      gradients: {
-        // Define your gradients here
-        'gradient-name': ['color1', 'color2'],
-      },
-      colors: {
-        color1: '#...',
-        color2: '#...',
-      },
-    },
-  },
+  // darkMode: 'media',
+  // important: true,
+  // theme: {
+  //   extend: {
+  //     gradients: {
+  //       // Define your gradients here
+  //       'gradient-name': ['color1', 'color2'],
+  //     },
+  //     colors: {
+  //       color1: '#...',
+  //       color2: '#...',
+  //     },
+  //   },
+  // },
   plugins: [require('daisyui')],
   daisyui: {
     themes: [
