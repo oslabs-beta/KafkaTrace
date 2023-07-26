@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
 import { signIn, SignInResponse  } from 'next-auth/react';
-import { HiMail, HiLockClosed } from 'react-icons/hi';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,17 +12,8 @@ const Layout = ({ children }:any) => (
   <div className='layout min-h-screen flex flex-col bg-#fbfbfb text-black'>
     {/* Header */}
     <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
-    <Link href='/'><a className='text-3xl font-semibold text-black'>KafkaTrace</a></Link>
+    <Link href='/'><a className='text-3xl text-black'>KafkaTrace</a></Link>
       <nav className='space-x-4'>
-        {/* <Link href='/team'>
-          <a className='hover:text-black transition duration-150'>Team</a>
-        </Link>
-        <Link href='/product'>
-          <a className='hover:text-black transition duration-150'>Product</a>
-        </Link>
-        <Link href='/contact'>
-          <a className='hover:text-black transition duration-150'>Contact</a>
-        </Link> */}
       </nav>
     </header>
 
@@ -32,30 +22,6 @@ const Layout = ({ children }:any) => (
       {children}
     </main>
 
-    {/* Footer */}
-    {/* <footer className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
-      <nav className='space-x-4'>
-        <Link href='/contact-us'>
-          <a className='hover:text-gray-300 transition duration-150'>
-            Contact Us
-          </a>
-        </Link>
-        <Link href='/about'>
-          <a className='hover:text-gray-300 transition duration-150'>About</a>
-        </Link>
-        <Link href='/privacy'>
-          <a className='hover:text-gray-300 transition duration-150'>
-            Privacy Policy
-          </a>
-        </Link>
-        <Link href='/terms'>
-          <a className='hover:text-gray-300 transition duration-150'>
-            Terms & Conditions
-          </a>
-        </Link>
-      </nav>
-      <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
-    </footer> */}
   </div>
 );
 const Login = () => {
@@ -95,7 +61,6 @@ const Login = () => {
       <Head>
         <title>Login</title>
       </Head>
-
       <section className='p-6 m-10 rounded-lg shadow-lg text-center space-y-6 bg-#fbfbfb'>
         <h1 className='text-4xl font-bold mb-6 text-gradient bg-#fbfbfb font-heading'>
           Login
@@ -121,7 +86,7 @@ const Login = () => {
           />
           <button
             type='submit'
-            className='btn btn-primary btn-active w-full font-bold mb-2 text-black hover:bg-gray-700 bg-#fbfbfb'>
+            className='btn btn-primary btn-active w-full mb-2 text-black hover:bg-gray-700 bg-#fbfbfb'>
             Login
           </button>
           <div className='flex justify-center space-x-4 mt-4'>
@@ -147,7 +112,7 @@ const Login = () => {
           </Link>
         </p>
       </section>
-    </Layout>
+</Layout>
   );
 };
 

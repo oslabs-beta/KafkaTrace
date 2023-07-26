@@ -5,19 +5,17 @@ import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
 import { useState } from 'react'; // Import the useState hook
 
-export default function Home() {
+export default function Root() {
   return (
-    <div className='min-h-screen font-family:"AkkuratPro-Regular",Arial,sans-serif bg-#fbfbfb text-#fbfbfb-100'>
+    <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
       <Navbar />
       <main className='container mx-auto py-12'>
         <Hero />
         <InstallComponent />
         <CodeSnippet />
         <Features />
-        {/* <Subscribe /> New section */}
         <Teams />
       </main>
-      {/* <Footer /> */}
     </div>
   );
 }
@@ -34,11 +32,10 @@ const commonStyling = {
 };
 
 const codeStyles: React.CSSProperties = {
-  backgroundColor: 'white',
+  backgroundColor: '#1f2937',
   color: 'black',
   padding: '16px',
   borderRadius: '8px',
-  fontFamily: "'Courier New', Courier, monospace",
   overflowX: 'scroll',
   // Add other styles from the Prism theme as you see fit...
 };
@@ -46,14 +43,13 @@ const codeStyles: React.CSSProperties = {
 const Navbar = () => (
   <nav className='fixed top-0 w-full z-50 p-6 bg-#fbfbfb backdrop-saturate-200'>
     <div className='container mx-auto flex justify-between items-center'>
-      <h1 className='text-3xl font-family:"AkkuratPro-Regular",Arial,sans-serif text-black transform hover:scale-105 transition-transform'>
+      <h1 className='text-2xl text-black'>
         KafkaTrace
       </h1>
       <div className='space-x-4'>
-        <LinkButton href='/'>Home</LinkButton>
-        <LinkButton href='/about'>About</LinkButton>
-        <LinkButton href='/docs'>Docs</LinkButton>
-        <LinkButton href='/community'>Community</LinkButton>
+        <LinkButton href='/about'>Medium</LinkButton>
+        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>npm</LinkButton>
+        <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>Github</LinkButton>
         <LoginButton href='/login'>Login</LoginButton>
         <SignupButton href='/register'>Sign Up</SignupButton>
       </div>
@@ -122,7 +118,7 @@ const PrimaryButton = ({ href, children }:hrefChildrenType) => (
 const SignupButton = ({ href, children }:hrefChildrenType) => (
   <Link href={href}>
     <a
-      className={`px-6 py-2 rounded-full border-2 border-black bg-#fbfbfb hover:from-#fbfbfb-400 hover:to-#fbfbfb-600 text-black shadow-md transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:white-600 ${commonStyling.button}`}>
+      className={`px-6 py-2 rounded-full border-2 border-black bg-gradient-to-r from-#fbfbfb-500 to-#fbfbfb-700 hover:from-#fbfbfb-400 hover:to-gray-600 text-black shadow-md transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-#fbfbfb-600 ${commonStyling.button}`}>
       {children}
     </a>
   </Link>
@@ -143,7 +139,7 @@ const InstallComponent = () => {
   return (
     <div className='mt-8 flex justify-center p-4 from-black to-white-500 hover:from-black hover:to-white-400 hover:scale-105 duration-300 ease-in-out'>
       <div className='flex'>
-      <pre className='p-4 bg-#fbfbfb text-black border-white-500 border-l-4 pl-4'>
+      <pre className='p-4 bg-gray-800 text-white border-white-500 border-l-4 pl-4'>
         <code className='language-javascript'>npm install kafkatrace</code>
       </pre>
       </div>
@@ -207,15 +203,11 @@ const CodeSnippet = () => (
     <TerminalHeader className='mb-2' />
     <pre style = {codeStyles}>
       <code className='language-javascript'>
-        {`const kafka = require('kafkatrace');
-        kafka.monitor({
-          brokers: ['localhost:9092'],
-              clientId: 'my-app',
-              groupId: 'my-group',
-            });
-            kafka.on('data', (data) => {
-              console.log(data);
-            });`}
+        {`import { composer } from 'kafkatrace';
+composer();
+import { tracer } from 'kafkatrace';
+tracer('[Service Name]');
+`}
       </code>
     </pre>
   </div>
@@ -239,21 +231,6 @@ const Features = () => (
         title: 'Top-notch Security',
         description: 'Protecting your data with industry-best practices.',
       },
-      {
-        icon: '🌍',
-        title: 'Global Support',
-        description: 'A worldwide community always ready to help.',
-      },
-      {
-        icon: '🔧',
-        title: 'Feature-rich',
-        description: 'From analysis to visualization, we have it all.',
-      },
-      {
-        icon: '🎓',
-        title: 'Excellent Docs',
-        description: 'Guidance every step of the way.',
-      },
     ].map((feature, index) => (
       <FeatureBlock key={index} {...feature} />
     ))}
@@ -262,7 +239,7 @@ const Features = () => (
 
 const FeatureBlock = ({ icon, title, description }: any) => (
   <div
-    className={`p-8 rounded-lg shadow-md bg-#fbfbfb transition duration-300 ease-in-out transform hover:scale-105 ${commonStyling.button}`}>
+    className={`p-8 rounded-lg shadow-sm bg-#fbfbfb transition duration-300 ease-in-out transform hover:scale-105 ${commonStyling.button}`}>
     <div className='text-6xl mb-8 text-black-300'>{icon}</div>
     <h3 className='text-3xl mb-6 font-bold text-black-300'>{title}</h3>
     <p className='text-lg text-black-400'>{description}</p>
@@ -277,22 +254,22 @@ const Teams = () => (
           {
             name: 'Navdeep Simmak',
             role: 'Software Engineer',
-            img: '/public/assets/img4.png',
+            img: '/assets/navi.jpeg',
           },
           {
             name: 'Wai San Gu',
             role: 'Software Engineer',
-            img: '/public/assets/img4.png',
+            img: '/assets/waisan.png',
           },
           {
             name: 'Felix Chen',
             role: 'Software Engineer',
-            img: '/public/assets/img4.png',
+            img: '/assets/felix.png',
           },
           {
             name: 'Alston Nguyen',
             role: 'Software Engineer',
-            img: '/public/assets/img4.png',
+            img: '/assets/alston.png',
           },
         ].map((member, index) => (
           <TeamMember key={index} {...member} />
@@ -304,7 +281,7 @@ const Teams = () => (
 
 // TeamMember component
 const TeamMember = ({ img, name, role }: any) => (
-  <div className='group flex flex-col items-center p-6 shadow-2xl bg-#fbfbfb transform transition-transform duration-300 ease-in-out hover:scale-105'>
+  <div className='group flex flex-col items-center p-6 shadow-md bg-#fbfbfb transform transition-transform duration-300 ease-in-out hover:scale-105'>
     <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full group-hover:rotate-6 transition-transform duration-300 ease-in-out'>
       <Image
         src={img}
@@ -317,134 +294,3 @@ const TeamMember = ({ img, name, role }: any) => (
     <p className='text-lg text-black'>{role}</p>
   </div>
 );
-
-// const Subscribe = () => (
-//   <section className='py-16 px-8 md:px-16 bg-gradient overflow-hidden mb-16'>
-//     <h2
-//       className={`${commonStyling.sectionTitle} text-black font-extrabold text-4xl mb-4 bg-clip-text text-transparent bg-gradient-to-br from-#fbfbfb-500 to-#fbfbfb-600`}>
-//       Stay Updated
-//     </h2>
-//     <p className={`${commonStyling.sectionSubtitle} text-gray-400 mb-6`}>
-//       Subscribe to our newsletter for the latest updates and news.
-//     </p>
-//     <form className='mt-6 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4'>
-//       <input
-//         type='email'
-//         className='flex-grow p-3 bg-#fbfbfb-600 border-black focus:ring focus:ring-#fbfbfb-500 focus:shadow-xl placeholder-black transition duration-300 hover:bg-#fbfbfb-700'
-//         placeholder='Enter your email'
-//       />
-//       <PrimaryButton className='transform hover:scale-105 transition-transform duration-300 shadow-xl self-center'>
-//         Subscribe
-//       </PrimaryButton>
-//     </form>
-//     <div className='mt-8'>
-//       <GitHubButton />
-//       <GmailButton />
-//     </div>
-//   </section>
-// );
-
-// const GitHubButton = () => (
-//   <a
-//     href='https://github.com/your-github-username'
-//     target='_blank'
-//     rel='noopener noreferrer'
-//     className='btn inline-flex items-center bg-black hover:from-#fbfbfb-400 hover:to-#fbfbfb-600 text-white p-3 px-6 rounded-xl shadow-lg transform transition-transform hover:scale-105 duration-300 ease-in-out relative'>
-//     <svg
-//       xmlns='http://www.w3.org/2000/svg'
-//       className='h-5 w-5 mr-2'
-//       viewBox='0 0 20 20'
-//       fill='currentColor'>
-//       <path
-//         fillRule='evenodd'
-//         d='M10 0C4.48 0 0 4.48 0 10c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.564 9.564 0 0 1 10 4.8c.85.004 1.7.11 2.52.32 1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.41.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.69.93.69 1.87 0 1.35-.01 2.44-.01 2.77 0 .27.18.58.69.48A10.02 10.02 0 0 0 20 10c0-5.52-4.48-10-10-10z'
-//         clipRule='evenodd'
-//       />
-//     </svg>
-//     GitHub
-//   </a>
-// );
-
-// const GmailButton = () => (
-//   <a
-//     href='mailto:your-email@example.com'
-//     target='_blank'
-//     rel='noopener noreferrer'
-//     className='btn inline-flex items-center bg-red-600 hover:bg-red-500 text-black p-3 px-6 rounded-xl shadow-lg transform transition-transform hover:scale-105 duration-300 ease-in-out relative'>
-//     <svg
-//       xmlns='http://www.w3.org/2000/svg'
-//       className='h-5 w-5 mr-2'
-//       viewBox='0 0 24 24'
-//       fill='currentColor'>
-//       <path d='M12 12.713L6.286 9l-1.2 1.986L12 16l6.914-5.014L17.714 9z'></path>
-//       <path d='M18 4H6L0 11v2l6 5h12l6-5v-2l-6-7zm0 13l-6 4.675L6 17V10.6l6 4.675L18 10.675V17z'></path>
-//     </svg>
-//     Gmail
-//   </a>
-// );
-
-// const Footer = () => (
-//   <footer className='p-12 bg-black text-gray-400'>
-//     <div className='container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8'>
-//       <div>
-//         <h3 className='text-xl font-semibold mb-4'>KafkaTrace</h3>
-//         <ul className='space-y-2'>
-//           <FooterLink href='/about'>About Us</FooterLink>
-//           <FooterLink href='/contact'>Contact</FooterLink>
-//           <FooterLink href='/privacy'>Privacy Policy</FooterLink>
-//           <FooterLink href='/terms'>Terms of Service</FooterLink>
-//         </ul>
-//       </div>
-//       <div>
-//         <h3 className='text-xl font-semibold mb-4'>Resources</h3>
-//         <ul className='space-y-2'>
-//           <FooterLink href='/docs'>Documentation</FooterLink>
-//           <FooterLink href='/blog'>Blog</FooterLink>
-//           <FooterLink href='/community'>Community</FooterLink>
-//         </ul>
-//       </div>
-//       <div>
-//         <h3 className='text-xl font-semibold mb-4'>Support</h3>
-//         <ul className='space-y-2'>
-//           <FooterLink href='/faq'>FAQ</FooterLink>
-//           <FooterLink href='/support'>Support Center</FooterLink>
-//           <FooterLink href='/feedback'>Feedback</FooterLink>
-//         </ul>
-//       </div>
-//       <div className='flex flex-col items-center md:items-end'>
-//         <h3 className='text-xl font-semibold mb-4'>Stay Connected</h3>
-//         <div className='flex space-x-4'>
-//           {/* Icons can be changed based on your preference */}
-//           <a
-//             href='#'
-//             className='text-gray-400 hover:text-black transition duration-200'>
-//             🐦
-//           </a>
-//           <a
-//             href='#'
-//             className='text-gray-400 hover:text-black transition duration-200'>
-//             📘
-//           </a>
-//           <a
-//             href='#'
-//             className='text-gray-400 hover:text-black transition duration-200'>
-//             📸
-//           </a>
-//         </div>
-//       </div>
-//     </div>
-//     <div className='mt-8  fs-t border-gray-700 pt-8 text-center'>
-//       <p>© 2023 KafkaTrace. All rights reserved.</p>
-//     </div>
-//   </footer>
-// );
-
-// const FooterLink = ({ href, children }) => (
-//   <li>
-//     <Link href={href}>
-//       <a className='text-gray-400 hover:text-gray-300 transition duration-200'>
-//         {children}
-//       </a>
-//     </Link>
-//   </li>
-// );
