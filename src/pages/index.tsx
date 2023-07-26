@@ -5,6 +5,7 @@ import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
 import { useState } from 'react'; // Import the useState hook
 
+
 export default function Root() {
   return (
     <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
@@ -64,7 +65,7 @@ interface hrefChildrenType {href: string, children: string}
 const LoginButton = ({ href, children }: hrefChildrenType) => (
   <Link href={href}>
     <a
-      className="px-2 py-1 border-2 border-grey text-black hover:bg-neutral-100">
+      className="px-2 py-1 border-2 rounded-md border-grey text-black hover:bg-neutral-100">
       {children}
     </a>
   </Link>
@@ -114,7 +115,7 @@ const Hero = () => (
 const PrimaryButton = ({ href, children }:hrefChildrenType) => (
   <a
     href={href}
-    className={`bg:#fbfbfb text-black px-8 py-3 rounded-lg shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
+    className={`bg:#fbfbfb text-black px-8 py-3 rounded-xl shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
     {children}
   </a>
 );
@@ -122,7 +123,7 @@ const PrimaryButton = ({ href, children }:hrefChildrenType) => (
 const SignupButton = ({ href, children }:hrefChildrenType) => (
   <Link href={href}>
     <a
-      className="px-2 py-1 border-2 border-grey text-black hover:bg-neutral-100">
+      className="px-2 py-1 border-2 border-grey rounded-md text-black hover:bg-neutral-100">
       {children}
     </a>
   </Link>
