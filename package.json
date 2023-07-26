@@ -27,7 +27,8 @@
     "react-icons": "^4.4.0",
     "test": "^3.3.0",
     "tippy.js": "^6.3.7",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "tsparticles-engine": "^2.11.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
