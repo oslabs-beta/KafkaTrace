@@ -76,7 +76,7 @@ interface hrefChildrenType {
 
 const LoginButton = ({ href, children }: hrefChildrenType) => (
   <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey text-black hover:bg-neutral-100'>
+    <a className='px-2 py-1 border-2 border-grey rounded-lg text-black hover:bg-neutral-100'>
       {children}
     </a>
   </Link>
@@ -110,94 +110,92 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
   return (  
     <>
     <Particles
-            id="tsparticles"
-            init={particlesInit}
-            loaded={particlesLoaded}
-            options={{
-                background: {
-                    color: {
-                        value: "#ffffff",
-                    },
-                },
-                fpsLimit: 120,
-                interactivity: {
-                    events: {
-                        onClick: {
-                            enable: true,
-                            mode: "push",
-                        },
-                        onHover: {
-                            enable: true,
-                            mode: "repulse",
-                        },
-                        resize: true,
-                    },
-                    modes: {
-                        push: {
-                            quantity: 4,
-                        },
-                        repulse: {
-                            distance: 200,
-                            duration: 0.4,
-                        },
-                    },
-                },
-                particles: {
-                    color: {
-                        value: "#000000",
-                    },
-                    links: {
-                        color: "#000000",
-                        distance: 150,
-                        enable: true,
-                        opacity: 0.5,
-                        width: 1,
-                    },
-                    move: {
-                        direction: "none",
-                        enable: true,
-                        outModes: {
-                            default: "bounce",
-                        },
-                        random: false,
-                        speed: 6,
-                        straight: false,
-                    },
-                    number: {
-                        density: {
-                            enable: true,
-                            area: 800,
-                        },
-                        value: 80,
-                    },
-                    opacity: {
-                        value: 0.5,
-                    },
-                    shape: {
-                        type: "circle",
-                    },
-                    size: {
-                        value: { min: 1, max: 5 },
-                    },
-                },
-                detectRetina: true,
-                fullScreen: { 
+      id="tsparticles"
+      init={particlesInit}
+      loaded={particlesLoaded}
+      height="50vh"
+      options={{
+          background: {
+              color: {
+                  value: "#000000",
+              },
+          },
+          fpsLimit: 120,
+          interactivity: {
+              events: {
+                  onClick: {
+                      enable: true,
+                      mode: "push",
+                  },
+                  onHover: {
+                      enable: true,
+                      mode: "repulse",
+                  },
+                  resize: true,
+              },
+              modes: {
+                  push: {
+                      quantity: 4,
+                  },
+                  repulse: {
+                      distance: 200,
+                      duration: 0.4,
+                  },
+              },
+          },
+          particles: {
+              color: {
+                  value: "#ffffff",
+              },
+              links: {
+                  color: "#ffffff",
+                  distance: 150,
                   enable: true,
-                }
-            }}
-        />
-  <section className='relative text-center py-32 text-black overflow-hidden'>
-  
+                  opacity: 0.5,
+                  width: 1,
+              },
+              move: {
+                  direction: "none",
+                  enable: true,
+                  outModes: {
+                      default: "bounce",
+                  },
+                  random: false,
+                  speed: 6,
+                  straight: false,
+              },
+              number: {
+                  density: {
+                      enable: true,
+                      area: 800,
+                  },
+                  value: 80,
+              },
+              opacity: {
+                  value: 0.5,
+              },
+              shape: {
+                  type: "circle",
+              },
+              size: {
+                  value: { min: 1, max: 5 },
+              },
+          },
+          detectRetina: true,
+          fullScreen: { 
+            enable: false,
+          }
+      }}
+    />
+    <section className='bg-indigo-500 relative text-center py-32 text-black overflow-hidden'>
+    
     <div className='transform transition-transform hover:text-decot'>
-      
-      {/* Hero title */}
       <h2 className='text-5xl font-bold mb-4 text-#fbfbfb-500 duration-700'>
         Welcome to{' '}
         <span className='bg-clip-text text-black bg-gradient-to-r from-#fbfbfb-600 to-#fbfbfb-400 hover:from-#fbfbfb-500 hover:to-#fbfbfb-700'>
           KafkaTrace
         </span>
       </h2>
-      {/* Hero subtitle */}
       <p className='text-2xl font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
         Revolutionary Kafka monitoring for the future.
       </p>
@@ -216,14 +214,14 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
 const PrimaryButton = ({ href, children }: hrefChildrenType) => (
   <a
     href={href}
-    className={`bg:#fbfbfb text-black px-8 py-3 rounded-lg shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
+    className={`bg:#fbfbfb text-black px-8 py-3 rounded-xl shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
     {children}
   </a>
 );
 
 const SignupButton = ({ href, children }: hrefChildrenType) => (
   <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey text-black hover:bg-neutral-100'>
+    <a className='px-2 py-1 border-2 border-grey rounded-lg text-black hover:bg-neutral-100'>
       {children}
     </a>
   </Link>
