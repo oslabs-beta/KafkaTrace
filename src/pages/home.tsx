@@ -46,27 +46,27 @@ export default function Home() {
 
 const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
   <div className='layout min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-black text-gray-100'>
-    <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
-      <Link href='/'><a className='text-3xl font-semibold text-white'>KafkaTrace</a></Link>
+    <header className='flex items-center justify-between p-2 px-8 bg-white backdrop-saturate-200 shadow shadow-lg backdrop-blur'>
+    <Link href='/'><a className='text-2xl font-semibold text-black font-costar'>KafkaTrace</a></Link>
       <nav className='flex space-x-4'>
         <button
           onClick={() => setShowUI('http://localhost:16686')}
-          className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          className='px-4 py-1 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
           Jaeger UI
         </button>
         <button
           onClick={() => setShowUI('http://localhost:9411')}
-          className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          className='px-4 py-1 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
           Zipkin UI
         </button>
         <button
           onClick={() => setShowUI('http://localhost:9090')}
-          className='px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          className='px-4 py-1 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
           Prometheus
         </button>
         <button
           onClick={handleSignOut}
-          className='px-4 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 border-2 border-red-600 hover:scale-105 transition duration-200'>
+          className='px-4 py-1 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 border-2 border-red-600 hover:scale-105 transition duration-200'>
           Sign Out
         </button>
       </nav>
