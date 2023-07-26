@@ -43,9 +43,9 @@ const codeStyles: React.CSSProperties = {
 const Navbar = () => (
   // flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur
   // fixed top-0 w-full z-50 p-6 bg-#fbfbfb backdrop-saturate-200
-  <nav className='fixed top-0 w-full items-center justify-between px-8 py-4 shadow-lg bg-opacity-10 backdrop-blur'>
-    <div className='container mx-auto flex justify-between items-center'>
-      <h1 className='text-2xl text-black'>
+  <nav className='fixed top-0 w-full z-50 p-2 px-8 bg-white backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
+    <div className='mx-auto flex justify-between items-center'>
+      <h1 className='text-2xl font-semibold text-black font-costar'>
         KafkaTrace
       </h1>
       
