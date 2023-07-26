@@ -75,30 +75,6 @@ const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
     <main className='flex-grow container mx-auto p-4 space-y-4 max-w-3xl'>
       {children}
     </main>
-{/* 
-    <footer className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
-      <nav className='space-x-4'>
-        <Link href='/contact-us'>
-          <a className='hover:text-gray-300 transition duration-150'>
-            Contact Us
-          </a>
-        </Link>
-        <Link href='/about'>
-          <a className='hover:text-gray-300 transition duration-150'>About</a>
-        </Link>
-        <Link href='/privacy'>
-          <a className='hover:text-gray-300 transition duration-150'>
-            Privacy Policy
-          </a>
-        </Link>
-        <Link href='/terms'>
-          <a className='hover:text-gray-300 transition duration-150'>
-            Terms & Conditions
-          </a>
-        </Link>
-      </nav>
-      <p className='text-lg'>© {new Date().getFullYear()} KafkaTrace</p>
-    </footer> */}
   </div>
 );
 
