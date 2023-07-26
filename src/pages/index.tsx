@@ -9,7 +9,7 @@ export default function Root() {
   return (
     <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
       <Navbar />
-      <main className='container mx-auto py-12'>
+      <main className='mx-auto py-12'>
         <Hero />
         <InstallComponent />
         <CodeSnippet />
@@ -41,26 +41,30 @@ const codeStyles: React.CSSProperties = {
 };
 
 const Navbar = () => (
-  <nav className='fixed top-0 w-full z-50 p-6 bg-#fbfbfb backdrop-saturate-200'>
-    <div className='container mx-auto flex justify-between items-center'>
-      <h1 className='text-2xl text-black'>
+  <nav className='fixed top-0 w-full z-50 p-2 px-8 bg-white backdrop-saturate-200 shadow'>
+    <div className='mx-auto flex justify-between items-center'>
+      
+      <h1 className='text-2xl font-semibold text-black font-costar'>
         KafkaTrace
       </h1>
+      
       <div className='space-x-4'>
         <LinkButton href='/about'>Medium</LinkButton>
-        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>npm</LinkButton>
+        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>NPM</LinkButton>
         <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>Github</LinkButton>
         <LoginButton href='/login'>Login</LoginButton>
         <SignupButton href='/register'>Sign Up</SignupButton>
       </div>
+      
     </div>
   </nav>
 );
 interface hrefChildrenType {href: string, children: string}
+
 const LoginButton = ({ href, children }: hrefChildrenType) => (
   <Link href={href}>
     <a
-      className={`px-6 py-2 rounded-full border-2 border-black bg-gradient-to-r from-#fbfbfb-500 to-#fbfbfb-700 hover:from-#fbfbfb-400 hover:to-gray-600 text-black shadow-md transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-#fbfbfb-600 ${commonStyling.button}`}>
+      className="px-2 py-1 border-2 border-grey text-black hover:bg-neutral-100">
       {children}
     </a>
   </Link>
@@ -118,7 +122,7 @@ const PrimaryButton = ({ href, children }:hrefChildrenType) => (
 const SignupButton = ({ href, children }:hrefChildrenType) => (
   <Link href={href}>
     <a
-      className={`px-6 py-2 rounded-full border-2 border-black bg-gradient-to-r from-#fbfbfb-500 to-#fbfbfb-700 hover:from-#fbfbfb-400 hover:to-gray-600 text-black shadow-md transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-#fbfbfb-600 ${commonStyling.button}`}>
+      className="px-2 py-1 border-2 border-grey text-black hover:bg-neutral-100">
       {children}
     </a>
   </Link>
@@ -139,47 +143,16 @@ const InstallComponent = () => {
   return (
     <div className='mt-8 flex justify-center p-4 from-black to-white-500 hover:from-black hover:to-white-400 hover:scale-105 duration-300 ease-in-out'>
       <div className='flex'>
-      <pre className='p-4 bg-gray-800 text-white border-white-500 border-l-4 pl-4'>
+      <pre className='p-4 bg-gray-800 text-white border-neutral-500 border-l-4 pl-4 rounded-lg'>
         <code className='language-javascript'>npm install kafkatrace</code>
       </pre>
       </div>
       <div className='flex'>
       <button
         onClick={handleCopy}
-        className={`flex items-center mt-2 md:mt-0 md:ml-4 space-x-2  ${
+        className={`flex items-center mt-2 md:mt-0 md:ml-4 space-x-2 rounded-md ${
           copied ? 'bg-#fbfbfb' : commonStyling.button // Change background color when copied
         }`}>
-        {copied ? (
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='16'
-            height='16'
-            fill='currentColor'
-            className='bi bi-check animate-pulse'
-            viewBox='0 0 16 16'>
-            <path
-              fillRule='evenodd'
-              d='M3.28 9.97a.5.5 0 0 1 .05-.7l4.08-3.07a.5.5 0 0 1 .63 0l3.5 2.5a.5.5 0 0 1 .18.67l-1.5 2a.5.5 0 0 1-.66.16L7.5 9.2l-2.53 1.9a.5.5 0 0 1-.69-.23z'
-            />
-          </svg>
-        ) : (
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='16'
-            height='16'
-            fill='currentColor'
-            className='bi bi-clipboard'
-            viewBox='0 0 16 16'>
-            <path
-              fillRule='evenodd'
-              d='M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3 3a1 1 0 0 1 1 1v1h2V4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1h2V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1z'
-            />
-            <path
-              fillRule='evenodd'
-              d='M5 2h6a1 1 0 0 1 1 1v1H4V3a1 1 0 0 1 1-1zm6 2H5a1 1 0 0 0-1 1v1h8V5a1 1 0 0 0-1-1zm0 3H5a1 1 0 0 1-1-1v1h8V9a1 1 0 0 1-1-1zm-1 3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9h4v4z'
-            />
-          </svg>
-        )}
         <span className='text-black text-sm'>
           {copied ? 'Copied to clipboard' : 'Copy'}
         </span>
@@ -199,12 +172,13 @@ const TerminalHeader = ({ className = '' }: any) => (
 );
 
 const CodeSnippet = () => (
-  <div className='p-4 max-w-lg mx-auto my-8 shadow-inner bg-white hover:from-gray-600 hover:to-white-400 transition-transform transform hover:scale-105 duration-300 ease-in-out relative'>
+  <div className='p-4 max-w-lg mx-auto my-8 shadow-inner rounded-lg bg-white hover:from-gray-600 hover:to-white-400 transition-transform transform hover:scale-105 duration-300 ease-in-out relative'>
     <TerminalHeader className='mb-2' />
     <pre style = {codeStyles}>
       <code className='language-javascript'>
         {`import { composer } from 'kafkatrace';
 composer();
+
 import { tracer } from 'kafkatrace';
 tracer('[Service Name]');
 `}
@@ -214,22 +188,22 @@ tracer('[Service Name]');
 );
 
 const Features = () => (
-  <section className='py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+  <section className='py-16 px-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
     {[
       {
         icon: '⚡',
-        title: 'Lightweight',
-        description: 'Instant, hot module reloading.',
+        title: 'Easy and Quick',
+        description: 'Easy to Install and Quick To Implement. Get Started Effortlessly',
       },
       {
         icon: '📦',
-        title: 'Extensive Integrations',
-        description: 'Effortless integration with myriad technologies.',
+        title: 'All-in-One',
+        description: 'Modern Dashboard Integration with Kafka Clients.',
       },
       {
         icon: '🔒',
-        title: 'Top-notch Security',
-        description: 'Protecting your data with industry-best practices.',
+        title: 'Trace In Seconds and Safely',
+        description: 'Open Authentication for Users to View Their Traces Privately',
       },
     ].map((feature, index) => (
       <FeatureBlock key={index} {...feature} />

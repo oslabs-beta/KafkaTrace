@@ -18,7 +18,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name='description' content='An application for ...' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
       <Component {...pageProps} />
     </SessionProvider>
   );

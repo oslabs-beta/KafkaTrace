@@ -5,9 +5,11 @@ import Link from 'next/link';
 const Layout = (props: PropsWithChildren) => {
   return (
     <div className='layout min-h-screen flex flex-col bg-#fbfbfb text-black'>
-      <header className='text-black p-4 text-left shadow-md'>
-      <Link href='/'><a className='text-3xl text-black'>KafkaTrace</a></Link>
-      </header>
+      <header className='fixed top-0 w-full z-50 p-2 px-8 bg-white backdrop-saturate-200 shadow'>
+    <Link href='/'><a className='text-2xl font-semibold text-black font-costar'>KafkaTrace</a></Link>
+      <nav className='space-x-4'>
+      </nav>
+    </header>
 
       <main className='flex-grow container mx-auto p-4 space-y-4'>
         {props.children}

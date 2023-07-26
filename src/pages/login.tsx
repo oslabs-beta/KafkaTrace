@@ -9,20 +9,19 @@ import Image from 'next/image';
 import login_validate from '../server/lib/validate';
 
 const Layout = ({ children }:any) => (
-  <div className='layout min-h-screen flex flex-col bg-#fbfbfb text-black'>
+  <>
     {/* Header */}
-    <header className='flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur'>
-    <Link href='/'><a className='text-3xl text-black'>KafkaTrace</a></Link>
+    <header className='fixed top-0 w-full z-50 p-2 px-8 bg-white backdrop-saturate-200 shadow'>
+    <Link href='/'><a className='text-2xl font-semibold text-black font-costar'>KafkaTrace</a></Link>
       <nav className='space-x-4'>
       </nav>
     </header>
 
     {/* Main content */}
-    <main className='flex-grow container mx-auto p-4 space-y-4 max-w-3xl'>
+    <main className='flex-grow container mt-32 mx-auto p-4 space-y-4 max-w-3xl'>
       {children}
     </main>
-
-  </div>
+  </>
 );
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -61,8 +60,8 @@ const Login = () => {
       <Head>
         <title>Login</title>
       </Head>
-      <section className='p-6 m-10 rounded-lg shadow-lg text-center space-y-6 bg-#fbfbfb'>
-        <h1 className='text-4xl font-bold mb-6 text-gradient bg-#fbfbfb font-heading'>
+      <section className='p-6 m-10 rounded-lg shadow-lg text-center space-y-6'>
+        <h1 className='text-4xl text-black font-bold mb-6 text-gradient font-heading'>
           Login
         </h1>
         <p className='text-xl text-black mb-5 font-mono'>
@@ -74,7 +73,7 @@ const Login = () => {
             placeholder='Email'
             showError={formik.errors.email && formik.touched.email}
             {...formik.getFieldProps('email')}
-            className='p-4 w-full text-black tracking-tight bg-#fbfbfb placeholder-gray outline-none border border-primary rounded-lg focus:border-indigo-500 transition duration-200'
+            className='p-4 w-full text-black tracking-tight placeholder-gray outline-none border border-primary rounded-lg focus:border-indigo-500 transition duration-200'
           />
           <InputGroup
             type={show ? 'text' : 'password'}
@@ -82,25 +81,25 @@ const Login = () => {
             showError={formik.errors.password && formik.touched.password}
             {...formik.getFieldProps('password')}
             onClick={() => setShow(!show)}
-            className='p-4 w-full text-black tracking-tight bg-#fbfbfb placeholder-gray outline-none border border-primary focus:border-indigo-500 transition duration-200'
+            className='p-4 w-full text-black tracking-tight placeholder-gray outline-none border border-primary focus:border-indigo-500 transition duration-200'
           />
           <button
             type='submit'
-            className='btn btn-primary btn-active w-full mb-2 text-black hover:bg-gray-700 bg-#fbfbfb'>
+            className='btn btn-primary btn-active w-full mb-2 hover:bg-gray-700'>
             Login
           </button>
           <div className='flex justify-center space-x-4 mt-4'>
             <ProviderButton
               onClick={() => handleProviderSignin('google')}
               iconPath='/assets/google.svg'
-              className='py-2 px-4 bg-#fbfbfb text-black font-semibold shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+              className='shrink py-2 px-4 font-semibold shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
               Sign In with Google
             </ProviderButton>
 
             <ProviderButton
               onClick={() => handleProviderSignin('github')}
               iconPath='/assets/github.svg'
-              className='py-2 px-4 bg-#fbfbfb text-black font-semibold shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+              className='shrink py-2 px-4 font-semibold shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
               Sign In with Github
             </ProviderButton>
           </div>
@@ -108,7 +107,7 @@ const Login = () => {
         <p className='text-sm text-black mt-5'>
           Don&apos;t have an account yet?{' '}
           <Link href={'/register'}>
-            <a className='text-black hover:underline'>Sign Up</a>
+            <a className='text-blue-400 hover:underline'>Sign Up</a>
           </Link>
         </p>
       </section>
@@ -137,7 +136,7 @@ const InputGroup: React.FC<InputGroupProps>  = ({
 }) => {
   return (
     <div className={`input-group ${showError ? 'border-red-500' : ''}`}>
-      <span className='input-icon'>{icon}</span>
+      <span className='bg-neutral-500'>{icon}</span>
       <input
         type={type}
         name={name}
@@ -161,7 +160,7 @@ const ProviderButton: React.FC<ProviderButtonProps> = ({ onClick, iconPath, chil
     <button
       type='button'
       onClick={onClick}
-      className={`${className} btn btn-primary btn-active w-half bg-#fbfbfb hover:to-gray-700`}>
+      className={`${className} btn btn-primary btn-active w-half hover:to-gray-700`}>
       
       <div style={{ backgroundColor: '#fbfbfb', borderRadius: '50%', display: 'inline-block' }}>
       <Image

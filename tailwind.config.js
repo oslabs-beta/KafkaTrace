@@ -31,11 +31,8 @@ module.exports = {
           success: '#31c489',
           warning: '#b87b0a',
           error: '#ed5a66',
-          swag: '#F5F5F5',
         },
       },
-      'light',
-      'dark',
     ],
   },
 };
