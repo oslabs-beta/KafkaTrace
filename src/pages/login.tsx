@@ -50,7 +50,7 @@ const Login = () => {
   };
 
   const handleProviderSignin = (provider: string) => {
-    signIn(provider, { callbackUrl: 'http://localhost:3000/home' });
+    signIn(provider, { callbackUrl: '/home' });
   };
 
   return (
