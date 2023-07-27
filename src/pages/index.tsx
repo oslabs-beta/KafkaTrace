@@ -1,28 +1,89 @@
 import React, { PropsWithChildren } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import 'prismjs/themes/prism-tomorrow.css';
-import Prism from 'prismjs';
+// import 'prismjs/themes/prism-tomorrow.css';
+// import Prism from 'prismjs';
 import { useState, useCallback } from 'react'; 
-import type { Container, Engine } from "tsparticles-engine";
-import Particles from "react-particles";
-import { loadSlim } from "tsparticles-slim"; 
+import type { Container, Engine } from 'tsparticles-engine';
+import Particles from 'react-particles';
+import { loadSlim } from 'tsparticles-slim';
+import gif from '../../public/assets/demo-vid.gif';
 
 
 
 export default function Root() {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-}, []);
-
-const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    await console.log(container);
-}, []);
   return (
-    <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
+    <div className='m-0 min-h-screen'>
       <Navbar />
       <main className='mx-auto py-12'>
-      <Particles
+        <ReactParticles />
+        <Hero />
+        <InstallComponent />
+        <CodeSnippet/>
+        <DemoGif />
+        <Features />
+        <Teams />
+      </main>
+    </div>
+  );
+}
+const commonStyling = {
+  button:
+    'bg-#fbfbfb hover:from-gray-600 hover:to-#fbfbfb-400 active:from-#fbfbfb-600 text-black px-8 py-3 rounded-none shadow-2xl transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800',
+  sectionTitle: 'text-4xl font-bold mb-6 text-black bg-#fbfbfb',
+  sectionSubtitle: 'text-xl mb-8',
+  professionalFont: 'font-mono',
+  futuristicFont: 'font-heading',
+  teal: 'text-#fbfbfb-500',
+  white: 'text-black',
+};
+
+const codeStyles: React.CSSProperties = {
+  backgroundColor: '#1f2937',
+  color: 'white',
+  padding: '16px',
+  borderRadius: '8px',
+  overflowX: 'scroll',
+  // Add other styles from the Prism theme as you see fit...
+};
+
+const Navbar = () => (
+  <nav className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
+    <div className='mx-auto flex justify-between items-center'>
+      <h1 className='text-2xl font-semibold text-black font-costar'>
+        KafkaTrace
+      </h1>
+
+      <div className='space-x-4'>
+        <LinkButton href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae'>Medium</LinkButton>
+        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
+          NPM
+        </LinkButton>
+        <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>
+          Github
+        </LinkButton>
+        <LoginButton href='/login'>Login</LoginButton>
+        <SignupButton href='/register'>Sign Up</SignupButton>
+      </div>
+    </div>
+  </nav>
+);
+interface hrefChildrenType {
+  href: string;
+  children: string;
+}
+
+const ReactParticles = () => {
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadSlim(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container: Container | undefined) => {
+      await console.log(container);
+  }, []);
+
+  return (
+    <Particles
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
@@ -152,6 +213,8 @@ const Navbar = () => (
 interface hrefChildrenType {
   href: string;
   children: string;
+=======
+  )
 }
 
 const LoginButton = ({ href, children }: hrefChildrenType) => (
@@ -227,16 +290,16 @@ const InstallComponent = () => {
   };
 
   return (
-    <div className='mt-16 flex justify-center p-4 from-black to-white-500'>
-      <div className='flex'>
-        <pre className='p-4 bg-gray-800 text-white border-neutral-500 border-l-4 pl-4 rounded-lg'>
+    <div className='flex max-w-lg m-auto my-8 p-2 shadow-inner rounded-lg bg-white e-105 border-2'>
+      <div className='flex basis-3/4'>
+        <pre className='flex-1 p-4 mr-2 bg-gray-800 text-white border-neutral-500 rounded-lg'>
           <code className='language-javascript'>npm install kafkatrace</code>
         </pre>
       </div>
-      <div className='flex'>
+      <div className='flex m-auto'>
         <button
           onClick={handleCopy}
-          className={`flex items-center rounded-xl shadow-none border-2 mt-2 md:mt-0 md:ml-4 space-x-2 ${
+          className={`flex basis-1/4 m-auto rounded-xl shadow-none border-2 md:mt-0 md:ml-4 space-x-2 ${
             copied ? 'bg-#fbfbfb' : commonStyling.button // Change background color when copied
           }`}>
           <span className='font-akkurat text-[#575657]'>
@@ -262,18 +325,32 @@ const CodeSnippet = () => (
     <TerminalHeader className='mb-2' />
     <pre style={codeStyles}>
       <code className='language-javascript'>
-        {`import { composer } from 'kafkatrace';
-composer();
+        {`
+  // Import the following function and
+  // run the preconfigured Docker containers
+  import { composer } from 'kafkatrace';
+  composer();
 
-import { tracer } from 'kafkatrace';
-tracer('[Service Name]');
-`}
+  // Import the following function into each
+  // Kafka Client and run clients
+  import { tracer } from 'kafkatrace';
+  tracer('[Service Name]');
+        `}
       </code>
     </pre>
   </div>
 );
 
-//
+const DemoGif = () => (
+  <div className='flex justify-center'>
+    <Image
+      src={gif}
+      alt=''
+      className='scale-90 rounded-lg p-0'
+    />
+  </div>
+)
+
 const Features = () => (
   <section className='py-16 px-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
     {[
@@ -311,7 +388,7 @@ const FeatureBlock = ({ icon, title, description }: any) => (
 
 const Teams = () => (
   <section className='mt-20 py-16 text-gray-300'>
-    <h2 className='font-akkurat text-black text-4xl mb-16 ml-36'>Meet the team</h2>
+    <h2 className='font-akkurat text-black text-4xl mb-16 ml-36 font-black'>Meet the team</h2>
     <div className='container mx-auto px-4'>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
         {[

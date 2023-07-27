@@ -28,6 +28,9 @@ For more information, [visit our website](#).
 - Authentication for Google and GitHub OAuth.
 
 ## User Guide
+#### Prerequisites:
+You must have Docker Desktop installed and running!
+<br></br>	
 
 **IMPORTANT REMINDER**: Make sure the Kafka Cluster you want to trace has a working producer and consumer client.
 
