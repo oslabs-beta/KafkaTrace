@@ -3,102 +3,103 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
-import { useState, useCallback } from 'react'; 
-import type { Container, Engine } from "tsparticles-engine";
-import Particles from "react-particles";
-import { loadSlim } from "tsparticles-slim"; 
-
-
+import { useState, useCallback } from 'react';
+import type { Container, Engine } from 'tsparticles-engine';
+import Particles from 'react-particles';
+import { loadSlim } from 'tsparticles-slim';
 
 export default function Root() {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
-}, []);
+  }, []);
 
-const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    await console.log(container);
-}, []);
+  const particlesLoaded = useCallback(
+    async (container: Container | undefined) => {
+      await console.log(container);
+    },
+    []
+  );
   return (
     <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
       <Navbar />
       <main className='mx-auto py-12'>
-      <Particles
-      id="tsparticles"
-      init={particlesInit}
-      loaded={particlesLoaded}
-      options={{
-          background: {
+        <Particles
+          id='tsparticles'
+          init={particlesInit}
+          loaded={particlesLoaded}
+          options={{
+            background: {
               color: {
-                  value: '#1f2937',
+                value: '#1f2937',
               },
-          },
-          fpsLimit: 120,
-          interactivity: {
+            },
+            fpsLimit: 120,
+            interactivity: {
               events: {
-                  onClick: {
-                      enable: true,
-                      mode: "push",
-                  },
-                  onHover: {
-                      enable: true,
-                      mode: "repulse",
-                  },
-                  resize: true,
+                onClick: {
+                  enable: true,
+                  mode: 'push',
+                },
+                onHover: {
+                  enable: true,
+                  mode: 'repulse',
+                },
+                resize: true,
               },
               modes: {
-                  push: {
-                      quantity: 4,
-                  },
-                  repulse: {
-                      distance: 200,
-                      duration: 0.4,
-                  },
+                push: {
+                  quantity: 4,
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
+                },
               },
-          },
-          particles: {
+            },
+            particles: {
               color: {
-                  value: "#ffffff",
+                value: '#ffffff',
               },
               links: {
-                  color: "#ffffff",
-                  distance: 150,
-                  enable: true,
-                  opacity: 0.5,
-                  width: 1,
+                color: '#ffffff',
+                distance: 150,
+                enable: true,
+                opacity: 0.5,
+                width: 1,
               },
               move: {
-                  direction: "none",
-                  enable: true,
-                  outModes: {
-                      default: "bounce",
-                  },
-                  random: false,
-                  speed: 2.5,
-                  straight: false,
+                direction: 'none',
+                enable: true,
+                outModes: {
+                  default: 'bounce',
+                },
+                random: false,
+                speed: 2.5,
+                straight: false,
               },
               number: {
-                  density: {
-                      enable: true,
-                      area: 800,
-                  },
-                  value: 80,
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+                value: 80,
               },
               opacity: {
-                  value: 0.5,
+                value: 0.5,
               },
               shape: {
-                  type: "circle",
+                type: 'circle',
               },
               size: {
-                  value: { min: 1, max: 5 },
+                value: { min: 1, max: 5 },
               },
-          },
-          detectRetina: true,
-          fullScreen: { 
-            enable: false,
-          }
-      }}
-    />
+            },
+            detectRetina: true,
+            fullScreen: {
+              enable: false,
+            },
+          }}
+        />
         <Hero />
         <InstallComponent />
         <CodeSnippet />
@@ -136,7 +137,9 @@ const Navbar = () => (
       </h1>
 
       <div className='space-x-4'>
-        <LinkButton href='/about'>Medium</LinkButton>
+        <LinkButton href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae'>
+          Medium
+        </LinkButton>
         <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
           NPM
         </LinkButton>
@@ -170,32 +173,27 @@ const LinkButton = ({ href, children }: hrefChildrenType) => (
   </Link>
 );
 
-
 const Hero = () => {
-
-  return (  
-    
+  return (
     <section className='bg-opacity-0 relative text-center py-32 text-white overflow-hidden'>
-    
-    <div className='transform transition-transform hover:text-decot'>
-      <h2 className='text-5xl font-akkurat font-bold mb-4 duration-700'>
-        Welcome to{' '}
-        <span className='bg-clip-text font-akkurat text-white bg-gradient-to-r from-#fbfbfb-600 to-#fbfbfb-400 hover:from-#fbfbfb-500 hover:to-#fbfbfb-700'>
-          KafkaTrace
-        </span>
-      </h2>
-      <p className='text-2xl font-akkurat font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
-        Revolutionary Kafka monitoring for the future.
-      </p>
-      <div className='transform transition-transform duration-700 hover:scale-110'>
-        <PrimaryButton href='https://www.npmjs.com/package/kafkatrace'>
-          Begin Journey
-        </PrimaryButton>
+      <div className='transform transition-transform hover:text-decot'>
+        <h2 className='text-5xl font-akkurat font-bold mb-4 duration-700'>
+          Welcome to{' '}
+          <span className='bg-clip-text font-akkurat text-white bg-gradient-to-r from-#fbfbfb-600 to-#fbfbfb-400 hover:from-#fbfbfb-500 hover:to-#fbfbfb-700'>
+            KafkaTrace
+          </span>
+        </h2>
+        <p className='text-2xl font-akkurat font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
+          Revolutionary Kafka monitoring for the future.
+        </p>
+        <div className='transform transition-transform duration-700 hover:scale-110'>
+          <PrimaryButton href='https://www.npmjs.com/package/kafkatrace'>
+            Begin Journey
+          </PrimaryButton>
+        </div>
       </div>
-    </div>
-  </section>
-  
-  )
+    </section>
+  );
 };
 
 const PrimaryButton = ({ href, children }: hrefChildrenType) => (
@@ -301,8 +299,7 @@ const Features = () => (
 );
 
 const FeatureBlock = ({ icon, title, description }: any) => (
-  <div
-    className='font-akkurat text-black p-8 border-2 shadow-none transition duration-300 ease-in-out transform hover:scale-105'>
+  <div className='font-akkurat text-black p-8 border-2 shadow-none transition duration-300 ease-in-out transform hover:scale-105'>
     <div className='text-6xl mb-8'>{icon}</div>
     <h3 className='text-3xl mb-6 font-bold'>{title}</h3>
     <p className='text-lg'>{description}</p>
@@ -311,7 +308,9 @@ const FeatureBlock = ({ icon, title, description }: any) => (
 
 const Teams = () => (
   <section className='mt-20 py-16 text-gray-300'>
-    <h2 className='font-akkurat text-black text-4xl mb-16 ml-36'>Meet the team</h2>
+    <h2 className='font-akkurat text-black text-4xl mb-16 ml-36'>
+      Meet the team
+    </h2>
     <div className='container mx-auto px-4'>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
         {[
@@ -381,7 +380,7 @@ const LinkedInButton = ({ linkedin }: any) => (
 );
 const TeamMember = ({ img, name, role, github, linkedin }: any) => (
   <div className='group flex flex-col items-center p-6'>
-      <h3 className='text-2xl font-bold mb-4 font-akkurat text-black'>{name}</h3>
+    <h3 className='text-2xl font-bold mb-4 font-akkurat text-black'>{name}</h3>
     <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full'>
       <Image
         src={img}
