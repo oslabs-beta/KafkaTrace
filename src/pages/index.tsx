@@ -296,20 +296,20 @@ const Features = () => (
     {[
       {
         icon: '⚡',
-        title: 'Easy and Quick',
+        title: 'Quick and Easy',
         description:
-          'Easy to Install and Quick To Implement. Get Started Effortlessly',
+          'Quick to Install and Easy To Implement. Get Started Effortlessly',
       },
       {
         icon: '📦',
-        title: 'All-in-One',
-        description: 'Modern Dashboard Integration with Kafka Clients.',
+        title: 'All-In-One',
+        description: 'Modern Dashboard to Display Kafka Client Instrumentation',
       },
-      {
-        icon: '👀',
-        title: 'Trace In Seconds',
+      { 
+        icon: '💻',
+        title: 'Privately Hosted',
         description:
-          'Open Authentication for Users to View Their Traces Privately',
+          'Integration With Your Local Directory After Sign In',
       },
     ].map((feature, index) => (
       <FeatureBlock key={index} {...feature} />
