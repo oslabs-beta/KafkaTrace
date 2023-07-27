@@ -3,121 +3,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
-import { useState } from 'react'; // Import the useState hook
-import { useCallback } from "react";
+import { useState, useCallback } from 'react'; 
 import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-particles";
-//import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
+import { loadSlim } from "tsparticles-slim"; 
 
 
 
 export default function Root() {
-  return (
-    <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
-      <Navbar />
-      <main className='mx-auto py-12'>
-        <Hero />
-        <InstallComponent />
-        <CodeSnippet />
-        <Features />
-        <Teams />
-      </main>
-    </div>
-  );
-}
-const commonStyling = {
-  button:
-    'bg-#fbfbfb hover:from-gray-600 hover:to-#fbfbfb-400 active:from-#fbfbfb-600 text-black px-8 py-3 rounded-none shadow-2xl transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800',
-  sectionTitle: 'text-4xl font-bold mb-6 text-black bg-#fbfbfb',
-  sectionSubtitle: 'text-xl mb-8',
-  professionalFont: 'font-mono',
-  futuristicFont: 'font-heading',
-  teal: 'text-#fbfbfb-500',
-  white: 'text-black',
-};
-
-const codeStyles: React.CSSProperties = {
-  backgroundColor: '#1f2937',
-  color: 'black',
-  padding: '16px',
-  borderRadius: '8px',
-  overflowX: 'scroll',
-  // Add other styles from the Prism theme as you see fit...
-};
-
-const Navbar = () => (
-  // flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur
-  // fixed top-0 w-full z-50 p-6 bg-#fbfbfb backdrop-saturate-200
-  <nav className='fixed top-0 w-full z-50 p-2 px-8 bg-white backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
-    <div className='mx-auto flex justify-between items-center'>
-      <h1 className='text-2xl font-semibold text-black font-costar'>
-        KafkaTrace
-      </h1>
-
-      <div className='space-x-4'>
-        <LinkButton href='/about'>Medium</LinkButton>
-        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
-          NPM
-        </LinkButton>
-        <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>
-          Github
-        </LinkButton>
-        <LoginButton href='/login'>Login</LoginButton>
-        <SignupButton href='/register'>Sign Up</SignupButton>
-      </div>
-    </div>
-  </nav>
-);
-interface hrefChildrenType {
-  href: string;
-  children: string;
-}
-
-const LoginButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg text-black hover:bg-neutral-100'>
-      {children}
-    </a>
-  </Link>
-);
-
-const LinkButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='text-black hover:text-#fbfbfb-400 transition duration-200'>
-      {children}
-    </a>
-  </Link>
-);
-
-
-const Hero = () => {
-
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
-
-    // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    //await loadFull(engine);
     await loadSlim(engine);
 }, []);
 
 const particlesLoaded = useCallback(async (container: Container | undefined) => {
     await console.log(container);
 }, []);
-
-  return (  
-    <>
-    <Particles
+  return (
+    <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
+      <Navbar />
+      <main className='mx-auto py-12'>
+      <Particles
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
-      height="50vh"
       options={{
           background: {
               color: {
-                  value: "#000000",
+                  value: '#1f2937',
               },
           },
           fpsLimit: 120,
@@ -161,7 +73,7 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
                       default: "bounce",
                   },
                   random: false,
-                  speed: 6,
+                  speed: 2.5,
                   straight: false,
               },
               number: {
@@ -187,19 +99,94 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
           }
       }}
     />
-    <section className='bg-indigo-500 relative text-center py-32 text-black overflow-hidden'>
+        <Hero />
+        <InstallComponent />
+        <CodeSnippet />
+        <Features />
+        <Teams />
+      </main>
+    </div>
+  );
+}
+const commonStyling = {
+  button:
+    'bg-#fbfbfb hover:from-gray-600 hover:to-#fbfbfb-400 active:from-#fbfbfb-600 text-black px-8 py-3 rounded-none shadow-2xl transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800',
+  sectionTitle: 'text-4xl font-bold mb-6 text-black bg-#fbfbfb',
+  sectionSubtitle: 'text-xl mb-8',
+  professionalFont: 'font-mono',
+  futuristicFont: 'font-heading',
+  teal: 'text-#fbfbfb-500',
+  white: 'text-black',
+};
+
+const codeStyles: React.CSSProperties = {
+  backgroundColor: '#1f2937',
+  color: 'black',
+  padding: '16px',
+  borderRadius: '8px',
+  overflowX: 'scroll',
+  // Add other styles from the Prism theme as you see fit...
+};
+
+const Navbar = () => (
+  <nav className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
+    <div className='mx-auto flex justify-between items-center'>
+      <h1 className='text-2xl font-semibold text-black font-costar'>
+        KafkaTrace
+      </h1>
+
+      <div className='space-x-4'>
+        <LinkButton href='/about'>Medium</LinkButton>
+        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
+          NPM
+        </LinkButton>
+        <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>
+          Github
+        </LinkButton>
+        <LoginButton href='/login'>Login</LoginButton>
+        <SignupButton href='/register'>Sign Up</SignupButton>
+      </div>
+    </div>
+  </nav>
+);
+interface hrefChildrenType {
+  href: string;
+  children: string;
+}
+
+const LoginButton = ({ href, children }: hrefChildrenType) => (
+  <Link href={href}>
+    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
+      {children}
+    </a>
+  </Link>
+);
+
+const LinkButton = ({ href, children }: hrefChildrenType) => (
+  <Link href={href}>
+    <a className='font-akkurat text-[#575657] hover:text-#fbfbfb-400 transition duration-200'>
+      {children}
+    </a>
+  </Link>
+);
+
+
+const Hero = () => {
+
+  return (  
+    
+    <section className='bg-opacity-0 relative text-center py-32 text-white overflow-hidden'>
     
     <div className='transform transition-transform hover:text-decot'>
-      <h2 className='text-5xl font-bold mb-4 text-#fbfbfb-500 duration-700'>
+      <h2 className='text-5xl font-akkurat font-bold mb-4 duration-700'>
         Welcome to{' '}
-        <span className='bg-clip-text text-black bg-gradient-to-r from-#fbfbfb-600 to-#fbfbfb-400 hover:from-#fbfbfb-500 hover:to-#fbfbfb-700'>
+        <span className='bg-clip-text font-akkurat text-white bg-gradient-to-r from-#fbfbfb-600 to-#fbfbfb-400 hover:from-#fbfbfb-500 hover:to-#fbfbfb-700'>
           KafkaTrace
         </span>
       </h2>
-      <p className='text-2xl font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
+      <p className='text-2xl font-akkurat font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
         Revolutionary Kafka monitoring for the future.
       </p>
-      {/* Call-to-action button */}
       <div className='transform transition-transform duration-700 hover:scale-110'>
         <PrimaryButton href='https://www.npmjs.com/package/kafkatrace'>
           Begin Journey
@@ -207,21 +194,21 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
       </div>
     </div>
   </section>
-  </>
+  
   )
 };
 
 const PrimaryButton = ({ href, children }: hrefChildrenType) => (
   <a
     href={href}
-    className={`bg:#fbfbfb text-black px-8 py-3 rounded-xl shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
+    className={`font-akkurat border-white border text-white px-8 py-3 rounded-xl shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
     {children}
   </a>
 );
 
 const SignupButton = ({ href, children }: hrefChildrenType) => (
   <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg text-black hover:bg-neutral-100'>
+    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
       {children}
     </a>
   </Link>
@@ -240,7 +227,7 @@ const InstallComponent = () => {
   };
 
   return (
-    <div className='mt-8 flex justify-center p-4 from-black to-white-500 hover:from-black hover:to-white-400 hover:scale-105 duration-300 ease-in-out'>
+    <div className='mt-16 flex justify-center p-4 from-black to-white-500'>
       <div className='flex'>
         <pre className='p-4 bg-gray-800 text-white border-neutral-500 border-l-4 pl-4 rounded-lg'>
           <code className='language-javascript'>npm install kafkatrace</code>
@@ -249,10 +236,10 @@ const InstallComponent = () => {
       <div className='flex'>
         <button
           onClick={handleCopy}
-          className={`flex items-center mt-2 md:mt-0 md:ml-4 space-x-2 rounded-md ${
+          className={`flex items-center rounded-xl shadow-none border-2 mt-2 md:mt-0 md:ml-4 space-x-2 ${
             copied ? 'bg-#fbfbfb' : commonStyling.button // Change background color when copied
           }`}>
-          <span className='text-black text-sm'>
+          <span className='font-akkurat text-[#575657]'>
             {copied ? 'Copied to clipboard' : 'Copy'}
           </span>
         </button>
@@ -271,7 +258,7 @@ const TerminalHeader = ({ className = '' }: any) => (
 );
 
 const CodeSnippet = () => (
-  <div className='p-4 max-w-lg mx-auto my-8 shadow-inner rounded-lg bg-white hover:from-gray-600 hover:to-white-400 transition-transform transform hover:scale-105 duration-300 ease-in-out relative'>
+  <div className='border-2 p-4 max-w-lg mx-auto my-8 shadow-inner rounded-lg bg-white e-105'>
     <TerminalHeader className='mb-2' />
     <pre style={codeStyles}>
       <code className='language-javascript'>
@@ -301,8 +288,8 @@ const Features = () => (
         description: 'Modern Dashboard Integration with Kafka Clients.',
       },
       {
-        icon: '🔒',
-        title: 'Trace In Seconds and Safely',
+        icon: '👀',
+        title: 'Trace In Seconds',
         description:
           'Open Authentication for Users to View Their Traces Privately',
       },
@@ -314,15 +301,16 @@ const Features = () => (
 
 const FeatureBlock = ({ icon, title, description }: any) => (
   <div
-    className={`p-8 rounded-lg shadow-sm bg-#fbfbfb transition duration-300 ease-in-out transform hover:scale-105 ${commonStyling.button}`}>
-    <div className='text-6xl mb-8 text-black-300'>{icon}</div>
-    <h3 className='text-3xl mb-6 font-bold text-black-300'>{title}</h3>
-    <p className='text-lg text-black-400'>{description}</p>
+    className='font-akkurat text-black p-8 border-2 shadow-none transition duration-300 ease-in-out transform hover:scale-105'>
+    <div className='text-6xl mb-8'>{icon}</div>
+    <h3 className='text-3xl mb-6 font-bold'>{title}</h3>
+    <p className='text-lg'>{description}</p>
   </div>
 );
 
 const Teams = () => (
-  <section className='py-16 bg-#fbfbfb from-black to-#fbfbfb-700 text-gray-300'>
+  <section className='mt-20 py-16 text-gray-300'>
+    <h2 className='font-akkurat text-black text-4xl mb-16 ml-36'>Meet the team</h2>
     <div className='container mx-auto px-4'>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
         {[
@@ -362,36 +350,18 @@ const Teams = () => (
   </section>
 );
 
-// TeamMember component
-// const TeamMember = ({ img, name, role }: any) => (
-//   <div className='group flex flex-col items-center p-6 shadow-md bg-#fbfbfb transform transition-transform duration-300 ease-in-out hover:scale-105'>
-//     <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full group-hover:rotate-6 transition-transform duration-300 ease-in-out'>
-//       <Image
-//         src={img}
-//         layout='fill'
-//         alt={`${name}, ${role}`}
-//         className='w-full h-full object-cover border-4 border-#fbfbfb-500 group-hover:rotate-[-6deg] transition-transform duration-300 shadow-lg'
-//       />
-//     </div>
-//     <h3 className='text-2xl font-bold mb-4 text-black'>{name}</h3>
-//     <p className='text-lg text-black'>{role}</p>
-//   </div>
-// );
-
 const GitHubButton = ({ github }: any) => (
   <a
     href={github}
     target='_blank'
     rel='noopener noreferrer'
-    className='inline-flex items-center bg-white border-2 border-gray-300 text-gray-800 p-3 px-6 rounded-lg shadow-lg transform transition-transform hover:bg-gray-100 duration-300 ease-in-out relative font-semibold hover:border-gray-400'>
+    className='text-gray-800'>
     <svg
-      xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6 mr-2'
+      className='h-10 w-10 my-2 mx-4'
       viewBox='0 0 24 24'
       fill='currentColor'>
-      <path d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.308.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.91-.015 3.3 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'></path>
+      <path d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'></path>
     </svg>
-    GitHub
   </a>
 );
 const LinkedInButton = ({ linkedin }: any) => (
@@ -399,30 +369,30 @@ const LinkedInButton = ({ linkedin }: any) => (
     href={linkedin}
     target='_blank'
     rel='noopener noreferrer'
-    className='inline-flex items-center bg-white border-2 border-gray-300 text-gray-800 p-3 px-6 mt-4 rounded-lg shadow-lg transform transition-transform hover:bg-gray-100 duration-300 ease-in-out relative font-semibold hover:border-gray-400'>
+    className='text-gray-800'>
     <svg
-      xmlns='http://www.w3.org/2000/svg'
-      className='h-6 w-6 mr-2'
+      className='h-10 w-10 my-2 mx-4'
       viewBox='0 0 24 24'
       fill='currentColor'>
-      <path d='M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H6V9h2v10zM7 8H7c-0.55 0-1-0.45-1-1s0.45-1 1-1s1 0.45 1 1S7.55 8 7 8zM18 19h-2v-4c0-1.1-0.9-2-2-2s-2 0.9-2 2v4h-2V9h2v2c0.41-0.75 1.46-1.5 2.5-1.5s2.09 0.74 2.5 1.5V9h2v10z'></path>
+      <path d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'></path>
     </svg>
-    LinkedIn
   </a>
 );
 const TeamMember = ({ img, name, role, github, linkedin }: any) => (
-  <div className='group flex flex-col items-center p-6 shadow-md bg-#fbfbfb transform transition-transform duration-300 ease-in-out hover:scale-105'>
-    <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full group-hover:rotate-6 transition-transform duration-300 ease-in-out'>
+  <div className='group flex flex-col items-center p-6'>
+      <h3 className='text-2xl font-bold mb-4 font-akkurat text-black'>{name}</h3>
+    <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full'>
       <Image
         src={img}
         layout='fill'
         alt={`${name}, ${role}`}
-        className='w-full h-full object-cover border-4 border-#fbfbfb-500 group-hover:rotate-[-6deg] transition-transform duration-300 shadow-lg'
+        className='w-full h-full object-cover border-4 transition-transform duration-300'
       />
     </div>
-    <h3 className='text-2xl font-bold mb-4 text-black'>{name}</h3>
-    <p className='text-lg text-black mb-4'>{role}</p>
-    <GitHubButton github={github} />
-    <LinkedInButton linkedin={linkedin} />
+    <p className='text-lg font-akkurat text-[#575657] mb-4'>{role}</p>
+    <div className='flex items-center'>
+      <GitHubButton github={github} />
+      <LinkedInButton linkedin={linkedin} />
+    </div>
   </div>
 );

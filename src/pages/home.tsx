@@ -51,22 +51,22 @@ const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
       <nav className='flex space-x-4'>
         <button
           onClick={() => setShowUI('http://localhost:16686')}
-          className='px-4 py-1 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          className='px-4 py-1 bg-blue-500 font-akkurat text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
           Jaeger UI
         </button>
         <button
           onClick={() => setShowUI('http://localhost:9411')}
-          className='px-4 py-1 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          className='px-4 py-1 bg-blue-500 font-akkurat text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
           Zipkin UI
         </button>
         <button
           onClick={() => setShowUI('http://localhost:9090')}
-          className='px-4 py-1 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
+          className='px-4 py-1 bg-blue-500 font-akkurat text-white rounded-lg shadow-md hover:bg-blue-600 border-2 border-blue-600 hover:scale-105 transition duration-200'>
           Prometheus
         </button>
         <button
           onClick={handleSignOut}
-          className='px-4 py-1 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 border-2 border-red-600 hover:scale-105 transition duration-200'>
+          className='px-4 py-1 bg-red-500 font-akkurat text-white rounded-lg shadow-md hover:bg-red-600 border-2 border-red-600 hover:scale-105 transition duration-200'>
           Sign Out
         </button>
       </nav>
@@ -81,10 +81,10 @@ const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
 function Guest() {
   return (
     <section className='p-6 m-10 rounded-lg shadow-lg text-center space-y-6 bg-gradient-to-r from-gray-700 to-teal-500'>
-      <h1 className='text-4xl font-bold mb-6 text-gradient bg-gradient-to-r from-gray-700 to-teal-500 font-heading'>
+      <h1 className='text-4xl font-akkurat text-[#575657] font-bold mb-6 text-gradient bg-gradient-to-r from-gray-700 to-teal-500 font-heading'>
         Welcome to KafkaTrace
       </h1>
-      <p className='text-xl text-white mb-5 font-mono'>
+      <p className='text-xl text-white mb-5 font-akkurat text-[#575657]'>
         Discover the power of distributed tracing!
       </p>
       <div>
@@ -102,13 +102,13 @@ function User({ session, showUI }: SessionProps) {
   return (
     <div className='w-full h-full'>
     <main className='flex flex-col items-center space-y-8'>
-      <h3 className='text-4xl text-blue-400'>
+      <h3 className='text-4xl text-blue-400 font-akkurat'>
         Welcome back, {session.user.name}!
       </h3>
       <div className='w-full max-w-md bg-gray-800 p-4 shadow-md rounded-lg'>
-        <h5 className='text-2xl text-blue-400'>User Information</h5>
-        <p className='text-m text-white'>Name: {session.user.name}</p>
-        <p className='text-m text-white'>Email: {session.user.email}</p>
+        <h5 className='text-2xl font-akkurat text-blue-400'>User Information</h5>
+        <p className='font-akkurat text-white'>Name: {session.user.name}</p>
+        <p className='font-akkurat text-white'>Email: {session.user.email}</p>
       </div>
 
       <iframe
