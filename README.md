@@ -50,6 +50,10 @@ You must have Docker Desktop installed and running!
     ```
 - **STEP 4**: Log in to the website and click on UI buttons.
 
+**Below is a demo of the 4 steps:**
+
+![demo-vid](https://github.com/oslabs-beta/KafkaTrace/assets/101201710/38c7a951-f58d-43a2-98fd-e7a348f83d94)
+
 ## Authors
 | Developed By |                                                                     Github                                                                      |                                                                   LinkedIn                                                                    |
 | :----------: | :---------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
