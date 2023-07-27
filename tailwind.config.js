@@ -1,20 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['{pages,src}/**/*.{js,ts,jsx,tsx}'],
-  // darkMode: 'media',
-  // important: true,
-  // theme: {
-  //   extend: {
-  //     gradients: {
-  //       // Define your gradients here
-  //       'gradient-name': ['color1', 'color2'],
-  //     },
-  //     colors: {
-  //       color1: '#...',
-  //       color2: '#...',
-  //     },
-  //   },
-  // },
+  theme: {
+    extend: {
+      fontFamily: {
+        akkurat: ['AkkuratPro', 'regular']
+      }
+    }
+  },
   plugins: [require('daisyui')],
   daisyui: {
     themes: [

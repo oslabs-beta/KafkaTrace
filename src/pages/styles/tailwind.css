@@ -1,3 +1,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@font-face {
+    font-family: "AkkuratPro";
+    src: url("../../../public/fonts/AkkuratPro-Regular.otf");
+}
+
+#tsparticles {
+    position: absolute;
+    z-index: 0;
+    height: 45%;
+    width: 100%;
+}

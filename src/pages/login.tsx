@@ -10,14 +10,12 @@ import login_validate from '../server/lib/validate';
 
 const Layout = ({ children }:any) => (
   <>
-    {/* Header */}
     <header className='fixed top-0 w-full z-50 p-2 px-8 bg-white backdrop-saturate-200 shadow'>
     <Link href='/'><a className='text-2xl font-semibold text-black font-costar'>KafkaTrace</a></Link>
       <nav className='space-x-4'>
       </nav>
     </header>
 
-    {/* Main content */}
     <main className='flex-grow container mt-32 mx-auto p-4 space-y-4 max-w-3xl'>
       {children}
     </main>
@@ -64,7 +62,7 @@ const Login = () => {
         <h1 className='text-4xl text-black font-bold mb-6 text-gradient font-heading'>
           Login
         </h1>
-        <p className='text-xl text-black mb-5 font-mono'>
+        <p className='text-xl mb-5 font-akkurat text-[#575657]'>
           You&apos;re one step away from tracing!
         </p>
         <form onSubmit={formik.handleSubmit} className='space-y-4'>
@@ -85,21 +83,21 @@ const Login = () => {
           />
           <button
             type='submit'
-            className='btn btn-primary btn-active w-full mb-2 hover:bg-gray-700'>
+            className='btn btn-primary btn-active w-full mb-2 hover:bg-gray-300'>
             Login
           </button>
           <div className='flex justify-center space-x-4 mt-4'>
             <ProviderButton
               onClick={() => handleProviderSignin('google')}
               iconPath='/assets/google.svg'
-              className='shrink py-2 px-4 font-semibold shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+              className='shrink py-2 px-4 font-semibold shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
               Sign In with Google
             </ProviderButton>
 
             <ProviderButton
               onClick={() => handleProviderSignin('github')}
               iconPath='/assets/github.svg'
-              className='shrink py-2 px-4 font-semibold shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+              className='shrink py-2 px-4 font-semibold shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
               Sign In with Github
             </ProviderButton>
           </div>
@@ -136,7 +134,6 @@ const InputGroup: React.FC<InputGroupProps>  = ({
 }) => {
   return (
     <div className={`input-group ${showError ? 'border-red-500' : ''}`}>
-      <span className='bg-neutral-500'>{icon}</span>
       <input
         type={type}
         name={name}
