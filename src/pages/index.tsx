@@ -11,25 +11,111 @@ import { loadSlim } from "tsparticles-slim";
 
 
 export default function Root() {
+  return (
+    <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
+      <Navbar />
+      <main className='mx-auto py-12'>
+        <Hero />
+        <InstallComponent />
+        <CodeSnippet />
+        <Features />
+        <Teams />
+      </main>
+    </div>
+  );
+}
+const commonStyling = {
+  button:
+    'bg-#fbfbfb hover:from-gray-600 hover:to-#fbfbfb-400 active:from-#fbfbfb-600 text-black px-8 py-3 rounded-none shadow-2xl transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800',
+  sectionTitle: 'text-4xl font-bold mb-6 text-black bg-#fbfbfb',
+  sectionSubtitle: 'text-xl mb-8',
+  professionalFont: 'font-mono',
+  futuristicFont: 'font-heading',
+  teal: 'text-#fbfbfb-500',
+  white: 'text-black',
+};
+
+const codeStyles: React.CSSProperties = {
+  backgroundColor: '#1f2937',
+  color: 'black',
+  padding: '16px',
+  borderRadius: '8px',
+  overflowX: 'scroll',
+  // Add other styles from the Prism theme as you see fit...
+};
+
+const Navbar = () => (
+  // flex items-center justify-between px-8 py-4 shadow-lg bg-opacity-90 backdrop-blur
+  // fixed top-0 w-full z-50 p-6 bg-#fbfbfb backdrop-saturate-200
+  <nav className='fixed top-0 w-full z-50 p-2 px-8 bg-white backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
+    <div className='mx-auto flex justify-between items-center'>
+      <h1 className='text-2xl font-semibold text-black font-costar'>
+        KafkaTrace
+      </h1>
+
+      <div className='space-x-4'>
+        <LinkButton href='/about'>Medium</LinkButton>
+        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
+          NPM
+        </LinkButton>
+        <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>
+          Github
+        </LinkButton>
+        <LoginButton href='/login'>Login</LoginButton>
+        <SignupButton href='/register'>Sign Up</SignupButton>
+      </div>
+    </div>
+  </nav>
+);
+interface hrefChildrenType {
+  href: string;
+  children: string;
+}
+
+const LoginButton = ({ href, children }: hrefChildrenType) => (
+  <Link href={href}>
+    <a className='px-2 py-1 border-2 border-grey rounded-lg text-black hover:bg-neutral-100'>
+      {children}
+    </a>
+  </Link>
+);
+
+const LinkButton = ({ href, children }: hrefChildrenType) => (
+  <Link href={href}>
+    <a className='text-black hover:text-#fbfbfb-400 transition duration-200'>
+      {children}
+    </a>
+  </Link>
+);
+
+
+const Hero = () => {
+
   const particlesInit = useCallback(async (engine: Engine) => {
+    console.log(engine);
+
+    // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    //await loadFull(engine);
     await loadSlim(engine);
 }, []);
 
 const particlesLoaded = useCallback(async (container: Container | undefined) => {
     await console.log(container);
 }, []);
-  return (
-    <div className='m-0 min-h-screen bg-#fbfbfb text-#fbfbfb-100'>
-      <Navbar />
-      <main className='mx-auto py-12'>
-      <Particles
+
+  return (  
+    <>
+    <Particles
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
+      height="50vh"
       options={{
           background: {
               color: {
-                  value: '#1f2937',
+                  value: "#000000",
               },
           },
           fpsLimit: 120,
@@ -73,7 +159,7 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
                       default: "bounce",
                   },
                   random: false,
-                  speed: 2.5,
+                  speed: 6,
                   straight: false,
               },
               number: {
@@ -99,92 +185,16 @@ const particlesLoaded = useCallback(async (container: Container | undefined) => 
           }
       }}
     />
-        <Hero />
-        <InstallComponent />
-        <CodeSnippet />
-        <Features />
-        <Teams />
-      </main>
-    </div>
-  );
-}
-const commonStyling = {
-  button:
-    'bg-#fbfbfb hover:from-gray-600 hover:to-#fbfbfb-400 active:from-#fbfbfb-600 text-black px-8 py-3 rounded-none shadow-2xl transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800',
-  sectionTitle: 'text-4xl font-bold mb-6 text-black bg-#fbfbfb',
-  sectionSubtitle: 'text-xl mb-8',
-  professionalFont: 'font-mono',
-  futuristicFont: 'font-heading',
-  teal: 'text-#fbfbfb-500',
-  white: 'text-black',
-};
-
-const codeStyles: React.CSSProperties = {
-  backgroundColor: '#1f2937',
-  color: 'black',
-  padding: '16px',
-  borderRadius: '8px',
-  overflowX: 'scroll',
-  // Add other styles from the Prism theme as you see fit...
-};
-
-const Navbar = () => (
-  <nav className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
-    <div className='mx-auto flex justify-between items-center'>
-      <h1 className='text-2xl font-semibold text-black font-costar'>
-        KafkaTrace
-      </h1>
-
-      <div className='space-x-4'>
-        <LinkButton href='/about'>Medium</LinkButton>
-        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
-          NPM
-        </LinkButton>
-        <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>
-          Github
-        </LinkButton>
-        <LoginButton href='/login'>Login</LoginButton>
-        <SignupButton href='/register'>Sign Up</SignupButton>
-      </div>
-    </div>
-  </nav>
-);
-interface hrefChildrenType {
-  href: string;
-  children: string;
-}
-
-const LoginButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-      {children}
-    </a>
-  </Link>
-);
-
-const LinkButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='font-akkurat text-[#575657] hover:text-#fbfbfb-400 transition duration-200'>
-      {children}
-    </a>
-  </Link>
-);
-
-
-const Hero = () => {
-
-  return (  
-    
-    <section className='bg-opacity-0 relative text-center py-32 text-white overflow-hidden'>
+    <section className='bg-indigo-500 relative text-center py-32 text-black overflow-hidden'>
     
     <div className='transform transition-transform hover:text-decot'>
-      <h2 className='text-5xl font-akkurat font-bold mb-4 duration-700'>
+      <h2 className='text-5xl font-bold mb-4 text-#fbfbfb-500 duration-700'>
         Welcome to{' '}
         <span className='bg-clip-text font-akkurat text-white bg-gradient-to-r from-#fbfbfb-600 to-#fbfbfb-400 hover:from-#fbfbfb-500 hover:to-#fbfbfb-700'>
           KafkaTrace
         </span>
       </h2>
-      <p className='text-2xl font-akkurat font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
+      <p className='text-2xl font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
         Revolutionary Kafka monitoring for the future.
       </p>
       <div className='transform transition-transform duration-700 hover:scale-110'>
@@ -194,21 +204,21 @@ const Hero = () => {
       </div>
     </div>
   </section>
-  
+  </>
   )
 };
 
 const PrimaryButton = ({ href, children }: hrefChildrenType) => (
   <a
     href={href}
-    className={`font-akkurat border-white border text-white px-8 py-3 rounded-xl shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
+    className={`bg:#fbfbfb text-black px-8 py-3 rounded-xl shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
     {children}
   </a>
 );
 
 const SignupButton = ({ href, children }: hrefChildrenType) => (
   <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
+    <a className='px-2 py-1 border-2 border-grey rounded-lg text-black hover:bg-neutral-100'>
       {children}
     </a>
   </Link>
