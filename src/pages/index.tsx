@@ -136,7 +136,7 @@ const Navbar = () => (
       </h1>
 
       <div className='space-x-4'>
-        <LinkButton href='/about'>Medium</LinkButton>
+        <LinkButton href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae'>Medium</LinkButton>
         <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
           NPM
         </LinkButton>
@@ -318,28 +318,28 @@ const Teams = () => (
           {
             name: 'Navdeep Simmak',
             role: 'Software Engineer',
-            img: '/assets/navi.jpeg',
+            img: '/assets/navdeep-swag.jpeg',
             github: 'https://github.com/NaviSimmak',
             linkedin: 'https://www.linkedin.com/in/navdeep-simmak/',
           },
           {
             name: 'Wai San Gu',
             role: 'Software Engineer',
-            img: '/assets/waisan.png',
+            img: '/assets/waisan-swag.jpeg',
             github: 'https://github.com/waisangu',
             linkedin: 'https://www.linkedin.com/in/waisangu/',
           },
           {
             name: 'Felix Chen',
             role: 'Software Engineer',
-            img: '/assets/felix.png',
+            img: '/assets/felix-swag.jpeg',
             github: 'https://github.com/flexzchen',
             linkedin: 'https://www.linkedin.com/in/felixzchen/',
           },
           {
             name: 'Alston Nguyen',
             role: 'Software Engineer',
-            img: '/assets/alston.png',
+            img: '/assets/alston-swag.jpeg',
             github: 'https://github.com/alstonnguyen',
             linkedin: 'https://www.linkedin.com/in/alston-s-nguyen/',
           },

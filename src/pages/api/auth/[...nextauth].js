@@ -17,6 +17,8 @@ export default NextAuth({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
+
+
     CredentialsProvider({
       name: 'Credentials',
       async authorize(credentials, req) {
