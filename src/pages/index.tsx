@@ -136,7 +136,7 @@ const Navbar = () => (
       </h1>
 
       <div className='space-x-4'>
-        <LinkButton href='/about'>Medium</LinkButton>
+        <LinkButton href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae'>Medium</LinkButton>
         <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
           NPM
         </LinkButton>
