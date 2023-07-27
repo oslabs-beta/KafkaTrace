@@ -54,6 +54,8 @@ You must have Docker Desktop installed and running!
 
 ![demo-vid](https://github.com/oslabs-beta/KafkaTrace/assets/101201710/38c7a951-f58d-43a2-98fd-e7a348f83d94)
 
+For an in-depth look at KafkaTrace and all its features, www.kafkatrace.com or the [Medium Article](https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae)
+
 ## Authors
 | Developed By |                                                                     Github                                                                      |                                                                   LinkedIn                                                                    |
 | :----------: | :---------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -65,9 +67,6 @@ You must have Docker Desktop installed and running!
 
 ## License
 Distributed under MIT License. See `LICENSE.txt` for more information.
-
-## Other Links
-Medium: [Link To Medium Article](https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae)
 
 [React.js]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
 [React-url]: https://reactjs.org/
