@@ -1,13 +1,33 @@
 import React, { PropsWithChildren } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-// import 'prismjs/themes/prism-tomorrow.css';
-// import Prism from 'prismjs';
 import { useState, useCallback } from 'react';
 import type { Container, Engine } from 'tsparticles-engine';
 import Particles from 'react-particles';
 import { loadSlim } from 'tsparticles-slim';
 import gif from '../../public/assets/demo-vid.gif';
+
+const commonStyling = {
+  button:
+    'px-8 py-3 rounded-none shadow-2xl',
+  sectionTitle: 'text-4xl font-bold mb-6 text-black',
+  sectionSubtitle: 'text-xl mb-8',
+  professionalFont: 'font-mono',
+  futuristicFont: 'font-heading',
+};
+
+const codeStyles: React.CSSProperties = {
+  backgroundColor: '#1f2937',
+  color: 'white',
+  padding: '16px',
+  borderRadius: '8px',
+  overflowX: 'scroll',
+};
+
+interface hrefChildrenType {
+  href: string;
+  children: string;
+};
 
 export default function Root() {
   return (
@@ -15,7 +35,7 @@ export default function Root() {
       <Navbar />
       <main className='mx-auto py-12'>
         <ReactParticles />
-        <Hero />
+        <MainBanner />
         <InstallComponent />
         <CodeSnippet />
         <DemoGif />
@@ -25,25 +45,6 @@ export default function Root() {
     </div>
   );
 }
-const commonStyling = {
-  button:
-    'bg-#fbfbfb hover:from-gray-600 hover:to-#fbfbfb-400 active:from-#fbfbfb-600 text-black px-8 py-3 rounded-none shadow-2xl transform transition hover:scale-105 motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800',
-  sectionTitle: 'text-4xl font-bold mb-6 text-black bg-#fbfbfb',
-  sectionSubtitle: 'text-xl mb-8',
-  professionalFont: 'font-mono',
-  futuristicFont: 'font-heading',
-  teal: 'text-#fbfbfb-500',
-  white: 'text-black',
-};
-
-const codeStyles: React.CSSProperties = {
-  backgroundColor: '#1f2937',
-  color: 'white',
-  padding: '16px',
-  borderRadius: '8px',
-  overflowX: 'scroll',
-  // Add other styles from the Prism theme as you see fit...
-};
 
 const Navbar = () => (
   <nav className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
@@ -51,7 +52,6 @@ const Navbar = () => (
       <h1 className='text-2xl font-semibold text-black font-costar'>
         KafkaTrace
       </h1>
-
       <div className='space-x-4'>
         <LinkButton href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae'>
           Medium
@@ -68,10 +68,28 @@ const Navbar = () => (
     </div>
   </nav>
 );
-interface hrefChildrenType {
-  href: string;
-  children: string;
-}
+
+const LinkButton = ({ href, children }: hrefChildrenType) => (
+    <a target="_blank" rel="noopener noreferrer" href={href} className='font-akkurat text-[#575657]'>
+      {children}
+    </a>
+);
+
+const LoginButton = ({ href, children }: hrefChildrenType) => (
+  <Link href={href}>
+    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
+      {children}
+    </a>
+  </Link>
+);
+
+const SignupButton = ({ href, children }: hrefChildrenType) => (
+  <Link href={href}>
+    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
+      {children}
+    </a>
+  </Link>
+);
 
 const ReactParticles = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -166,29 +184,13 @@ const ReactParticles = () => {
   );
 };
 
-const LoginButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-      {children}
-    </a>
-  </Link>
-);
-
-const LinkButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='font-akkurat text-[#575657] hover:text-#fbfbfb-400 transition duration-200'>
-      {children}
-    </a>
-  </Link>
-);
-
-const Hero = () => {
+const MainBanner = () => {
   return (
     <section className='bg-opacity-0 relative text-center py-32 text-white overflow-hidden'>
       <div className='transform transition-transform hover:text-decot'>
         <h2 className='text-5xl font-akkurat font-bold mb-4 duration-700'>
           Welcome to{' '}
-          <span className='bg-clip-text font-akkurat text-white bg-gradient-to-r from-#fbfbfb-600 to-#fbfbfb-400 hover:from-#fbfbfb-500 hover:to-#fbfbfb-700'>
+          <span className='font-akkurat text-white'>
             KafkaTrace
           </span>
         </h2>
@@ -208,17 +210,9 @@ const Hero = () => {
 const PrimaryButton = ({ href, children }: hrefChildrenType) => (
   <a
     href={href}
-    className={`font-akkurat border-white border text-white px-8 py-3 rounded-xl shadow-md transform transition motion-reduce:transform-none focus:outline-none focus:ring-2 focus:ring-#fbfbfb-500 inline-block ${commonStyling.button}`}>
+    className={`font-akkurat border-white border px-8 py-3 rounded-xl`}>
     {children}
   </a>
-);
-
-const SignupButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-      {children}
-    </a>
-  </Link>
 );
 
 const InstallComponent = () => {
@@ -240,29 +234,19 @@ const InstallComponent = () => {
           <code className='language-javascript'>npm install kafkatrace</code>
         </pre>
       </div>
-      <div className='flex m-auto'>
         <button
           onClick={handleCopy}
-          className={`flex basis-1/4 m-auto rounded-xl shadow-none border-2 md:mt-0 md:ml-4 space-x-2 ${
-            copied ? 'bg-#fbfbfb' : commonStyling.button // Change background color when copied
+          className={`flex basis-1/4 rounded-xl shadow-none border-2 md:mt-0 md:ml-4 ${
+            copied ? 'bg-[#fbfbfb]' : commonStyling.button // Change background color when copied
           }`}>
-          <span className='font-akkurat text-[#575657]'>
+          <span className='items-center m-auto font-akkurat text-[#575657]'>
             {copied ? 'Copied to clipboard' : 'Copy'}
           </span>
         </button>
-      </div>
     </div>
   );
 };
 
-const TerminalHeader = ({ className = '' }: any) => (
-  <div
-    className={`flex items-center justify-start p-2 bg-#fbfbfb text-black-400 space-x-1 border-b border-white-500 ${className}`}>
-    <span className='bg-red-600 w-3 h-3 rounded-full animate-bounce'></span>
-    <span className='bg-yellow-500 w-3 h-3 rounded-full animate-bounce delay-150'></span>
-    <span className='bg-green-600 w-3 h-3 rounded-full animate-bounce delay-300'></span>
-  </div>
-);
 
 const CodeSnippet = () => (
   <div className='border-2 p-4 max-w-lg mx-auto my-8 shadow-inner rounded-lg bg-white e-105'>
@@ -282,6 +266,15 @@ const CodeSnippet = () => (
         `}
       </code>
     </pre>
+  </div>
+);
+
+const TerminalHeader = ({ className = '' }: any) => (
+  <div
+    className={`flex items-center justify-start p-2 text-black-400 space-x-1 border-b border-white-500 ${className}`}>
+    <span className='bg-red-600 w-3 h-3 rounded-full animate-bounce'></span>
+    <span className='bg-yellow-500 w-3 h-3 rounded-full animate-bounce delay-150'></span>
+    <span className='bg-green-600 w-3 h-3 rounded-full animate-bounce delay-300'></span>
   </div>
 );
 
@@ -326,7 +319,7 @@ const FeatureBlock = ({ icon, title, description }: any) => (
 );
 
 const Teams = () => (
-  <section className='mt-20 py-16 text-gray-300'>
+  <section className='py-16 text-gray-300'>
     <h2 className='font-akkurat text-black text-4xl mb-16 ml-36 font-black'>
       Meet the team
     </h2>
@@ -369,6 +362,26 @@ const Teams = () => (
   </section>
 );
 
+const TeamMember = ({ img, name, role, github, linkedin }: any) => (
+  <div className='group flex flex-col items-center p-6'>
+    <h3 className='text-2xl font-bold mb-4 font-akkurat text-black'>{name}</h3>
+    <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full'>
+      <Image
+        src={img}
+        layout='fill'
+        alt={`${name}, ${role}`}
+        className='w-full h-full object-cover border-4 transition-transform duration-300'
+      />
+    </div>
+    <p className='text-lg font-akkurat text-[#575657] mb-4'>{role}</p>
+    <div className='flex items-center'>
+      <GitHubButton github={github} />
+      <LinkedInButton linkedin={linkedin} />
+    </div>
+  </div>
+);
+
+
 const GitHubButton = ({ github }: any) => (
   <a
     href={github}
@@ -390,28 +403,10 @@ const LinkedInButton = ({ linkedin }: any) => (
     rel='noopener noreferrer'
     className='text-gray-800'>
     <svg
-      className='h-10 w-10 my-2 mx-4'
-      viewBox='0 0 24 24'
-      fill='currentColor'>
-      <path d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'></path>
-    </svg>
+    className='h-10 w-10 my-2 mx-4'
+    viewBox='0 0 24 24'
+    fill='currentColor'>
+    <path d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'></path>
+</svg>
   </a>
-);
-const TeamMember = ({ img, name, role, github, linkedin }: any) => (
-  <div className='group flex flex-col items-center p-6'>
-    <h3 className='text-2xl font-bold mb-4 font-akkurat text-black'>{name}</h3>
-    <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full'>
-      <Image
-        src={img}
-        layout='fill'
-        alt={`${name}, ${role}`}
-        className='w-full h-full object-cover border-4 transition-transform duration-300'
-      />
-    </div>
-    <p className='text-lg font-akkurat text-[#575657] mb-4'>{role}</p>
-    <div className='flex items-center'>
-      <GitHubButton github={github} />
-      <LinkedInButton linkedin={linkedin} />
-    </div>
-  </div>
 );
