@@ -1,10 +1,10 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import gif from '../../public/assets/demo-vid.gif';
 import Navbar from '../components/Navbar';
 import ReactParticles from '../components/ReactParticles';
+import MainBanner from '../components/MainBanner';
 
 const commonStyling = {
   button:
@@ -23,11 +23,6 @@ const codeStyles: React.CSSProperties = {
   overflowX: 'scroll',
 };
 
-interface hrefChildrenType {
-  href: string;
-  children: string;
-};
-
 export default function Root() {
   return (
     <div className='m-0 min-h-screen'>
@@ -44,34 +39,6 @@ export default function Root() {
     </div>
   );
 }
-
-const MainBanner = () => {
-  return (
-    <section className='bg-opacity-0 relative text-center py-32 text-white overflow-hidden'>
-      <div className='transform transition-transform hover:text-decot'>
-        <h2 className='sm:text-5xl text-3xl font-akkurat font-bold mb-4 duration-700'>
-          Welcome to KafkaTrace
-        </h2>
-        <p className='sm:text-2xl text-lg font-akkurat mb-12'>
-          Streamline Kafka monitoring for all applications.
-        </p>
-        <div className='transform transition-transform duration-700 hover:scale-110'>
-          <PrimaryButton href='https://www.npmjs.com/package/kafkatrace'>
-            Begin Journey
-          </PrimaryButton>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const PrimaryButton = ({ href, children }: hrefChildrenType) => (
-  <a
-    href={href}
-    className={`font-akkurat border-white border px-8 py-3 rounded-xl`}>
-    {children}
-  </a>
-);
 
 const InstallComponent = () => {
   const [copied, setCopied] = useState(false); // State to track if copied to clipboard
