@@ -6,6 +6,7 @@ import type { Container, Engine } from 'tsparticles-engine';
 import Particles from 'react-particles';
 import { loadSlim } from 'tsparticles-slim';
 import gif from '../../public/assets/demo-vid.gif';
+import Navbar from '../components/Navbar';
 
 const commonStyling = {
   button:
@@ -46,50 +47,36 @@ export default function Root() {
   );
 }
 
-const Navbar = () => (
-  <nav className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
-    <div className='mx-auto flex justify-between items-center'>
-      <h1 className='text-2xl font-semibold text-black font-costar'>
-        KafkaTrace
-      </h1>
-      <div className='space-x-4'>
-        <LinkButton href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae'>
-          Medium
-        </LinkButton>
-        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
-          NPM
-        </LinkButton>
-        <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>
-          Github
-        </LinkButton>
-        <LoginButton href='/login'>Login</LoginButton>
-        <SignupButton href='/register'>Sign Up</SignupButton>
-      </div>
-    </div>
-  </nav>
-);
-
-const LinkButton = ({ href, children }: hrefChildrenType) => (
-    <a target="_blank" rel="noopener noreferrer" href={href} className='font-akkurat text-[#575657]'>
-      {children}
-    </a>
-);
-
-const LoginButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-      {children}
-    </a>
-  </Link>
-);
-
-const SignupButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-      {children}
-    </a>
-  </Link>
-);
+// const Navbar = () => (
+//   <nav className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
+//     <div className='mx-auto flex justify-between items-center'>
+//       <h1 className='sm:text-2xl text-lg font-semibold text-black font-costar'>
+//         KafkaTrace
+//       </h1>
+//       <div className='space-x-4'>
+//         <a className='font-akkurat text-[#575657]' href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae' target='_blank' rel='noopener noreferrer'>
+//           Medium
+//         </a>
+//         <a className='font-akkurat text-[#575657]' href='https://www.npmjs.com/package/kafkatrace?activeTab=readme' target='_blank' rel='noopener noreferrer'>
+//           NPM
+//         </a>
+//         <a className='font-akkurat text-[#575657]' href='https://github.com/oslabs-beta/kafkatrace-npm-package' target='_blank' rel='noopener noreferrer'>
+//           Github
+//         </a>
+//         <Link href='/login'>
+//           <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
+//             Login
+//           </a>
+//         </Link>
+//         <Link href='/register'>
+//           <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
+//             Signup
+//           </a>
+//         </Link>
+//       </div>
+//     </div>
+//   </nav>
+// );
 
 const ReactParticles = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -188,14 +175,11 @@ const MainBanner = () => {
   return (
     <section className='bg-opacity-0 relative text-center py-32 text-white overflow-hidden'>
       <div className='transform transition-transform hover:text-decot'>
-        <h2 className='text-5xl font-akkurat font-bold mb-4 duration-700'>
-          Welcome to{' '}
-          <span className='font-akkurat text-white'>
-            KafkaTrace
-          </span>
+        <h2 className='sm:text-5xl text-3xl font-akkurat font-bold mb-4 duration-700'>
+          Welcome to KafkaTrace
         </h2>
-        <p className='text-2xl font-akkurat font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
-          Revolutionary Kafka monitoring for the future.
+        <p className='sm:text-2xl text-lg font-akkurat mb-12'>
+          Streamline Kafka monitoring for all applications.
         </p>
         <div className='transform transition-transform duration-700 hover:scale-110'>
           <PrimaryButton href='https://www.npmjs.com/package/kafkatrace'>
