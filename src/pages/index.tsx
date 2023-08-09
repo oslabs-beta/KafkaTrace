@@ -2,11 +2,9 @@ import React, { PropsWithChildren } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useCallback } from 'react';
-import type { Container, Engine } from 'tsparticles-engine';
-import Particles from 'react-particles';
-import { loadSlim } from 'tsparticles-slim';
 import gif from '../../public/assets/demo-vid.gif';
 import Navbar from '../components/Navbar';
+import ReactParticles from '../components/ReactParticles';
 
 const commonStyling = {
   button:
@@ -46,130 +44,6 @@ export default function Root() {
     </div>
   );
 }
-
-// const Navbar = () => (
-//   <nav className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
-//     <div className='mx-auto flex justify-between items-center'>
-//       <h1 className='sm:text-2xl text-lg font-semibold text-black font-costar'>
-//         KafkaTrace
-//       </h1>
-//       <div className='space-x-4'>
-//         <a className='font-akkurat text-[#575657]' href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae' target='_blank' rel='noopener noreferrer'>
-//           Medium
-//         </a>
-//         <a className='font-akkurat text-[#575657]' href='https://www.npmjs.com/package/kafkatrace?activeTab=readme' target='_blank' rel='noopener noreferrer'>
-//           NPM
-//         </a>
-//         <a className='font-akkurat text-[#575657]' href='https://github.com/oslabs-beta/kafkatrace-npm-package' target='_blank' rel='noopener noreferrer'>
-//           Github
-//         </a>
-//         <Link href='/login'>
-//           <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-//             Login
-//           </a>
-//         </Link>
-//         <Link href='/register'>
-//           <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-//             Signup
-//           </a>
-//         </Link>
-//       </div>
-//     </div>
-//   </nav>
-// );
-
-const ReactParticles = () => {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      await console.log(container);
-    },
-    []
-  );
-
-  return (
-    <Particles
-      id='tsparticles'
-      init={particlesInit}
-      loaded={particlesLoaded}
-      options={{
-        background: {
-          color: {
-            value: '#1f2937',
-          },
-        },
-        fpsLimit: 120,
-        interactivity: {
-          events: {
-            onClick: {
-              enable: true,
-              mode: 'push',
-            },
-            onHover: {
-              enable: true,
-              mode: 'repulse',
-            },
-            resize: true,
-          },
-          modes: {
-            push: {
-              quantity: 4,
-            },
-            repulse: {
-              distance: 200,
-              duration: 0.4,
-            },
-          },
-        },
-        particles: {
-          color: {
-            value: '#ffffff',
-          },
-          links: {
-            color: '#ffffff',
-            distance: 150,
-            enable: true,
-            opacity: 0.5,
-            width: 1,
-          },
-          move: {
-            direction: 'none',
-            enable: true,
-            outModes: {
-              default: 'bounce',
-            },
-            random: false,
-            speed: 2.5,
-            straight: false,
-          },
-          number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 80,
-          },
-          opacity: {
-            value: 0.5,
-          },
-          shape: {
-            type: 'circle',
-          },
-          size: {
-            value: { min: 1, max: 5 },
-          },
-        },
-        detectRetina: true,
-        fullScreen: {
-          enable: false,
-        },
-      }}
-    />
-  );
-};
 
 const MainBanner = () => {
   return (
