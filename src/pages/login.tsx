@@ -91,14 +91,18 @@ const Login = () => {
               onClick={() => handleProviderSignin('google')}
               iconPath='/assets/google.svg'
               className='shrink py-2 px-4 font-semibold shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
-              Sign In with Google
+                <span className='invisible md:visible'>
+                  Sign In with Google
+                </span>
             </ProviderButton>
 
             <ProviderButton
               onClick={() => handleProviderSignin('github')}
               iconPath='/assets/github.svg'
               className='shrink py-2 px-4 font-semibold shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
-              Sign In with Github
+              <span className='invisible md:visible'>
+                  Sign In with Github
+                </span>
             </ProviderButton>
           </div>
         </form>
@@ -161,7 +165,7 @@ const ProviderButton: React.FC<ProviderButtonProps> = ({ onClick, iconPath, chil
       
       <div style={{ backgroundColor: '#fbfbfb', borderRadius: '50%', display: 'inline-block' }}>
       <Image
-        className='align-middle'
+        className='flex justify-center items-center'
         src={iconPath}
         width={20}
         height={20}

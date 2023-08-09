@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import { useState } from 'react';
 import gif from '../../public/assets/demo-vid.gif';
 import Navbar from '../components/Navbar';
 import ReactParticles from '../components/ReactParticles';
 import MainBanner from '../components/MainBanner';
+import InstallComponent from '../components/InstallComponent';
 
 const commonStyling = {
   button:
@@ -40,41 +40,9 @@ export default function Root() {
   );
 }
 
-const InstallComponent = () => {
-  const [copied, setCopied] = useState(false); // State to track if copied to clipboard
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText('npm install kafkatrace');
-    setCopied(true); // Set copied to true when the button is clicked
-    // Reset the copied state to false after a delay of 2 seconds
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-  };
-
-  return (
-    <div className='flex max-w-lg m-auto my-8 p-2 shadow-inner rounded-lg bg-white e-105 border-2'>
-      <div className='flex basis-3/4'>
-        <pre className='flex-1 p-4 mr-2 bg-gray-800 text-white border-neutral-500 rounded-lg'>
-          <code className='language-javascript'>npm install kafkatrace</code>
-        </pre>
-      </div>
-        <button
-          onClick={handleCopy}
-          className={`flex basis-1/4 rounded-xl shadow-none border-2 md:mt-0 md:ml-4 ${
-            copied ? 'bg-[#fbfbfb]' : commonStyling.button // Change background color when copied
-          }`}>
-          <span className='items-center m-auto font-akkurat text-[#575657]'>
-            {copied ? 'Copied to clipboard' : 'Copy'}
-          </span>
-        </button>
-    </div>
-  );
-};
-
 
 const CodeSnippet = () => (
-  <div className='border-2 p-4 max-w-lg mx-auto my-8 shadow-inner rounded-lg bg-white e-105'>
+  <div className='border-2 p-4 max-w-lg m-4 md:mx-auto my-8 shadow-inner rounded-lg bg-white e-105'>
     <TerminalHeader className='mb-2' />
     <pre style={codeStyles}>
       <code className='language-javascript'>
@@ -110,7 +78,7 @@ const DemoGif = () => (
 );
 
 const Features = () => (
-  <section className='py-16 px-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+  <section className='md:py-16 md:px-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8'>
     {[
       {
         icon: '⚡',
@@ -136,7 +104,7 @@ const Features = () => (
 );
 
 const FeatureBlock = ({ icon, title, description }: any) => (
-  <div className='font-akkurat text-black p-8 border-2 shadow-none transition duration-300 ease-in-out transform hover:scale-105'>
+  <div className='font-akkurat text-black p-8 md:border-2 shadow-none transition duration-300 ease-in-out transform md:hover:scale-105'>
     <div className='text-6xl mb-8'>{icon}</div>
     <h3 className='text-3xl mb-6 font-bold'>{title}</h3>
     <p className='text-lg'>{description}</p>
@@ -145,7 +113,7 @@ const FeatureBlock = ({ icon, title, description }: any) => (
 
 const Teams = () => (
   <section className='py-16 text-gray-300'>
-    <h2 className='font-akkurat text-black text-4xl mb-16 ml-36 font-black'>
+    <h2 className='font-akkurat text-black text-4xl mb-16 text-center md:text-left md:ml-36 font-black'>
       Meet the team
     </h2>
     <div className='container mx-auto px-4'>
