@@ -1,11 +1,10 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useState, useCallback } from 'react';
-import type { Container, Engine } from 'tsparticles-engine';
-import Particles from 'react-particles';
-import { loadSlim } from 'tsparticles-slim';
+import { useState } from 'react';
 import gif from '../../public/assets/demo-vid.gif';
+import Navbar from '../components/Navbar';
+import ReactParticles from '../components/ReactParticles';
+import MainBanner from '../components/MainBanner';
 
 const commonStyling = {
   button:
@@ -24,11 +23,6 @@ const codeStyles: React.CSSProperties = {
   overflowX: 'scroll',
 };
 
-interface hrefChildrenType {
-  href: string;
-  children: string;
-};
-
 export default function Root() {
   return (
     <div className='m-0 min-h-screen'>
@@ -45,175 +39,6 @@ export default function Root() {
     </div>
   );
 }
-
-const Navbar = () => (
-  <nav className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-lg bg-opacity-90 backdrop-blur'>
-    <div className='mx-auto flex justify-between items-center'>
-      <h1 className='text-2xl font-semibold text-black font-costar'>
-        KafkaTrace
-      </h1>
-      <div className='space-x-4'>
-        <LinkButton href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae'>
-          Medium
-        </LinkButton>
-        <LinkButton href='https://www.npmjs.com/package/kafkatrace?activeTab=readme'>
-          NPM
-        </LinkButton>
-        <LinkButton href='https://github.com/oslabs-beta/kafkatrace-npm-package'>
-          Github
-        </LinkButton>
-        <LoginButton href='/login'>Login</LoginButton>
-        <SignupButton href='/register'>Sign Up</SignupButton>
-      </div>
-    </div>
-  </nav>
-);
-
-const LinkButton = ({ href, children }: hrefChildrenType) => (
-    <a target="_blank" rel="noopener noreferrer" href={href} className='font-akkurat text-[#575657]'>
-      {children}
-    </a>
-);
-
-const LoginButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-      {children}
-    </a>
-  </Link>
-);
-
-const SignupButton = ({ href, children }: hrefChildrenType) => (
-  <Link href={href}>
-    <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
-      {children}
-    </a>
-  </Link>
-);
-
-const ReactParticles = () => {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      await console.log(container);
-    },
-    []
-  );
-
-  return (
-    <Particles
-      id='tsparticles'
-      init={particlesInit}
-      loaded={particlesLoaded}
-      options={{
-        background: {
-          color: {
-            value: '#1f2937',
-          },
-        },
-        fpsLimit: 120,
-        interactivity: {
-          events: {
-            onClick: {
-              enable: true,
-              mode: 'push',
-            },
-            onHover: {
-              enable: true,
-              mode: 'repulse',
-            },
-            resize: true,
-          },
-          modes: {
-            push: {
-              quantity: 4,
-            },
-            repulse: {
-              distance: 200,
-              duration: 0.4,
-            },
-          },
-        },
-        particles: {
-          color: {
-            value: '#ffffff',
-          },
-          links: {
-            color: '#ffffff',
-            distance: 150,
-            enable: true,
-            opacity: 0.5,
-            width: 1,
-          },
-          move: {
-            direction: 'none',
-            enable: true,
-            outModes: {
-              default: 'bounce',
-            },
-            random: false,
-            speed: 2.5,
-            straight: false,
-          },
-          number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 80,
-          },
-          opacity: {
-            value: 0.5,
-          },
-          shape: {
-            type: 'circle',
-          },
-          size: {
-            value: { min: 1, max: 5 },
-          },
-        },
-        detectRetina: true,
-        fullScreen: {
-          enable: false,
-        },
-      }}
-    />
-  );
-};
-
-const MainBanner = () => {
-  return (
-    <section className='bg-opacity-0 relative text-center py-32 text-white overflow-hidden'>
-      <div className='transform transition-transform hover:text-decot'>
-        <h2 className='text-5xl font-akkurat font-bold mb-4 duration-700'>
-          Welcome to{' '}
-          <span className='font-akkurat text-white'>
-            KafkaTrace
-          </span>
-        </h2>
-        <p className='text-2xl font-akkurat font-semibold mb-12 transform transition-transform duration-700 hover:scale-105'>
-          Revolutionary Kafka monitoring for the future.
-        </p>
-        <div className='transform transition-transform duration-700 hover:scale-110'>
-          <PrimaryButton href='https://www.npmjs.com/package/kafkatrace'>
-            Begin Journey
-          </PrimaryButton>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const PrimaryButton = ({ href, children }: hrefChildrenType) => (
-  <a
-    href={href}
-    className={`font-akkurat border-white border px-8 py-3 rounded-xl`}>
-    {children}
-  </a>
-);
 
 const InstallComponent = () => {
   const [copied, setCopied] = useState(false); // State to track if copied to clipboard

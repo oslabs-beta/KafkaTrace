@@ -11,7 +11,7 @@ import login_validate from '../server/lib/validate';
 const Layout = ({ children }:any) => (
   <>
     <header className='fixed top-0 w-full z-50 p-2 px-8 bg-white backdrop-saturate-200 shadow'>
-    <Link href='/'><a className='text-2xl font-semibold text-black font-costar'>KafkaTrace</a></Link>
+    <Link href='/'><a className='sm:text-2xl text-lg font-semibold text-black font-costar'>KafkaTrace</a></Link>
       <nav className='space-x-4'>
       </nav>
     </header>
