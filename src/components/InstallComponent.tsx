@@ -13,7 +13,7 @@ export default function InstallComponent () {
     };
   
     return (
-      <div className='flex max-w-lg m-4 md:m-auto my-8 p-2 shadow-inner rounded-lg bg-white e-105 border-2'>
+      <div className='flex max-w-lg m-4 md:m-auto p-2 shadow-inner rounded-lg bg-white e-105 border-2'>
         <div className='flex basis-3/4'>
           <pre className='flex-1 p-4 mr-2 bg-gray-800 text-white border-neutral-500 rounded-lg'>
             <code className='language-javascript'>npm install kafkatrace</code>

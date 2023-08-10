@@ -9,10 +9,11 @@
 
 #tsparticles {
     position: absolute;
-    z-index: 0;
+    z-index: -1;
     width: 100%;
-}
-
+    height: 100%;
+} 
+/* 
 @media screen and (max-width: 1022px) {
     #tsparticles {
         height: 60%;
@@ -21,18 +22,18 @@
 
 @media screen and (min-width: 1023px) and (max-width: 1365px) {
     #tsparticles {
-        height: 55%;
+        height: 50%;
     }
 }
 
 @media screen and (min-width: 1366px) and (max-width: 2559px) {
     #tsparticles {
-        height: 50%;
+        height: 40%;
     }
 }
 
 @media screen and (min-width: 2560px) {
     #tsparticles {
-        height: 45%;
+        height: 30%;
     }
-}
+} */

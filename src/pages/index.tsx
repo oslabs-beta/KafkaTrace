@@ -27,15 +27,15 @@ export default function Root() {
   return (
     <div className='m-0 min-h-screen'>
       <Navbar />
-      <main className='mx-auto py-12'>
-        <ReactParticles />
+      {/* <main className='mx-auto py-12'> */}
+        {/* <ReactParticles /> */}
         <MainBanner />
         <InstallComponent />
         <CodeSnippet />
         <DemoGif />
         <Features />
         <Teams />
-      </main>
+      {/* </main> */}
     </div>
   );
 }
