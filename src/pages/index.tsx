@@ -1,19 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import gif from '../../public/assets/demo-vid.gif';
 import Navbar from '../components/Navbar';
 import MainBanner from '../components/MainBanner';
 import InstallComponent from '../components/InstallComponent';
 import CodeSnippet from '../components/CodeSnippet';
-
-const commonStyling = {
-  button:
-    'px-8 py-3 rounded-none shadow-2xl',
-  sectionTitle: 'text-4xl font-bold mb-6 text-black',
-  sectionSubtitle: 'text-xl mb-8',
-  professionalFont: 'font-mono',
-  futuristicFont: 'font-heading',
-};
+import DemoGif from '../components/DemoGif';
+import Features from '../components/Features';
 
 export default function Root() {
   return (
@@ -28,46 +20,6 @@ export default function Root() {
     </div>
   );
 }
-
-const DemoGif = () => (
-  <div className='flex justify-center'>
-    <Image src={gif} alt='' className='scale-90 rounded-lg p-0' />
-  </div>
-);
-
-const Features = () => (
-  <section className='md:py-16 md:px-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8'>
-    {[
-      {
-        icon: '⚡',
-        title: 'Quick and Easy',
-        description:
-          'Quick to Install and Easy To Implement. Get Started Effortlessly',
-      },
-      {
-        icon: '📦',
-        title: 'All-In-One',
-        description: 'Modern Dashboard to Display Kafka Client Instrumentation',
-      },
-      { 
-        icon: '💻',
-        title: 'Privately Hosted',
-        description:
-          'Integration With Your Local Directory After Sign In',
-      },
-    ].map((feature, index) => (
-      <FeatureBlock key={index} {...feature} />
-    ))}
-  </section>
-);
-
-const FeatureBlock = ({ icon, title, description }: any) => (
-  <div className='font-akkurat text-black p-8 md:border-2 shadow-none transition duration-300 ease-in-out transform md:hover:scale-105'>
-    <div className='text-6xl mb-8'>{icon}</div>
-    <h3 className='text-3xl mb-6 font-bold'>{title}</h3>
-    <p className='text-lg'>{description}</p>
-  </div>
-);
 
 const Teams = () => (
   <section className='py-16 text-gray-300'>
