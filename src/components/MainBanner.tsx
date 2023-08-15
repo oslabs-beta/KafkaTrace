@@ -2,7 +2,7 @@ import ReactParticles from "./ReactParticles";
 
 export default function MainBanner () {
     return (
-      <section className='relative text-center mt-12 text-white overflow-hidden'>
+      <section className='relative text-center my-12 npmtext-white overflow-hidden'>
         <>
         <ReactParticles />
         </>
