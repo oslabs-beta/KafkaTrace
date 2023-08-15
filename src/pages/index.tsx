@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import gif from '../../public/assets/demo-vid.gif';
 import Navbar from '../components/Navbar';
-import ReactParticles from '../components/ReactParticles';
 import MainBanner from '../components/MainBanner';
 import InstallComponent from '../components/InstallComponent';
+import CodeSnippet from '../components/CodeSnippet';
 
 const commonStyling = {
   button:
@@ -13,14 +13,6 @@ const commonStyling = {
   sectionSubtitle: 'text-xl mb-8',
   professionalFont: 'font-mono',
   futuristicFont: 'font-heading',
-};
-
-const codeStyles: React.CSSProperties = {
-  backgroundColor: '#1f2937',
-  color: 'white',
-  padding: '16px',
-  borderRadius: '8px',
-  overflowX: 'scroll',
 };
 
 export default function Root() {
@@ -36,37 +28,6 @@ export default function Root() {
     </div>
   );
 }
-
-
-const CodeSnippet = () => (
-  <div className='border-2 p-4 max-w-lg m-4 md:mx-auto my-8 shadow-inner rounded-lg bg-white e-105'>
-    <TerminalHeader className='mb-2' />
-    <pre style={codeStyles}>
-      <code className='language-javascript'>
-        {`
-  // Import the following function and
-  // run the preconfigured Docker containers
-  import { composer } from 'kafkatrace';
-  composer();
-
-  // Import the following function into each
-  // Kafka Client and run clients
-  import { tracer } from 'kafkatrace';
-  tracer('[Service Name]');
-        `}
-      </code>
-    </pre>
-  </div>
-);
-
-const TerminalHeader = ({ className = '' }: any) => (
-  <div
-    className={`flex items-center justify-start p-2 text-black-400 space-x-1 border-b border-white-500 ${className}`}>
-    <span className='bg-red-600 w-3 h-3 rounded-full animate-bounce'></span>
-    <span className='bg-yellow-500 w-3 h-3 rounded-full animate-bounce delay-150'></span>
-    <span className='bg-green-600 w-3 h-3 rounded-full animate-bounce delay-300'></span>
-  </div>
-);
 
 const DemoGif = () => (
   <div className='flex justify-center'>
