@@ -13,7 +13,7 @@ export default function MainBanner () {
             Streamline Kafka monitoring for all applications.
           </p>
           <div className='transform transition-transform mb-24 duration-700 hover:scale-110'>
-            <a href='https://www.npmjs.com/package/kafkatrace' className='font-akkurat border-white border px-8 py-3 rounded-xl'>
+            <a href='https://www.npmjs.com/package/kafkatrace' target='_blank' rel='noopener noreferrer'className='font-akkurat border-white border px-8 py-3 rounded-xl'>
               Begin Journey
             </a>
           </div>
