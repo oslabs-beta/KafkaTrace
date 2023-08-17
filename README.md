@@ -1,6 +1,6 @@
 # KafkaTrace
 <div align="center">
-<img width="364" alt="image" src="https://github.com/oslabs-beta/kafkatrace/assets/77164621/e296fdc0-dcbf-406b-a996-e63a7c22539b">
+<img width="364" alt="image" src="/public/assets/LogoWithText.jpg">
 </div>
 
 ## Table of Contents
@@ -50,7 +50,7 @@ You must have Docker Desktop installed and running!
     ```
 - **STEP 4**: Log in to the website and click on UI buttons.
 
-**Below is a demo of the 4 steps:**
+**Below is a demo:**
 
 ![demo-vid](https://github.com/oslabs-beta/KafkaTrace/assets/101201710/38c7a951-f58d-43a2-98fd-e7a348f83d94)
 
