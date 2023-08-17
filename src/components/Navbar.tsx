@@ -11,9 +11,6 @@ export default function Navbar () {
           <a className='font-akkurat text-[#575657]' href='https://medium.com/@kafkatrace/kafka-trace-9eba2ac16eae' target='_blank' rel='noopener noreferrer'>
             Medium
           </a>
-          <a className='font-akkurat text-[#575657]' href='https://www.npmjs.com/package/kafkatrace?activeTab=readme' target='_blank' rel='noopener noreferrer'>
-            NPM
-          </a>
           <a className='font-akkurat text-[#575657]' href='https://github.com/oslabs-beta/kafkatrace-npm-package' target='_blank' rel='noopener noreferrer'>
             Github
           </a>
