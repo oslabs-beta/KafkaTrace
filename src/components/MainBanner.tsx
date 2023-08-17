@@ -14,7 +14,7 @@ export default function MainBanner () {
           </p>
           <div className='transform transition-transform mb-24 duration-700 hover:scale-110'>
             <a href='https://www.npmjs.com/package/kafkatrace' target='_blank' rel='noopener noreferrer'className='font-akkurat border-white border px-8 py-3 rounded-xl'>
-              Begin Journey
+              Learn More
             </a>
           </div>
       </section>
