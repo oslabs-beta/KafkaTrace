@@ -11,7 +11,7 @@ const Layout = (props: PropsWithChildren) => {
       </nav>
     </header>
 
-      <main className='flex-grow container mx-auto p-4 space-y-4'>
+      <main className='mx-auto p-4 space-y-4'>
         {props.children}
       </main>
 
