@@ -13,7 +13,8 @@
   "jest": {
     "preset": "ts-jest",
     "testMatch": [
-      "<rootDir>/__tests__/testPackageInstallation.test.ts"
+      "<rootDir>/__tests__/testPackageInstallation.test.ts", 
+      "<rootDir>/__tests__/testEnvLocalsInPath.test.ts"
     ]
   },
   "dependencies": {
