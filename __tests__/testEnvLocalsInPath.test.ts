@@ -13,12 +13,6 @@ describe('Check for .env.local file', () => {
     expect(exists).toBe(true);
   });
 });
-// Make sure you have the necessary TypeScript and Jest configurations set up in your project. You can run the test using the jest command just like in the JavaScript version.
-
-// Remember to configure your TypeScript compiler options (usually in tsconfig.json) to include the "esModuleInterop": true option to allow for importing CommonJS modules like fs.
-
-// In a more complex real-world scenario, you might want to further improve the structure of your code to make it more testable by using dependency injection, mocking, and isolation techniques.
-
 
 
 
