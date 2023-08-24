@@ -1,6 +1,6 @@
 # KafkaTrace
 <div align="center">
-<img width="364" alt="image" src="/public/assets/LogoWithText.jpg">
+<img width="364" alt="image" src="/public/assets/LogoWithText-Blue.jpg">
 </div>
 
 ## Table of Contents

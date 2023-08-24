@@ -8,7 +8,7 @@ const codeStyles: React.CSSProperties = {
     overflowX: 'scroll',
   };
 
-export default function CodeSnippet () {
+export default function CodeSnippet ({}) {
     return (
     <div className='border-2 p-4 max-w-lg m-4 md:mx-auto my-8 shadow-inner rounded-lg bg-white e-105'>
       <TerminalHeader />
