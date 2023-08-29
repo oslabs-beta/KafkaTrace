@@ -5,6 +5,7 @@ const codeStyles: React.CSSProperties = {
     color: 'white',
     padding: '12px',
     borderRadius: '8px',
+    overflowX: 'auto',
 };
 
 interface CodeSnippetProps {
@@ -31,9 +32,7 @@ export default function CodeSnippet ({code}: CodeSnippetProps) {
       </button>
     </div>
     <pre style={codeStyles}>
-      <code className='language-javascript'>
         {code}
-      </code>
     </pre>
   </div>
   )

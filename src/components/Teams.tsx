@@ -3,7 +3,7 @@ import TeamMember from "./TeamMember";
 export default function Teams () {
     return (
         <section className='py-16 text-gray-300'>
-        <h2 className='font-akkurat text-black text-4xl mb-16 text-center md:text-left md:ml-36 font-black'>
+        <h2 className='font-akkurat text-black font-medium text-4xl mb-16 text-center md:text-left md:ml-36'>
             Meet the team
         </h2>
         <div className='container mx-auto px-4'>

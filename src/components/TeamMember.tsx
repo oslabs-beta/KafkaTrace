@@ -13,7 +13,7 @@ interface TeamMemberProps {
 export default function TeamMember ({ img, name, role, github, linkedin }: TeamMemberProps) {
     return (
     <div className='group flex flex-col items-center p-6'>
-      <h3 className='text-2xl font-bold mb-4 font-akkurat text-black'>{name}</h3>
+      <h3 className='text-2xl mb-4 font-akkurat text-black font-medium'>{name}</h3>
       <div className='relative w-40 h-40 mb-8 overflow-hidden rounded-full'>
         <Image
           src={img}
