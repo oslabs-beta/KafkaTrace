@@ -7,7 +7,7 @@ export default function Navbar () {
       <div className='mx-auto flex justify-between items-center'>
         <div className='shrink-0'>
           <Image
-            src="/../public/assets/LogoWithText-Transparent.png"
+            src="/assets/LogoWithText-Transparent.png"
             width={135}
             height={35}
             alt="KafkaTrace"

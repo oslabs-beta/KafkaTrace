@@ -6,11 +6,11 @@ import Image from 'next/image';
 const Layout = (props: PropsWithChildren) => {
   return (
     <div className='layout min-h-screen flex flex-col bg-#fbfbfb text-black'>
-     <header className='fixed top-0 w-full z-50 p-2 px-8 backdrop-saturate-200 shadow-md bg-opacity-90 backdrop-blur'>
+     <header className='fixed top-0 w-full z-50 p-1 px-8 backdrop-saturate-200 shadow-md bg-opacity-90 backdrop-blur'>
       <Link href='/'>
         <a>
           <Image
-              src="/../public/assets/LogoWithText-Transparent.png"
+              src="/assets/LogoWithText-Transparent.png"
               width={135}
               height={35}
               alt="KafkaTrace"

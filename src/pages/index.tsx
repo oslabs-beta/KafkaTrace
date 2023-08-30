@@ -7,12 +7,12 @@ import Teams from '../components/Teams';
 
 export default function Root() {
   return (
-    <div className='m-0 min-h-screen'>
+    <>
       <Navbar />
       <MainBanner />
       <SecondaryBanner />
       <Features />
       <Teams />
-    </div>
+    </>
   );
 };
