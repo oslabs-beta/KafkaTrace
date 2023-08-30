@@ -6,6 +6,7 @@ const codeStyles: React.CSSProperties = {
     padding: '12px',
     borderRadius: '8px',
     overflowX: 'auto',
+    minHeight: '75px'
 };
 
 interface CodeSnippetProps {

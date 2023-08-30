@@ -6,20 +6,20 @@ export default function Features () {
         {[
             {
             icon: '⚡',
-            title: 'Quick and Easy',
+            title: 'Lightweight',
             description:
                 'Quick to Install and Easy To Implement - Get Started Effortlessly',
             },
             {
             icon: '📦',
             title: 'All-In-One',
-            description: 'Modern Dashboard to Display Kafka Client Instrumentation',
+            description: 'Modern Dashboards to Display Apache Kafka Client Instrumentation',
             },
             { 
             icon: '💻',
             title: 'Privately Hosted',
             description:
-                'Direct Integration With Your Local Computer',
+                'Direct Integration With Your Local Computer for Simplicity and Security',
             },
         ].map((feature, index) => (
             <FeatureBlock key={index} {...feature} />
