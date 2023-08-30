@@ -21,12 +21,12 @@ export default function Navbar () {
             Github
           </a>
           <Link href='/login'>
-            <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
+            <a className='sm:inline hidden px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
               Login
             </a>
           </Link>
           <Link href='/register'>
-            <a className='px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
+            <a className='sm:inline hidden px-2 py-1 border-2 border-grey rounded-lg font-akkurat text-[#575657] hover:bg-neutral-100'>
               Signup
             </a>
           </Link>
