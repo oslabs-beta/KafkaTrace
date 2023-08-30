@@ -25,7 +25,7 @@ export default function CodeSnippet ({code}: CodeSnippetProps) {
       </div>
       <button onClick={() => navigator.clipboard.writeText(`${code}`)}>
         <Image
-          src="/../public/assets/clipboard.png"
+          src="/assets/clipboard.png"
           width={20}
           height={20}
           alt="Copy"
