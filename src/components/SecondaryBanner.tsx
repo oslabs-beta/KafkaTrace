@@ -14,7 +14,7 @@ export default function SecondaryBanner () {
     return (
         <div className='flex flex-col md:flex-wrap md:flex-row md:mx-32 '>
             <div className='px-4 pt-4 md:p-4 font-akkurat font-medium text-black text-xl md:text-3xl'>Get Started</div>
-            <div className='md:flex md:justify-between md:mt-12 md:mb-4 px-4 md:p-4'>
+            <div className='md:flex md:flex-wrap md:justify-evenly 2xl:mt-12 md:mb-4 px-4 md:p-4'>
                 <div className='flex flex-col flex-[0_0_45%]'>
                     <p className='font-akkurat text-black my-4'>1. Install npm package</p>
                     <CodeSnippet code={npmCode}/>
@@ -33,7 +33,7 @@ export default function SecondaryBanner () {
                 <h2 className='font-akkurat font-medium text-black text-xl md:text-3xl'>Demo</h2>
                 <DemoGif />
             </div>
-            <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-3'>
+            <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-1'>
                 <Image
                 src="/../public/assets/jaeger-ui.png"
                 alt='Jaeger UI'
@@ -44,13 +44,13 @@ export default function SecondaryBanner () {
                 className='rounded-lg'
                 />
             </div>
-            <div className='flex flex-col p-8 md:p-16 md:min-h-96 flex-[0_0_100%] md:flex-[0_0_50%] font-akkurat font-medium text-black text-xl md:text-3xl text-center italic m-auto order-4'>
+            <div className='flex flex-col p-8 md:p-16 md:min-h-96 flex-[0_0_100%] md:flex-[0_0_50%] font-akkurat font-medium text-black text-xl md:text-3xl text-center italic m-auto order-2'>
                 Pinpoint bottlenecks in your streaming pipelines to quickly troubleshoot issues that may arise.
             </div>
-            <div className='flex flex-col p-8 md:p-16 md:min-h-96 flex-[0_0_100%] md:flex-[0_0_50%] font-akkurat font-medium text-black text-xl md:text-3xl text-center italic m-auto order-6 md:order-5'>
+            <div className='flex flex-col p-8 md:p-16 md:min-h-96 flex-[0_0_100%] md:flex-[0_0_50%] font-akkurat font-medium text-black text-xl md:text-3xl text-center italic m-auto order-4 md:order-3'>
                 Obtain visibility to impacts from your Apache Kafka Producer and Consumer Clients.
             </div>
-            <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-5 md:order-6'>
+            <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-3 md:order-4'>
                 <Image
                 src="/../public/assets/zipkin-ui.png"
                 alt='Jaeger UI'
@@ -61,7 +61,7 @@ export default function SecondaryBanner () {
                 className='rounded-lg'
                 />
             </div>
-            <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-7'>
+            <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-5'>
                 <Image
                 src="/../public/assets/prometheus-ui.png"
                 alt='Jaeger UI'
@@ -72,7 +72,7 @@ export default function SecondaryBanner () {
                 className='rounded-lg'
                 />
             </div>
-            <div className='flex flex-col p-8 md:p-16 md:min-h-96 flex-[0_0_100%] md:flex-[0_0_50%] font-akkurat font-medium text-black text-xl md:text-3xl text-center italic m-auto order-8'>
+            <div className='flex flex-col p-8 md:p-16 md:min-h-96 flex-[0_0_100%] md:flex-[0_0_50%] font-akkurat font-medium text-black text-xl md:text-3xl text-center italic m-auto order-6'>
                 Choose from popular and established open source monitoring user interfaces.
             </div>
         </div>
