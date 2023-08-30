@@ -41,7 +41,7 @@ export default function Register() {
         <title>Register</title>
       </Head>
 
-      <section className='p-12 my-24 mx-15 rounded-lg text-center space-y-6 bg-#fbfbfb w-full md:full'>
+      <section className='p-12 mx-15 rounded-lg text-center space-y-6 bg-#fbfbfb w-full md:full'>
         <div className='mx-auto text-center'>
           <h2 className='text-3xl font-bold mb-2 text-black'>Register</h2>
           <p className='text-lg text-black mb-5'>

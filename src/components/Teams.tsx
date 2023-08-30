@@ -2,12 +2,12 @@ import TeamMember from "./TeamMember";
 
 export default function Teams () {
     return (
-        <section className='py-16 text-gray-300'>
-        <h2 className='font-akkurat text-black text-4xl mb-16 text-center md:text-left md:ml-36 font-black'>
+        <section className='my-4 md:my-8 text-gray-300'>
+        <h2 className='font-akkurat text-black font-medium text-2xl md:text-4xl mb-4 md:mb-16 text-center md:text-left md:ml-36'>
             Meet the team
         </h2>
         <div className='container mx-auto px-4'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12'>
             {[
                 {
                 name: 'Navdeep Simmak',
