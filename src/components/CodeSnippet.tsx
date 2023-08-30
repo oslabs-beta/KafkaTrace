@@ -16,7 +16,7 @@ interface CodeSnippetProps {
 export default function CodeSnippet ({code}: CodeSnippetProps) {
 
   return (
-  <div className='border-2 p-1 md:p-3 max-w-[640px] shadow-inner rounded-lg bg-white e-105'>
+  <div className='border-2 p-1 md:p-3 md:max-w-[600px] shadow-inner rounded-lg bg-white e-105'>
     <div className="flex justify-between">
       <div className='flex items-center justify-start p-1 md:p-2 text-black-400 space-x-1 mb-2'>
         <span className='bg-red-600 w-3 h-3 rounded-full animate-bounce'></span>
