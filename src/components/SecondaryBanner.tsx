@@ -14,7 +14,7 @@ export default function SecondaryBanner () {
     return (
         <div className='flex flex-col md:flex-wrap md:flex-row md:mx-48'>
             <div className='px-4 pt-4 md:p-4 font-akkurat font-medium text-black text-xl md:text-3xl'>Get Started</div>
-            <div className='md:flex md:flex-wrap md:justify-between 2xl:mt-12 md:mb-4 px-4 md:p-4'>
+            <div className='md:flex md:flex-wrap md:flex-row md:justify-between md:align-center 2xl:mt-12 md:mb-4 px-4 md:p-4'>
                 <div className='flex flex-col flex-[0_0_47.5%]'>
                     <p className='font-akkurat text-black my-4'>1. Install npm package</p>
                     <CodeSnippet code={npmCode}/>
