@@ -12,16 +12,16 @@ tracer('[Service Name]');`
 
 export default function SecondaryBanner () {
     return (
-        <div className='flex flex-col md:flex-wrap md:flex-row md:mx-32 '>
+        <div className='flex flex-col md:flex-wrap md:flex-row md:mx-48'>
             <div className='px-4 pt-4 md:p-4 font-akkurat font-medium text-black text-xl md:text-3xl'>Get Started</div>
-            <div className='md:flex md:flex-wrap md:justify-evenly 2xl:mt-12 md:mb-4 px-4 md:p-4'>
-                <div className='flex flex-col flex-[0_0_45%]'>
+            <div className='md:flex md:flex-wrap md:justify-between 2xl:mt-12 md:mb-4 px-4 md:p-4'>
+                <div className='flex flex-col flex-[0_0_47.5%]'>
                     <p className='font-akkurat text-black my-4'>1. Install npm package</p>
                     <CodeSnippet code={npmCode}/>
                     <p className='font-akkurat text-black my-4'>2. Build and run the preconfigured containers</p>
                     <CodeSnippet code={composerCode}/>
                 </div>
-                <div className='flex flex-col flex-[0_0_45%]'>
+                <div className='flex flex-col flex-[0_0_47.5%]'>
                     <p className='font-akkurat text-black my-4'>3. Add to each service file and replace [Service Name] as required</p>
                     <CodeSnippet code={tracerCode}/>
                     <p className='font-akkurat text-black mt-4'>
@@ -35,7 +35,7 @@ export default function SecondaryBanner () {
             </div>
             <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-1'>
                 <Image
-                src="/../public/assets/jaeger-ui.png"
+                src="/assets/jaeger-ui.png"
                 alt='Jaeger UI'
                 width={0}
                 height={0}
@@ -52,7 +52,7 @@ export default function SecondaryBanner () {
             </div>
             <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-3 md:order-4'>
                 <Image
-                src="/../public/assets/zipkin-ui.png"
+                src="/assets/zipkin-ui.png"
                 alt='Jaeger UI'
                 width={0}
                 height={0}
@@ -63,7 +63,7 @@ export default function SecondaryBanner () {
             </div>
             <div className='flex flex-col px-4 md:px-16 max-h-48 md:max-h-96 flex-[0_0_100%] md:flex-[0_0_50%] order-5'>
                 <Image
-                src="/../public/assets/prometheus-ui.png"
+                src="/assets/prometheus-ui.png"
                 alt='Jaeger UI'
                 width={0}
                 height={0}
