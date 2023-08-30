@@ -19,7 +19,7 @@ export default function Features () {
             icon: '💻',
             title: 'Privately Hosted',
             description:
-                'Seamless Integration With Your Local Directory',
+                'Direct Integration With Your Local Computer',
             },
         ].map((feature, index) => (
             <FeatureBlock key={index} {...feature} />

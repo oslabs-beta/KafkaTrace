@@ -5,7 +5,7 @@ export default function Navbar () {
     return (
     <nav className='fixed top-0 w-full z-50 p-1 md:px-8 backdrop-saturate-200 shadow-md bg-opacity-90 backdrop-blur'>
       <div className='mx-auto flex justify-between items-center'>
-        <div className='flex-shrink-0'>
+        <div className='shrink-0'>
           <Image
             src="/../public/assets/LogoWithText-Transparent.png"
             width={135}
