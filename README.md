@@ -34,21 +34,21 @@ You must have Docker Desktop installed and running!
 
 **IMPORTANT REMINDER**: Make sure the Kafka Cluster you want to trace has a working producer and consumer client.
 
-- **STEP 1**: Install the npm package
+- **STEP 1**: Install npm package
     ```bash
     npm install kafkatrace
     ```
-- **STEP 2**: Import and invoke to run the required Docker containers:
+- **STEP 2**: Build and run the preconfigured containers
     ```typescript
     import { composer } from 'kafkatrace';
     composer();
     ```
-- **STEP 3**: Import in each Producer and Consumer client and provide the 'Service Name' for the trace:
+- **STEP 3**: Add to each service file and replace [Service Name] as required
     ```typescript
     import { tracer } from 'kafkatrace';
     tracer('[Service Name]');
     ```
-- **STEP 4**: Log in to the website and click on UI buttons.
+- **STEP 4**: Navigate to localhost port: 16686 for Jaeger, 9411 for Zipkin, 9090 for Prometheus or simply login to the website
 
 **Below is a demo:**
 
