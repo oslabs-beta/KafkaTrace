@@ -13,9 +13,9 @@ tracer('[Service Name]');`
 export default function SecondaryBanner () {
     return (
         <div className='flex flex-col md:flex-wrap md:flex-row md:mx-48'>
-            <div className='flex flex-col justify-center p-4 flex-[0_0_100%]'>
+            <div className='flex flex-col p-4 flex-[0_0_100%]'>
                 <div className='px-4 font-akkurat font-medium text-black text-xl md:text-3xl'>Get Started</div>
-                <div className='md:flex md:flex-wrap md:flex-row md:justify-evenly md:items-start md:mb-4 px-4 md:p-4'>
+                <div className='md:flex flex-wrap justify-around md:mb-4 px-4 md:p-4'>
                     <div className='flex flex-col flex-[0_0_45%]'>
                         <p className='font-akkurat text-black my-4'>1. Install npm package</p>
                         <CodeSnippet code={npmCode}/>
@@ -32,7 +32,7 @@ export default function SecondaryBanner () {
                 </div>
 
             </div>
-            <div className='flex flex-col justify-center p-4 flex-[0_0_100%]'>
+            <div className='flex flex-col p-4 flex-[0_0_100%]'>
                 <h2 className='font-akkurat font-medium text-black text-xl md:text-3xl'>Demo</h2>
                 <DemoGif />
             </div>
