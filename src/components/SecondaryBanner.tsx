@@ -25,7 +25,7 @@ export default function SecondaryBanner () {
                     <div className='flex flex-col flex-[0_0_40%]'>
                         <p className='font-akkurat text-black my-4'>3. Add to each service file and replace [Service Name] as required</p>
                         <CodeSnippet code={tracerCode}/>
-                        <p className='font-akkurat text-black mt-4'>
+                        <p className='font-akkurat text-black mt-4 break-normal'>
                         4. Navigate to localhost port: 16686 for Jaeger, 9411 for Zipkin, 9090 for Prometheus or simply login to the website
                         </p>
                     </div>
