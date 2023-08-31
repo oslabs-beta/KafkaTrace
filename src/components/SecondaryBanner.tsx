@@ -12,7 +12,7 @@ tracer('[Service Name]');`
 
 export default function SecondaryBanner () {
     return (
-        <div className='flex flex-col md:flex-wrap md:flex-row md:mx-48'>
+        <div className='flex flex-col md:flex-wrap md:flex-row min-[768px]:mx-8 min-[1152px]:mx-32 2xl:mx-48'>
             <div className='flex flex-col p-4 flex-[0_0_100%]'>
                 <div className='font-akkurat font-medium text-black text-xl md:text-3xl'>Get Started</div>
                 <div className='md:flex flex-wrap justify-center md:mb-4 px-4 md:p-4'>

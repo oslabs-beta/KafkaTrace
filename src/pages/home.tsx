@@ -24,7 +24,7 @@ export default function Home() {
   const { data: session } = useSession();
 
   const [showUI, setShowUI] = useState(
-    'data:text/html,<html><body><h2 style="color: white; text-align: center; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Welcome! Please click on a button to view its UI.</h2></body></html>'
+    'data:text/html,<html><body><h2 style="color: white; text-align: center; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Please click on a button to view its UI</h2></body></html>'
   );
 
   function handleSignOut() {
@@ -45,9 +45,18 @@ export default function Home() {
 }
 
 const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
-  <div className='layout min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-black text-gray-100'>
-    <header className='flex items-center justify-between p-2 px-8 bg-white backdrop-saturate-200 shadow shadow-lg backdrop-blur'>
-    <Link href='/'><a className='text-2xl font-semibold text-black font-costar'>KafkaTrace</a></Link>
+  <div className='layout min-h-screen flex bg-gradient-to-br from-gray-900 to-black text-gray-100'>
+    <header className='flex justify-between fixed top-0 w-full z-50 p-1 px-8 bg-white'>
+      <Link href='/'>
+        <a>
+          <Image
+              src="/assets/LogoWithText-Transparent.png"
+              width={135}
+              height={35}
+              alt="KafkaTrace"
+            />
+        </a>
+      </Link>
       <nav className='flex space-x-4'>
         <button
           onClick={() => setShowUI('http://localhost:16686')}
@@ -72,7 +81,7 @@ const Layout = ({ children, handleSignOut, setShowUI }: LayoutProps) => (
       </nav>
     </header>
 
-    <main className='flex-grow container mx-auto p-4 space-y-4 max-w-3xl'>
+    <main className='flex-grow container mx-auto pt-24 space-y-4 max-w-3xl'>
       {children}
     </main>
   </div>
