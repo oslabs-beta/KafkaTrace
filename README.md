@@ -12,7 +12,7 @@
 - [License](#license)
 
 ## About KafkaTrace
-KafkaTrace is an open-source product whose goal is to provide developers to streamline the tracing process locally without having to source through different technology documentation. This documentation will include how to implement OpenTelemetry, Jaeger, Zipkin, and Prometheus.
+Based on OpenTelemetry's standards, KafkaTrace streamlines the process of visualizing your Apache Kafka Clients by packaging together the necessary instrumentation files with popular open source monitoring UIs (Jaeger, Zipkin, and Prometheus). This documentation describes how to implement KafkaTrace.
 
 For more information, [visit our website](#).
 
