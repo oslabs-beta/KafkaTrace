@@ -52,26 +52,26 @@ const Login = () => {
             You&apos;re one step away from tracing!
           </p>
           <form onSubmit={formik.handleSubmit} className='space-y-4'>
-            <InputGroup
+            {/* <InputGroup
               type='email'
               placeholder='Email'
               showError={formik.errors.email && formik.touched.email}
               {...formik.getFieldProps('email')}
               className='p-4 w-full text-black tracking-tight placeholder-gray outline-none border border-primary rounded-lg focus:border-indigo-500 transition duration-200'
-            />
-            <InputGroup
+            /> */}
+            {/* <InputGroup
               type={show ? 'text' : 'password'}
               placeholder='Password'
               showError={formik.errors.password && formik.touched.password}
               {...formik.getFieldProps('password')}
               onClick={() => setShow(!show)}
               className='p-4 w-full text-black tracking-tight placeholder-gray outline-none border border-primary focus:border-indigo-500 transition duration-200'
-            />
-            <button
+            /> */}
+            {/* <button
               type='submit'
               className='btn btn-primary btn-active w-full mb-2 hover:bg-gray-300'>
               Login
-            </button>
+            </button> */}
             <div className='flex justify-center space-x-4 mt-4'>
               <ProviderButton
                 onClick={() => handleProviderSignin('google')}
@@ -92,12 +92,12 @@ const Login = () => {
               </ProviderButton>
             </div>
           </form>
-          <p className='text-sm text-black mt-5'>
+          {/* <p className='text-sm text-black mt-5'>
             Don&apos;t have an account yet?{' '}
             <Link href={'/register'}>
               <a className='text-blue-400 hover:underline'>Sign Up</a>
             </Link>
-          </p>
+          </p> */}
         </section>
 
       </div>
