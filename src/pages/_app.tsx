@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SessionProvider session={pageProps.session}>
       <Head>
-        <title>KafkaTrace: Monitor Kafka with OpenTelemetry</title>
+        <title>KafkaTrace: Kafka Tracing Simplified</title>
         <meta name='description' content='An application for ...' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
