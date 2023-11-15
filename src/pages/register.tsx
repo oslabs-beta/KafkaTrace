@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Layout from '../layout/layout';
 import Link from 'next/link';
-import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from 'react-icons/hi';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import { registerValidate } from '../server/lib/validate';

@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
-import { signIn, SignInResponse  } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import Image from 'next/image';
 import login_validate from '../server/lib/validate';
 import Layout from '../layout/layout';
+import InputGroup from '../components/InputGroup';
+import ProviderButton from '../components/ProviderButton';
 
 
-const Login = () => {
+export default function Login () {
   const [show, setShow] = useState(false);
   const router = useRouter();
 
@@ -99,70 +100,7 @@ const Login = () => {
             </Link>
           </p> */}
         </section>
-
       </div>
-</Layout>
+    </Layout>
   );
 };
-
-interface InputGroupProps {
-  type: string;
-  name: string;
-  placeholder: string;
-  showError?: boolean | undefined | string;
-  icon?: React.ReactNode;
-  onClick?: () => void;
-  [key: string]: any;
-}
-
-const InputGroup: React.FC<InputGroupProps>  = ({
-  type,
-  name,
-  placeholder,
-  showError,
-  icon,
-  onClick,
-  ...props
-}) => {
-  return (
-    <div className={`input-group ${showError ? 'border-red-500' : ''}`}>
-      <input
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        className='input input-primary w-full'
-        {...props}
-      />
-    </div>
-  );
-};
-
-interface ProviderButtonProps {
-  onClick: () => void;
-  iconPath: string;
-  children: React.ReactNode;
-  className: string;
-}
-
-const ProviderButton: React.FC<ProviderButtonProps> = ({ onClick, iconPath, children, className }) => {
-  return (
-    <button
-      type='button'
-      onClick={onClick}
-      className={`${className} btn btn-primary btn-active w-half hover:to-gray-700`}>
-      
-      <div style={{ backgroundColor: '#fbfbfb', borderRadius: '50%', display: 'inline-block' }}>
-      <Image
-        className='flex justify-center items-center'
-        src={iconPath}
-        width={20}
-        height={20}
-        alt={`${children} logo`}
-      />
-      </div>
-      <span className='align-middle ml-2'>{children}</span>
-    </button>
-  );
-};
-
-export default Login;
