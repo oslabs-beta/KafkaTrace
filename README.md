@@ -14,7 +14,7 @@
 ## About KafkaTrace
 Based on OpenTelemetry's standards, KafkaTrace streamlines the process of visualizing your Apache Kafka Clients by packaging together the necessary instrumentation files with popular open source monitoring UIs (Jaeger, Zipkin, and Prometheus). This documentation describes how to implement KafkaTrace.
 
-For more information, [visit our website](#).
+For more information, [visit our website].
 
 ## Tech Stacks
 <div align="center" width="100%">
@@ -68,6 +68,7 @@ For an in-depth look at KafkaTrace and all its features, www.kafkatrace.com or t
 ## License
 Distributed under MIT License. See `LICENSE.txt` for more information.
 
+[visit our website]: https://www.kafkatrace.com
 [React.js]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
 [React-url]: https://reactjs.org/
 [TS.js]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
