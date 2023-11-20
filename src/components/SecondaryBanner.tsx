@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import CodeSnippet from '../components/CodeSnippet';
 import DemoGif from '../components/DemoGif';
 import Image from 'next/image';
@@ -10,7 +11,7 @@ composer();`
 const tracerCode = `import { tracer } from 'kafkatrace';
 tracer('[Service Name]');`
 
-const imageStyle = {
+const imageStyle: CSSProperties = {
     width: '100%', 
     height: '100vh', 
     position: 'relative',
