@@ -6,10 +6,6 @@ import Features from '../components/Features';
 import Teams from '../components/Teams';
 
 export default function Root() {
-  useEffect(() => {
-    localStorage.theme = 'light';
-  }, [])
-
   return (
     <>
       <Navbar />
