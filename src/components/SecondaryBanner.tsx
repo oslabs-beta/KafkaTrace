@@ -16,7 +16,7 @@ const imageStyle: CSSProperties = {
     height: '100vh', 
     position: 'relative',
     border: '1px solid #A9A9A9',
-    borderRadius: '0.5rem'
+    borderRadius: '0.55rem'
 }
 
 export default function SecondaryBanner () {
